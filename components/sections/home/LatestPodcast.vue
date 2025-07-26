@@ -3,11 +3,11 @@
         <AtomsContainer>
             <div class="flex justify-between items-center pb-6">
                 <div class="">
-                    <AtomsTitle texte="Latest Podcast" />
+                    <AtomsTitle texte="Imagenes recientes" />
                 </div>
                 <div class="flex items-center min-w-max relative">
                     <AtomsLinkBtn href="#" variant="primary">
-                        Explore more
+                        Ver más
                     </AtomsLinkBtn>
                 </div>
             </div>
@@ -34,26 +34,26 @@
                     class="flex items-stretch gap-5 overflow-hidden overflow-x-auto invisible-scroll">
                     <div
                         class=" w-11/12 min-w-[91.666667%] xs:w-80 xs:min-w-[20rem] md:w-1/3 md:min-w-[33.333333%] lg:w-1/4 lg:min-w-[25%]">
-                        <CardsRecentPod title="How to hack a website with Html in simple way" duration="23min" href="#"
-                            cover-image="/images/sidebiew.webp" />
+                        <CardsRecentPod title="Boca VS Will Nariño" duration="23/07/2025" href="#"
+                            cover-image="/images/5.jpg" />
                     </div>
 
                     <div
                         class=" w-11/12 min-w-[91.666667%] xs:w-80 xs:min-w-[20rem] md:w-1/3 md:min-w-[33.333333%] lg:w-1/4 lg:min-w-[25%]">
-                        <CardsRecentPod title="5 Principales you must know for writting clear code" duration="1h:22min" href="#"
-                            cover-image="/images/podCast.webp" />
+                        <CardsRecentPod title="Leones VS Dep La Sabana" duration="23/07/2025" href="#"
+                            cover-image="/images/6.jpg" />
                     </div>
 
                     <div
                         class=" w-11/12 min-w-[91.666667%] xs:w-80 xs:min-w-[20rem] md:w-1/3 md:min-w-[33.333333%] lg:w-1/4 lg:min-w-[25%]">
-                        <CardsRecentPod title="Make you website request secure than you could mind" duration="12min" href="#"
-                            cover-image="/images/sidebiew.webp" />
+                        <CardsRecentPod title="Estudiantes VS Atletico Nariño" duration="23/07/2025" href="#"
+                            cover-image="/images/7.jpg" />
                     </div>
 
                     <div
                         class=" w-11/12 min-w-[91.666667%] xs:w-80 xs:min-w-[20rem] md:w-1/3 md:min-w-[33.333333%] lg:w-1/4 lg:min-w-[25%]">
-                        <CardsRecentPod title="How to get started with desktop developpement" duration="50min" href="#"
-                            cover-image="/images/sidebiew.webp" />
+                        <CardsRecentPod title="Boca VS Unión Pacifico" duration="17/07/2025" href="#"
+                            cover-image="/images/2.jpg" />
                     </div>
                 </div>
             </div>

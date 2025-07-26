@@ -1,6 +1,6 @@
 <template>
     <section class="pt-20 md:pt-24">
-        <AtomsContainer>
+        <!-- <AtomsContainer>
             <div class="grid md:grid-cols-2 gap-10 xl:gap-14 relative">
                 <div class="md:py-2 lg:py-4 relative">
                     <div class="absolute left-0 top-0 h-full w-full flex justify-end">
@@ -48,6 +48,6 @@
                     </div>
                 </div>
             </div>
-        </AtomsContainer>
+        </AtomsContainer> -->
     </section>
 </template>

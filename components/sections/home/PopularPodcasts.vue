@@ -13,7 +13,7 @@
                 class="h-20 w-3/5 bg-gradient-to-r from-[#8cd66a] opacity-40 blur-2xl dark:from-[#670ccf] dark:opacity-40">
             </div>
         </div>
-        <AtomsContainer class-name="relative">
+        <!-- <AtomsContainer class-name="relative">
             <div class="flex justify-between pb-6 relative">
                 <div class="">
                     <AtomsTitle texte="Popular podcast" />
@@ -100,6 +100,6 @@
                 />
                 
             </div>
-        </AtomsContainer>
+        </AtomsContainer> -->
     </section>
 </template>

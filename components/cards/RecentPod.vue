@@ -20,7 +20,7 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </span>
-                    Play now
+                    Acceder
                 </NuxtLink>
             </div>
         </div>

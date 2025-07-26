@@ -18,26 +18,23 @@
                 class="grid lg:grid-cols-2 gap-10 xl:gap-14 relative pt-24 lg:max-w-none max-w-2xl md:max-w-3xl mx-auto">
                 <div class="lg:py-6">
                     <div class="text-center lg:text-left">
-                        <span class="px-2 py-1 rounded-md bg-gray-100 dark:bg-body text-primary ">New season
-                            available</span>
+                        <span class="px-2 py-1 rounded-md bg-gray-100 dark:bg-body text-primary ">Estamos de regreso</span>
                         <h1 class="text-gray-800 pt-4 dark:text-white font-bold text-4xl md:text-5xl lg:text-6xl">
-                            Find and listen <br> Favorite <span
-                                class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">Podcast</span>
-                            on internet
+                            <br> ADN <span
+                                class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">Deportivo</span>
                         </h1>
                     </div>
 
                     <p class="text-gray-600 dark:text-gray-300 pt-8 text-center lg:text-left mx-auto max-w-xl">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, beatae omnis ipsa magnam neque
-                        ut nam nesciunt esse fugit praesentium hic magni possimus illo consequatur.
+                        ¡EL MEJOR CUBRIMIENTO DEPORTIVO ESTÁ DE REGRESO!
                     </p>
 
                     <div class="flex items-center gap-3 pt-9 flex-col sm:flex-row sm:w-max sm:mx-auto lg:mx-0">
-                        <AtomsLinkBtn href="#" variant="primary" class="w-full sm:w-max flex justify-center">
-                            Join us
-                        </AtomsLinkBtn>
+                        <!-- <AtomsLinkBtn href="#" variant="primary" class="w-full sm:w-max flex justify-center">
+                            Ingresa
+                        </AtomsLinkBtn> -->
 
-                        <AtomsLinkBtn href="#" variant="costum" costum-span-class="px-6 md:px-7 hover:bg-primary/10"
+                        <!-- <AtomsLinkBtn href="#" variant="costum" costum-span-class="px-6 md:px-7 hover:bg-primary/10"
                             costum-text-color="text-primary ">
                             <div class="flex items-center gap-3">
                                 <span class="p-2 rounded-full border border-primary">
@@ -53,18 +50,18 @@
                                     Listening Episode
                                 </span>
                             </div>
-                        </AtomsLinkBtn>
+                        </AtomsLinkBtn> -->
                     </div>
                     <div class="pt-8 lg:pt-10 w-max mx-auto lg:mx-0">
                         <div class="flex items-center text-center flex-col sm:flex-row gap-4 sm:gap-0">
                             <div class="flex items-center">
-                                <img src="/images/sidebiew.webp" width="40" alt="avatar"
+                                <img src="/images/1.jpg" width="40" alt="avatar"
                                     class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-400 object-cover">
-                                <img src="/images/sidebiew.webp" width="40" alt="avatar"
+                                <img src="/images/2.jpg" width="40" alt="avatar"
                                     class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-400 object-cover -ml-2.5">
-                                <img src="/images/sidebiew.webp" width="40" alt="avatar"
+                                <img src="/images/3.jpg" width="40" alt="avatar"
                                     class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-400 object-cover -ml-2.5">
-                                <img src="/images/sidebiew.webp" width="40" alt="avatar"
+                                <img src="/images/4.jpg " width="40" alt="avatar"
                                     class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-400 object-cover -ml-2.5">
                                 <span
                                     class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-400 bg-body-color flex items-center justify-center text-xs text-gray-300 object-cover -ml-2.5">
@@ -72,7 +69,7 @@
                                 </span>
                             </div>
                             <div class="pl-2 text-gray-600 dark:text-gray-200">
-                                WordWide listners
+                                Eventos.
                             </div>
                         </div>
                     </div>
@@ -86,12 +83,12 @@
                         </div>
                         <div
                             class="absolute w-3/5 h-full z-10 p-1 -translate-y-1/2 top-1/2 right-3 rounded-3xl bg-white dark:bg-body shadow-lg shadow-box-shadow border border-box-border">
-                            <img src="/images/sidebiew.webp" alt="In studio" width="500" height="auto" loading="lazy"
+                            <img src="/images/1.jpg" alt="In studio" width="500" height="auto" loading="lazy"
                                 class="w-full h-full rounded-2xl object-cover">
                         </div>
                         <div
                             class="absolute  -translate-y-1/2 top-1/2 h-[calc(80%-2rem)] w-[calc(40%-20px)] p-1 rounded-3xl bg-white dark:bg-body shadow-lg shadow-box-shadow border border-box-border ">
-                            <img src="/images/sidebiew.webp" alt="Happy in studio" width="200" height="auto"
+                            <img src="/images/4.jpg" alt="Happy in studio" width="200" height="auto"
                                 loading="lazy" class="w-full h-full rounded-2xl object-cover">
                         </div>
                     </div>

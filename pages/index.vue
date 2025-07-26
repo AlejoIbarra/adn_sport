@@ -1,11 +1,11 @@
 <script setup lang="ts">
 useHead({
-  title: 'Podux - Home',
+  title: 'ADN Deportivo',
   meta: [
-    { name: 'description', content: 'Podux Podcast landing page website.' },
+    { name: 'description', content: 'ADN Deportivo landing page website.' },
   ],
   link: [
-    { rel: 'icon', type: 'image/png', href: '/logo.png' }
+    { rel: 'icon', type: 'image/png', href: '/adn.png' }
   ],
 })
 </script>

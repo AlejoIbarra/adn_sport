@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 const navIsOpen = useState('navIsOpen', () => false)
+const colorMode = useColorMode()
+
 
 
 function toggleNav(event: MouseEvent): void {
@@ -9,21 +11,21 @@ function toggleNav(event: MouseEvent): void {
 
 const navLinks = [
     {
-        text: "Podcast",
+        text: "Inicio",
         href: "/"
     },
     {
-        text: "Solution",
-        href: "/"
+        text: "Tabla Primera C",
+        href: "/table"
     },
-    {
-        text: "Blog",
-        href: "/"
-    },
-    {
-        text: "About",
-        href: "/"
-    }
+    // {
+    //     text: "Blog",
+    //     href: "/"
+    // },
+    // {
+    //     text: "About",
+    //     href: "/"
+    // }
 ]
 
 </script>
@@ -33,12 +35,14 @@ const navLinks = [
             <nav class="flex items-center justify-between w-full relative">
                 <!-- app logo -->
                 <div class="inline-flex relative bg-inherit">
-                    <NuxtLink to="/" class=" flex items-center gap-2">
-                        <span class="flex">
-                            <span class="w-3 h-6 rounded-l-full flex bg-primary"></span>
-                            <span class="w-3 h-6 rounded-r-full flex bg-[#f88fc2] mt-2"></span>
-                        </span>
-                        <span class="text-lg text-gray-700 dark:text-white">Podux</span>
+                    <NuxtLink to="/" class="flex items-center gap-2">
+                        <ClientOnly>
+                        <img
+                            :src="colorMode.value === 'dark' ? '/iconos/adn_white.png' : '/iconos/adn_color.png'"
+                            alt="Logo"
+                            class="w-24 h-12"
+                        />
+                        </ClientOnly>
                     </NuxtLink>
                 </div>
                 <div 
@@ -56,12 +60,12 @@ const navLinks = [
                 <div class="flex items-center bg-inherit gap-1 lg:gap-3 min-w-max">
                     <ElementsThemeSwitcher />
                     <div class="hidden lg:flex lg:items-center gap-4">
-                        <AtomsLinkBtn href="#" variant="secondary">
+                        <!-- <AtomsLinkBtn href="#" variant="secondary">
                             Signin
                         </AtomsLinkBtn>
                         <AtomsLinkBtn href="#" variant="primary">
                             Join Us
-                        </AtomsLinkBtn>
+                        </AtomsLinkBtn> -->
                     </div>
 
                     <div class="flex lg:hidden items-center">

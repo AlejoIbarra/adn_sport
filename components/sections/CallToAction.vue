@@ -18,13 +18,12 @@
                 </div>
                 <div class="mx-auto text-center max-w-xl md:max-w-2xl relative">
                     <h2 class="text-gray-800 pt-4 dark:text-white font-bold text-4xl md:text-5xl lg:text-6x">
-                        New Episodes will <span
-                            class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">always</span>
-                        updated regularly
+                        Contactanos para <span
+                            class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">Nuevos</span>
+                        Cubrimientos
                     </h2>
                     <p class="text-gray-600 dark:text-gray-300 pt-8 mx-auto max-w-xl">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente delectus architecto ullam
-                        earum
+                        Dejanos tu correo y un asesor se pondrá en contacto contigo para brindarte más información
                     </p>
                     <div class="mx-auto max-w-md sm:max-w-xl pt-10">
                         <form action="" class="flex items-center relative gap-x-2">
