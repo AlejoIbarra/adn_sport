@@ -18,10 +18,10 @@
                     </p>
                 </div>
 
-                <BlocksFooterNavBlock title="Enterprise" :links="quickLinks" />
-                <BlocksFooterNavBlock title="Ressources" :links="ressourcesLinks" />
+                <BlocksFooterNavBlock title="Deportes" :links="quickLinks" />
+                <!-- <BlocksFooterNavBlock title="Ressources" :links="ressourcesLinks" />
                 <BlocksFooterNavBlock title="Support" :links="supportLinks" />
-                <BlocksFooterNavBlock title="Enterprise" :links="quickLinks" />
+                <BlocksFooterNavBlock title="Enterprise" :links="quickLinks" /> -->
             </div>
         </AtomsContainer>
         <div class="py-2 bg-gray-200 dark:bg-[rgb(10,16,29)]">
@@ -54,19 +54,19 @@ const colorMode = useColorMode()
 const quickLinks = [
     {
         href: "#",
-        text: "About us"
+        text: "Futbol"
     },
     {
         href: "#",
-        text: "News"
+        text: "Basquet"
     },
     {
         href: "#",
-        text: "Team"
+        text: "Voleyball"
     },
     {
         href: "#",
-        text: "Solution"
+        text: "Ciclismo"
     }
 ]
 const ressourcesLinks = [

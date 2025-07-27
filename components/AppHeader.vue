@@ -68,7 +68,7 @@ const navLinks = [
                         </AtomsLinkBtn> -->
                     </div>
 
-                    <div class="flex lg:hidden items-center">
+                    <!-- <div class="flex lg:hidden items-center">
                         <ElementsDropDown>
                             <template #trigger>
                                 <button
@@ -98,7 +98,7 @@ const navLinks = [
                                 </ul>
                             </template>
                         </ElementsDropDown>
-                    </div>
+                    </div> -->
 
                     <div class="flex lg:hidden border-l border-box-border pl-2">
                         <button @click="toggleNav" class="outline-none w-7 h-auto flex flex-col relative">

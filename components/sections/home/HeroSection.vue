@@ -55,7 +55,7 @@
                     <div class="pt-8 lg:pt-10 w-max mx-auto lg:mx-0">
                         <div class="flex items-center text-center flex-col sm:flex-row gap-4 sm:gap-0">
                             <div class="flex items-center">
-                                <img src="/images/1.jpg" width="40" alt="avatar"
+                                <img src="/images/8.jpg" width="40" alt="avatar"
                                     class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-400 object-cover">
                                 <img src="/images/2.jpg" width="40" alt="avatar"
                                     class="w-10 h-10 rounded-full border-2 border-white dark:border-gray-400 object-cover -ml-2.5">
@@ -83,7 +83,7 @@
                         </div>
                         <div
                             class="absolute w-3/5 h-full z-10 p-1 -translate-y-1/2 top-1/2 right-3 rounded-3xl bg-white dark:bg-body shadow-lg shadow-box-shadow border border-box-border">
-                            <img src="/images/1.jpg" alt="In studio" width="500" height="auto" loading="lazy"
+                            <img src="/images/8.jpg" alt="In studio" width="500" height="auto" loading="lazy"
                                 class="w-full h-full rounded-2xl object-cover">
                         </div>
                         <div

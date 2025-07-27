@@ -40,8 +40,11 @@ export default defineEventHandler(async () => {
     const home = match.homeTeam.name
     const away = match.awayTeam.name
     if (home.toUpperCase() === "DESCANSA" || away.toUpperCase() === "DESCANSA") continue
-    const hg = match.homeTeamResult?.current ?? 0
-    const ag = match.awayTeamResult?.current ?? 0
+    const hg = match.homeTeamResult?.current
+    const ag = match.awayTeamResult?.current
+
+    if (hg === undefined || ag === undefined) continue
+
 
     const init = (name: string, picture: string) => {
       if (!standings.has(name)) {
