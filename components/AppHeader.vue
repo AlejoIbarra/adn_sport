@@ -18,6 +18,10 @@ const navLinks = [
         text: "Tabla Primera C",
         href: "/table"
     },
+        {
+        text: "Municipales",
+        href: "/municipal"
+    },
     // {
     //     text: "Blog",
     //     href: "/"

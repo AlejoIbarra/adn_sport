@@ -1,0 +1,307 @@
+{
+  "info": {
+    "titulo": "Campeonato Municipal - Rama Masculina",
+    "fecha": "",
+    "organiza": "Alcaldía Municipal La Cruz, Nariño - Coordinación de Deportes",
+    "boletin": "",
+    "director": "Cristian Erazo Bolaños"
+  },
+  "grupos": {
+    "A": [
+      {
+        "id": 1,
+        "nombre": "REAL SAN ANTONIO",
+        "picture": "championships/la-cruz/campeonato-municipal/san-antonio.png",
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0,
+        "gf": 1,
+        "gc": 0,
+        "gd": 1,
+        "jl": 950,
+        "pto": 3
+      },
+      {
+        "id": 2,
+        "nombre": "GRANADA F.C ",
+        "picture": "championships/la-cruz/campeonato-municipal/granada.png",
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0,
+        "gf": 1,
+        "gc": 0,
+        "gd": 1,
+        "jl": 900,
+        "pto": 3
+      },
+      {
+        "id": 3,
+        "nombre": "INTEGRACIÓN F.C ",
+        "picture": "championships/la-cruz/campeonato-municipal/integracion.png",
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1,
+        "gf": 0,
+        "gc": 1,
+        "gd": -1,
+        "jl": 950,
+        "pto": 0
+      },
+            {
+        "id": 4,
+        "nombre": "TAJUMBINA F.C",
+        "picture": "championships/la-cruz/campeonato-municipal/tajumbina.png",
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1,
+        "gf": 0,
+        "gc": 1,
+        "gd": -1,
+        "jl": 900,
+        "pto": 0
+      }
+    ],
+    "B": [
+            {
+        "id": 1,
+        "nombre": "EL SALADO F.C",
+        "picture": "championships/la-cruz/campeonato-municipal/el-salado.png",
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0,
+        "gf": 4,
+        "gc": 1,
+        "gd": 3,
+        "jl": 1000,
+        "pto": 3
+      },
+      {
+        "id": 2,
+        "nombre": "LAS ANIMAS F.C ",
+        "picture": "championships/la-cruz/campeonato-municipal/las-animas.png",
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1,
+        "gf": 1,
+        "gc": 4,
+        "gd": -3,
+        "jl": 1000,
+        "pto": 0
+      },
+      {
+        "id": 3,
+        "nombre": "LA ESTANCIA F.C ",
+        "picture": "championships/la-cruz/campeonato-municipal/la-estancia.png",
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0,
+        "gf": 0,
+        "gc": 0,
+        "gd": 0,
+        "jl": 1000,
+        "pto": 0
+      },
+            {
+        "id": 4,
+        "nombre": "PARAMITO F.C",
+        "picture": "championships/la-cruz/campeonato-municipal/paramito.png",
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0,
+        "gf": 0,
+        "gc": 0,
+        "gd": 0,
+        "jl": 1000,
+        "pto": 0
+      }
+    ],
+    "C": [
+                  {
+        "id": 1,
+        "nombre": "CENTRO F.C",
+        "picture": "championships/la-cruz/campeonato-municipal/centro.png",
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0,
+        "gf": 3,
+        "gc": 0,
+        "gd": 3,
+        "jl": 950,
+        "pto": 3
+      },
+      {
+        "id": 2,
+        "nombre": "LLANOGRANDE F.C ",
+        "picture": "championships/la-cruz/campeonato-municipal/llanogrande.png",
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0,
+        "gf": 2,
+        "gc": 1,
+        "gd": 1,
+        "jl": 850,
+        "pto": 3
+      },
+      {
+        "id": 3,
+        "nombre": "LA POLA F.C ",
+        "picture": "championships/la-cruz/campeonato-municipal/la-pola.png",
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1,
+        "gf": 1,
+        "gc": 2,
+        "gd": -1,
+        "jl": 950,
+        "pto": 0
+      },
+            {
+        "id": 4,
+        "nombre": "MOROCHILLO F.C",
+        "picture": "championships/la-cruz/campeonato-municipal/morochillo.png",
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1,
+        "gf": 0,
+        "gc": 3,
+        "gd": -3,
+        "jl": 850,
+        "pto": 0
+      }
+    ]
+  },
+  "resultados": [
+    {
+      "fecha": "Primera Fecha",
+      "partidos": [
+        {
+          "local": "REAL SAN ANTONIO",
+          "local_logo": "championships/la-cruz/campeonato-municipal/san-antonio.png",
+          "localGol": 1,
+          "visitante": "TAJUMBINA F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/tajumbina.png",
+          "visitanteGol": 0,
+          "grupo": "A",
+          "hora": "13:30:00",
+          "fecha": "2025-08-02"
+        },
+        {
+          "local": "EL SALADO F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/el-salado.png",
+          "localGol": 4,
+          "visitante": "LAS ANIMAS F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/las-animas.png",
+          "visitanteGol": 1,
+          "grupo": "A",
+          "hora": "13:30:00",
+          "fecha": "2025-08-02"
+        },
+        {
+          "local": "CENTRO F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/centro.png",
+          "localGol": 3,
+          "visitante": "MOROCHILLO F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/morochillo.png",
+          "visitanteGol": 0,
+          "grupo": "A",
+          "hora": "13:30:00",
+          "fecha": "2025-08-02"
+        },
+
+        {
+          "local": "GRANADA F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/granada.png",
+          "localGol": 1,
+          "visitante": "INTEGRACION F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png",
+          "visitanteGol": 0,
+          "grupo": "B",
+          "hora": "13:30:00",
+          "fecha": "2025-08-02"
+        },
+        {
+          "local": "LA POLA F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/la-pola.png",
+          "localGol": 1,
+          "visitante": "LLANOGRANDE F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/llanogrande.png",
+          "visitanteGol": 2,
+          "grupo": "C",
+          "hora": "13:30:00",
+          "fecha": "2025-08-02"
+        }
+      ]
+    },
+    {
+      "fecha": "Segunda Fecha",
+      "partidos": [
+        {
+          "local": "EL SALADO F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/el-salado.png",
+          "visitante": "PARAMITO F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/paramito.png",
+          "grupo": "B",
+          "hora": "13:30:00",
+          "fecha": "2025-08-09"
+        },
+        {
+          "local": "MOROCHILLO F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/morochillo.png",
+          "visitante": "LLANOGRANDE F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/llanogrande.png",
+          "grupo": "C",
+          "hora": "15:30:00",
+          "fecha": "2025-08-09"
+        },
+        {
+          "local": "LA ESTANCIA F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/la-estancia.png",
+          "visitante": "LAS ANIMAS F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/las-animas.png",
+          "grupo": "B",
+          "hora": "11:30:00",
+          "fecha": "2025-08-10"
+        },
+                {
+          "local": "REAL SAN ANTONIO",
+          "local_logo": "championships/la-cruz/campeonato-municipal/san-antonio.png",
+          "visitante": "GRANADA F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/granada.png", 
+          "grupo": "A",
+          "hora": "13:30:00",
+          "fecha": "2025-08-10"
+        },
+        {
+          "local": "CENTRO F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/centro.png",
+          "visitante": "LA POLA F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/la-pola.png",
+          "grupo": "C",
+          "hora": "15:30:00",
+          "fecha": "2025-08-10"
+        }
+
+      ]
+    }
+  ],
+  "tarjetas": [
+    {
+      "jugador": "Santiago Martínez",
+      "equipo": "San Antonio F.C",
+      "tipo": "amarilla",
+      "suspendidoHasta": null
+    }
+  ]
+}
