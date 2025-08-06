@@ -1,5 +1,5 @@
 <template>
-    <section class="relative w-full">
+    <section class="relative w-full mb-4">
         <div class="absolute top-0 inset-x-0 h-64 flex items-start">
             <div
                 class="h-24 w-2/3 bg-gradient-to-br from-primary opacity-20 blur-2xl dark:from-[#570cac] dark:invisible dark:opacity-40">
@@ -26,10 +26,16 @@
                     </div>
 
                     <p class="text-gray-600 dark:text-gray-300 pt-8 text-center lg:text-left mx-auto max-w-xl">
-                        ¡EL MEJOR CUBRIMIENTO DEPORTIVO ESTÁ DE REGRESO!
+                        ¡EL MEJOR CUBRIMIENTO DEPORTIVO EN NARIÑO ESTÁ DE REGRESO!
                     </p>
 
                     <div class="flex items-center gap-3 pt-9 flex-col sm:flex-row sm:w-max sm:mx-auto lg:mx-0">
+                        <NuxtLink
+                            to="/municipal"
+                            class=" px-3 py-3 mt-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors duration-300"
+                            >
+                            Ver Campeonatos Municipales
+                        </NuxtLink>
                         <!-- <AtomsLinkBtn href="#" variant="primary" class="w-full sm:w-max flex justify-center">
                             Ingresa
                         </AtomsLinkBtn> -->
@@ -73,7 +79,9 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
+
                 <div class="lg:h-full  hidden md:flex">
 
                     <div
@@ -93,6 +101,10 @@
                         </div>
                     </div>
                 </div>
+
+                
+
+            
             </div>
         </AtomsContainer>
     </section>

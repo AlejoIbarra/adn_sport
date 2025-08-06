@@ -1,6 +1,6 @@
 <template>
-  <section class="py-20">
-    <div class="text-center font-sans px-5">
+  <section class="py-20 flex justify-center">
+    <div class="text-center font-sans px-5 max-w-5xl w-full">
       <h1 class="text-2xl font-bold mb-10 text-white">Campeonatos Municipales</h1>
 
       <div class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(150px,1fr))] justify-items-center">
@@ -45,6 +45,7 @@
 </template>
 
 
+
 <script setup>
 const municipalities = [
   {
@@ -81,6 +82,13 @@ const municipalities = [
     flag: '/municipios/barbacoas.png',
     unlocked: false,
     route: '/municipal/barbacoas',
+  },
+    {
+    id: 6,
+    name: 'Tuquerres',
+    flag: '/municipios/tuquerres.png',
+    unlocked: false,
+    route: '/municipal/tuquerres',
   },
 ]
 </script>
