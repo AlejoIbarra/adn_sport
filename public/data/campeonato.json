@@ -296,12 +296,117 @@
       ]
     }
   ],
-  "tarjetas": [
-    {
-      "jugador": "Santiago Martínez",
-      "equipo": "San Antonio F.C",
-      "tipo": "amarilla",
-      "suspendidoHasta": null
+  "tarjetas": {
+    "San Antonio F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/san-antonio.png",
+      "jugadores": [
+        {
+          "nombre": "Santiago Martínez",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        }
+      ]
+    },
+    "Tajumbina F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/tajumbina.png",
+      "jugadores": [
+        {
+          "nombre": "William Bolaños",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Jesús Bolaños",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        }
+      ]
+    },
+    "Centro F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/centro.png",
+      "jugadores": [
+        {
+          "nombre": "Santiago Solarte",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        }
+      ]
+    },
+    "Morochillo F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/morochillo.png",
+      "jugadores": [
+        {
+          "nombre": "Jhonatan Muñoz",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Duván Ordoñez",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Brayan Delgado",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        }
+      ]
+    },
+    "Granada F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/granada.png",
+      "jugadores": [
+        {
+          "nombre": "Darío Muñoz",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Darwin Silva",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        }
+      ]
+    },
+    "Integración F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/integracion.png",
+      "jugadores": [
+        {
+          "nombre": "Rubén Muñoz",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        }
+      ]
+    },
+    "La Pola F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/la-pola.png",
+      "jugadores": [
+        {
+          "nombre": "Kevin Ledezma",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        }
+      ]
+    },
+    "Llanogrande F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/llanogrande.png",
+      "jugadores": [
+        {
+          "nombre": "Danilo Ortega",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Brayan Quintero",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Víctor Bolaños",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        }
+      ]
     }
-  ]
+  }
+
 }

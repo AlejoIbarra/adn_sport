@@ -25,14 +25,13 @@ const props = defineProps<{
 </script>
 
 <template>
-  <section class="relative w-full pt-14">
+  <section class="relative w-full">
     <!-- Fondo logo con opacidad -->
     <div class="absolute inset-0 flex justify-center items-center pointer-events-none" aria-hidden="true">
       <img src="/iconos/adn_color.png" alt="ADN Deportivo" class="opacity-10 dark:opacity-20" />
     </div>
 
-    <div class="relative z-10 p-6 max-w-4xl mx-auto">
-      <h1 class="text-2xl font-bold text-center text-black dark:text-white">Tabla de Posiciones</h1>
+    <div class="relative z-10 px-6 max-w-4xl mx-auto">
       <h3 class="text-xl font-bold mb-4 text-center text-black dark:text-white">Grupo {{ grupo }}</h3>
 
       <div v-if="loading" class="text-center">Cargando...</div>

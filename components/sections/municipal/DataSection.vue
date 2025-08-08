@@ -1,6 +1,7 @@
 <script setup>
 import TableStandings from './TableStandings.vue'
 import MatchResults from './/MatchResults.vue'
+import CardsTable from './CardsTable.vue'
 
 import { ref, computed, onMounted, watch } from 'vue'
 
@@ -63,17 +64,32 @@ watch(fechaSeleccionada, (nueva) => {
 
       <!-- Tabla de posiciones -->
 
-        <div class="mb-6 flex gap-3">
-        <button
-            v-for="g in Object.keys(campeonato.grupos)"
-            :key="g"
-            @click="grupoSeleccionado = g"
-            :class="{'bg-blue-600 text-black dark:text-white': grupoSeleccionado === g, 'bg-gray-200': grupoSeleccionado !== g}"
-            class="px-4 py-2 rounded"
-        >Grupo {{ g }}</button>
+      <h1 class="text-2xl font-bold text-center text-black dark:text-white">Tabla de Posiciones</h1>
+
+        <div class="relative">
+          <div
+            class="absolute inset-0 "
+          ></div>
+
+          <div class="relative flex justify-center items-center gap-x-2 p-4">
+            <button 
+              v-for="g in Object.keys(campeonato.grupos)"
+              :key="g"
+              @click="grupoSeleccionado = g"
+              :class="{
+                'bg-gradient-to-br from-gray-600 to-gray-800 text-white': grupoSeleccionado === g,
+                'bg-gradient-to-br from-gray-300 to-gray-300 text-black': grupoSeleccionado !== g
+              }"
+              class="w-20 h-12 rounded-xl flex items-center justify-center shadow-lg border border-gray-500/50 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl"
+            >
+              Grupo {{ g }}
+            </button>
+          </div>
         </div>
+
         <TableStandings :grupo="grupoSeleccionado" :equipos="campeonato.grupos[grupoSeleccionado]" />
 
+      <hr class="my-3">
 
       <!-- Selección de fecha -->
       <div class="mt-6 flex gap-3">
@@ -85,12 +101,13 @@ watch(fechaSeleccionada, (nueva) => {
           class="px-4 py-2 rounded"
         >{{ f }}</button>
       </div>
-
       <!-- Resultados fecha -->
         <MatchResults :fechaSeleccionada="fechaSeleccionada" :partidos="partidosPorFecha" />
 
-
+      <hr>
       <!-- Tarjetas Amarillas -->
+         <CardsTable :tarjetas="campeonato.tarjetas" />
+
       <!-- <div class="mt-10">
         <h2 class="text-lg font-semibold mb-2">Tarjetas Amarillas</h2>
         <ul>
