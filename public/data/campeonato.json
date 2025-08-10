@@ -70,16 +70,31 @@
         "id": 1,
         "nombre": "EL SALADO F.C",
         "picture": "championships/la-cruz/campeonato-municipal/el-salado.png",
-        "pj": 1,
+        "pj": 2,
         "pg": 1,
-        "pe": 0,
+        "pe": 1,
         "pp": 0,
-        "gf": 4,
-        "gc": 1,
+        "gf": 6,
+        "gc": 3,
         "gd": 3,
         "jl": 1000,
-        "pto": 3
+        "pto": 4
       },
+      {
+        "id": 4,
+        "nombre": "PARAMITO F.C",
+        "picture": "championships/la-cruz/campeonato-municipal/paramito.png",
+        "pj": 1,
+        "pg": 0,
+        "pe": 1,
+        "pp": 0,
+        "gf": 2,
+        "gc": 2,
+        "gd": 0,
+        "jl": 1000,
+        "pto": 1
+      }
+      ,
       {
         "id": 2,
         "nombre": "LAS ANIMAS F.C ",
@@ -107,24 +122,24 @@
         "gd": 0,
         "jl": 1000,
         "pto": 0
-      },
-            {
-        "id": 4,
-        "nombre": "PARAMITO F.C",
-        "picture": "championships/la-cruz/campeonato-municipal/paramito.png",
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0,
-        "gf": 0,
-        "gc": 0,
-        "gd": 0,
-        "jl": 1000,
-        "pto": 0
       }
     ],
     "C": [
-                  {
+        {
+          "id": 2,
+          "nombre": "LLANOGRANDE F.C ",
+          "picture": "championships/la-cruz/campeonato-municipal/llanogrande.png",
+          "pj": 2,
+          "pg": 2,
+          "pe": 0,
+          "pp": 0,
+          "gf": 5,
+          "gc": 2,
+          "gd": 3,
+          "jl": 850,
+          "pto": 6
+        },
+        {
         "id": 1,
         "nombre": "CENTRO F.C",
         "picture": "championships/la-cruz/campeonato-municipal/centro.png",
@@ -136,20 +151,6 @@
         "gc": 0,
         "gd": 3,
         "jl": 950,
-        "pto": 3
-      },
-      {
-        "id": 2,
-        "nombre": "LLANOGRANDE F.C ",
-        "picture": "championships/la-cruz/campeonato-municipal/llanogrande.png",
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0,
-        "gf": 2,
-        "gc": 1,
-        "gd": 1,
-        "jl": 850,
         "pto": 3
       },
       {
@@ -170,13 +171,13 @@
         "id": 4,
         "nombre": "MOROCHILLO F.C",
         "picture": "championships/la-cruz/campeonato-municipal/morochillo.png",
-        "pj": 1,
+        "pj": 2,
         "pg": 0,
         "pe": 0,
-        "pp": 1,
-        "gf": 0,
-        "gc": 3,
-        "gd": -3,
+        "pp": 2,
+        "gf": 1,
+        "gc": 6,
+        "gd": -5,
         "jl": 850,
         "pto": 0
       }
@@ -253,6 +254,8 @@
           "visitante": "PARAMITO F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/paramito.png",
           "grupo": "B",
+          "localGol": 2,
+          "visitanteGol": 2,
           "hora": "13:30:00",
           "fecha": "2025-08-09"
         },
@@ -262,6 +265,8 @@
           "visitante": "LLANOGRANDE F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/llanogrande.png",
           "grupo": "C",
+          "localGol": 1,
+          "visitanteGol": 3,
           "hora": "15:30:00",
           "fecha": "2025-08-09"
         },
@@ -341,12 +346,22 @@
           "suspendidoHasta": null
         },
         {
+          "nombre": "Martin Ordoñez",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
           "nombre": "Duván Ordoñez",
           "tipo": "amarilla",
           "suspendidoHasta": null
         },
         {
           "nombre": "Brayan Delgado",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Brayan Muñoz",
           "tipo": "amarilla",
           "suspendidoHasta": null
         }
@@ -391,7 +406,7 @@
       "team_picture": "championships/la-cruz/campeonato-municipal/llanogrande.png",
       "jugadores": [
         {
-          "nombre": "Danilo Ortega",
+          "nombre": "Danilo Ortega - 2",
           "tipo": "amarilla",
           "suspendidoHasta": null
         },
@@ -401,12 +416,61 @@
           "suspendidoHasta": null
         },
         {
+          "nombre": "Fernando Arcos",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Jhon Perafan",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Jair Muñoz",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
           "nombre": "Víctor Bolaños",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        }
+      ]
+    },
+    "El Salado F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/el-salado.png",
+      "jugadores": [
+        {
+          "nombre": "Yonker Imbachi",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Marlon Bravo",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        }
+      ]
+    },
+    "Paramito F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/paramito.png",
+      "jugadores": [
+        {
+          "nombre": "Andres Felipe",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Santiago",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Molina",
           "tipo": "amarilla",
           "suspendidoHasta": null
         }
       ]
     }
   }
-
 }
