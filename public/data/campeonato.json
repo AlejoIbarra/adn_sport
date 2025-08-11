@@ -12,29 +12,29 @@
         "id": 1,
         "nombre": "REAL SAN ANTONIO",
         "picture": "championships/la-cruz/campeonato-municipal/san-antonio.png",
-        "pj": 1,
+        "pj": 2,
         "pg": 1,
-        "pe": 0,
-        "pp": 0,
-        "gf": 1,
-        "gc": 0,
-        "gd": 1,
-        "jl": 950,
-        "pto": 3
-      },
-      {
-        "id": 2,
-        "nombre": "GRANADA F.C ",
-        "picture": "championships/la-cruz/campeonato-municipal/granada.png",
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
+        "pe": 1,
         "pp": 0,
         "gf": 1,
         "gc": 0,
         "gd": 1,
         "jl": 900,
-        "pto": 3
+        "pto": 4
+      },
+      {
+        "id": 2,
+        "nombre": "GRANADA F.C ",
+        "picture": "championships/la-cruz/campeonato-municipal/granada.png",
+        "pj": 2,
+        "pg": 1,
+        "pe": 1,
+        "pp": 0,
+        "gf": 1,
+        "gc": 0,
+        "gd": 1,
+        "jl": 650,
+        "pto": 4
       },
       {
         "id": 3,
@@ -66,7 +66,7 @@
       }
     ],
     "B": [
-            {
+      {
         "id": 1,
         "nombre": "EL SALADO F.C",
         "picture": "championships/la-cruz/campeonato-municipal/el-salado.png",
@@ -77,8 +77,22 @@
         "gf": 6,
         "gc": 3,
         "gd": 3,
-        "jl": 1000,
+        "jl": 900,
         "pto": 4
+      },
+      {
+        "id": 3,
+        "nombre": "LA ESTANCIA F.C ",
+        "picture": "championships/la-cruz/campeonato-municipal/la-estancia.png",
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0,
+        "gf": 4,
+        "gc": 2,
+        "gd": 2,
+        "jl": 900,
+        "pto": 3
       },
       {
         "id": 4,
@@ -86,41 +100,26 @@
         "picture": "championships/la-cruz/campeonato-municipal/paramito.png",
         "pj": 1,
         "pg": 0,
-        "pe": 1,
-        "pp": 0,
+        "pe": 0,
+        "pp": 1,
         "gf": 2,
         "gc": 2,
         "gd": 0,
-        "jl": 1000,
+        "jl": 850,
         "pto": 1
-      }
-      ,
+      },
       {
         "id": 2,
         "nombre": "LAS ANIMAS F.C ",
         "picture": "championships/la-cruz/campeonato-municipal/las-animas.png",
-        "pj": 1,
+        "pj": 2,
         "pg": 0,
         "pe": 0,
-        "pp": 1,
-        "gf": 1,
-        "gc": 4,
-        "gd": -3,
-        "jl": 1000,
-        "pto": 0
-      },
-      {
-        "id": 3,
-        "nombre": "LA ESTANCIA F.C ",
-        "picture": "championships/la-cruz/campeonato-municipal/la-estancia.png",
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0,
-        "gf": 0,
-        "gc": 0,
-        "gd": 0,
-        "jl": 1000,
+        "pp": 2,
+        "gf": 3,
+        "gc": 8,
+        "gd": -5,
+        "jl": 850,
         "pto": 0
       }
     ],
@@ -143,29 +142,29 @@
         "id": 1,
         "nombre": "CENTRO F.C",
         "picture": "championships/la-cruz/campeonato-municipal/centro.png",
-        "pj": 1,
+        "pj": 2,
         "pg": 1,
         "pe": 0,
-        "pp": 0,
+        "pp": 1,
         "gf": 3,
-        "gc": 0,
-        "gd": 3,
-        "jl": 950,
+        "gc": 1,
+        "gd": 2,
+        "jl": 850,
         "pto": 3
       },
       {
         "id": 3,
         "nombre": "LA POLA F.C ",
         "picture": "championships/la-cruz/campeonato-municipal/la-pola.png",
-        "pj": 1,
-        "pg": 0,
+        "pj": 2,
+        "pg": 1,
         "pe": 0,
         "pp": 1,
-        "gf": 1,
+        "gf": 2,
         "gc": 2,
-        "gd": -1,
-        "jl": 950,
-        "pto": 0
+        "gd": 0,
+        "jl": 750,
+        "pto": 3
       },
             {
         "id": 4,
@@ -276,6 +275,8 @@
           "visitante": "LAS ANIMAS F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/las-animas.png",
           "grupo": "B",
+          "localGol": 4,
+          "visitanteGol": 2,
           "hora": "11:30:00",
           "fecha": "2025-08-10"
         },
@@ -285,6 +286,8 @@
           "visitante": "GRANADA F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/granada.png", 
           "grupo": "A",
+          "localGol": 0,
+          "visitanteGol": 0,
           "hora": "13:30:00",
           "fecha": "2025-08-10"
         },
@@ -294,6 +297,8 @@
           "visitante": "LA POLA F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/la-pola.png",
           "grupo": "C",
+          "localGol": 0,
+          "visitanteGol": 1,
           "hora": "15:30:00",
           "fecha": "2025-08-10"
         }
@@ -408,7 +413,7 @@
         {
           "nombre": "Danilo Ortega - 2",
           "tipo": "amarilla",
-          "suspendidoHasta": null
+          "suspendidoHasta": "Proxima Fecha"
         },
         {
           "nombre": "Brayan Quintero",
