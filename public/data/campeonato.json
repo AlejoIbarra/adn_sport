@@ -314,6 +314,11 @@
           "nombre": "Santiago Martínez",
           "tipo": "amarilla",
           "suspendidoHasta": null
+        },
+        {
+          "nombre": "Santiago Paz",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
         }
       ]
     },
@@ -337,6 +342,16 @@
       "jugadores": [
         {
           "nombre": "Santiago Solarte",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Alban",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Jairo Mendez",
           "tipo": "amarilla",
           "suspendidoHasta": null
         }
@@ -384,6 +399,26 @@
           "nombre": "Darwin Silva",
           "tipo": "amarilla",
           "suspendidoHasta": null
+        },
+        {
+          "nombre": "Julian Imbachi",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Gustavo Estrada",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Andres Caro",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Ivan Ibarra",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
         }
       ]
     },
@@ -402,6 +437,26 @@
       "jugadores": [
         {
           "nombre": "Kevin Ledezma",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Robin Giraldo",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Mauricio Ortega",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Weimar",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Gerson Perez",
           "tipo": "amarilla",
           "suspendidoHasta": null
         }
@@ -472,6 +527,41 @@
         },
         {
           "nombre": "Molina",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        }
+      ]
+    },
+    "La Estancia F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/la-estancia.png",
+      "jugadores": [
+        {
+          "nombre": "Jesus Range;",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Janier Ledezma",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        }
+      ]
+    },
+    "Las Animas F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/animas.png",
+      "jugadores": [
+        {
+          "nombre": "Juan Carlos Bravo",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Miller Toro",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Ferley Guzman",
           "tipo": "amarilla",
           "suspendidoHasta": null
         }
