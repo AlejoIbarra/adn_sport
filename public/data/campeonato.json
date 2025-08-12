@@ -311,11 +311,6 @@
       "team_picture": "championships/la-cruz/campeonato-municipal/san-antonio.png",
       "jugadores": [
         {
-          "nombre": "Santiago Martínez",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
           "nombre": "Santiago Paz",
           "tipo": "amarilla",
           "suspendidoHasta": null
@@ -341,11 +336,6 @@
       "team_picture": "championships/la-cruz/campeonato-municipal/centro.png",
       "jugadores": [
         {
-          "nombre": "Santiago Solarte",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
           "nombre": "Alban",
           "tipo": "amarilla",
           "suspendidoHasta": null
@@ -360,21 +350,7 @@
     "Morochillo F.C": {
       "team_picture": "championships/la-cruz/campeonato-municipal/morochillo.png",
       "jugadores": [
-        {
-          "nombre": "Jhonatan Muñoz",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Martin Ordoñez",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Duván Ordoñez",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
+
         {
           "nombre": "Brayan Delgado",
           "tipo": "amarilla",
@@ -390,16 +366,7 @@
     "Granada F.C": {
       "team_picture": "championships/la-cruz/campeonato-municipal/granada.png",
       "jugadores": [
-        {
-          "nombre": "Darío Muñoz",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Darwin Silva",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
+
         {
           "nombre": "Julian Imbachi",
           "tipo": "amarilla",
@@ -436,11 +403,6 @@
       "team_picture": "championships/la-cruz/campeonato-municipal/la-pola.png",
       "jugadores": [
         {
-          "nombre": "Kevin Ledezma",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
           "nombre": "Robin Giraldo",
           "tipo": "amarilla",
           "suspendidoHasta": null
@@ -471,11 +433,6 @@
           "suspendidoHasta": "Proxima Fecha"
         },
         {
-          "nombre": "Brayan Quintero",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
           "nombre": "Fernando Arcos",
           "tipo": "amarilla",
           "suspendidoHasta": null
@@ -487,11 +444,6 @@
         },
         {
           "nombre": "Jair Muñoz",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Víctor Bolaños",
           "tipo": "amarilla",
           "suspendidoHasta": null
         }
