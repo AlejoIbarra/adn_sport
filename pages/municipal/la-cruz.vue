@@ -1,3 +1,4 @@
+
 <script setup lang="ts">
 useHead({
   title: '⚽ ADN Deportivo La Cruz - Resultados y Noticias de Fútbol en La Cruz, Nariño',
@@ -49,23 +50,16 @@ useHead({
 </script>
 
 <template>
-  <section class="py-20 bg-gradient-to-b from-green-900 to-green-700">
-    <div class="text-center font-sans px-5 max-w-4xl mx-auto">
-      <header>
-        <h1 class="text-4xl font-extrabold mb-6 text-white">
-          ⚽ Alcaldía Municipal de La Cruz - ADN Deportivo
-        </h1>
-        <p class="text-lg text-gray-200 mb-10">
-          Toda la información del fútbol amateur y Primera C en La Cruz, Nariño. Resultados en vivo, posiciones y estadísticas oficiales.
-        </p>
-      </header>
+  <section class="py-20">
+    <div class="text-center font-sans px-5">
+      <h1 class="text-3xl font-bold mb-10 text-white">Alcaldía Municipal La Cruz</h1>
       <SectionsMunicipalDataSection/>
     </div>
   </section>
 </template>
 
+
+
 <style scoped>
-section {
-  border-top: 4px solid #f1d600;
-}
+/* Estilos opcionales para esta página */
 </style>
