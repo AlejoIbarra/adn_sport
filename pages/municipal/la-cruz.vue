@@ -1,27 +1,71 @@
-
 <script setup lang="ts">
 useHead({
-  title: 'ADN Deportivo la Cruz',
+  title: '⚽ ADN Deportivo La Cruz - Resultados y Noticias de Fútbol en La Cruz, Nariño',
   meta: [
-    { name: 'description', content: 'ADN Deportivo landing page website.' },
+    // SEO general
+    { name: 'description', content: 'Resultados en vivo, posiciones y noticias del fútbol amateur en La Cruz, Nariño. Cobertura completa de campeonatos municipales y Primera C.' },
+    { name: 'keywords', content: 'fútbol La Cruz Nariño, ADN Deportivo La Cruz, Primera C Nariño, campeonato municipal La Cruz, resultados fútbol amateur' },
+    { name: 'author', content: 'ADN Deportivo La Cruz' },
+
+    // Open Graph (Facebook, WhatsApp, LinkedIn)
+    { property: 'og:title', content: '⚽ ADN Deportivo La Cruz - Fútbol Amateur y Primera C' },
+    { property: 'og:description', content: 'Cobertura total de campeonatos municipales y Primera C en La Cruz, Nariño. Resultados, posiciones y noticias actualizadas.' },
+    { property: 'og:image', content: 'https://www.adn-deportivo.com/municipios/la-cruz.png' },
+    { property: 'og:url', content: 'https://www.adn-deportivo.com/municipal/la-cruz' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:locale', content: 'es_CO' },
+
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: '⚽ ADN Deportivo La Cruz - Resultados y Noticias' },
+    { name: 'twitter:description', content: 'Fútbol amateur y Primera C en La Cruz, Nariño. Resultados, posiciones y estadísticas.' },
+    { name: 'twitter:image', content: 'https://www.adn-deportivo.com/municipios/la-cruz.png' }
   ],
   link: [
     { rel: 'icon', type: 'image/png', href: '/adn.png' }
   ],
+  script: [
+    // Datos estructurados (Google Rich Snippets)
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SportsOrganization",
+        "name": "ADN Deportivo La Cruz",
+        "sport": "Soccer",
+        "url": "https://www.adn-deportivo.com/municipios/la-cruz",
+        "logo": "https://www.adn-deportivo.com/adn.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "La Cruz",
+          "addressRegion": "Nariño",
+          "addressCountry": "Colombia"
+        },
+        "description": "Cobertura de resultados, posiciones y noticias del fútbol municipal y Primera C en La Cruz, Nariño."
+      })
+    }
+  ]
 })
 </script>
 
 <template>
-  <section class="py-20">
-    <div class="text-center font-sans px-5">
-      <h1 class="text-3xl font-bold mb-10 text-white">Alcaldía Municipal La Cruz</h1>
+  <section class="py-20 bg-gradient-to-b from-green-900 to-green-700">
+    <div class="text-center font-sans px-5 max-w-4xl mx-auto">
+      <header>
+        <h1 class="text-4xl font-extrabold mb-6 text-white">
+          ⚽ Alcaldía Municipal de La Cruz - ADN Deportivo
+        </h1>
+        <p class="text-lg text-gray-200 mb-10">
+          Toda la información del fútbol amateur y Primera C en La Cruz, Nariño. Resultados en vivo, posiciones y estadísticas oficiales.
+        </p>
+      </header>
       <SectionsMunicipalDataSection/>
     </div>
   </section>
 </template>
 
-
-
 <style scoped>
-/* Estilos opcionales para esta página */
+section {
+  border-top: 4px solid #f1d600;
+}
 </style>
