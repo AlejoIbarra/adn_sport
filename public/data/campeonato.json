@@ -304,6 +304,29 @@
         }
 
       ]
+    },
+        {
+      "fecha": "Tercera Fecha",
+      "partidos": [
+        {
+          "local": "TAJUMBINA F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/tajumbina.png",
+          "visitante": "INTEGRACION F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png",
+          "grupo": "A",
+          "hora": "13:30:00",
+          "fecha": "2025-08-16"
+        },
+        {
+          "local": "LA ESTANCIA F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/la-estancia.png",
+          "visitante": "PARAMITO F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/paramito.png",
+          "grupo": "B",
+          "hora": "15:30:00",
+          "fecha": "2025-08-16"
+        }
+      ]
     }
   ],
   "tarjetas": {
