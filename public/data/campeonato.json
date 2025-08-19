@@ -40,32 +40,46 @@
         "id": 3,
         "nombre": "INTEGRACIÓN F.C ",
         "picture": "championships/la-cruz/campeonato-municipal/integracion.png",
-        "pj": 1,
-        "pg": 0,
+        "pj": 2,
+        "pg": 1,
         "pe": 0,
         "pp": 1,
-        "gf": 0,
-        "gc": 1,
-        "gd": -1,
-        "jl": 950,
-        "pto": 0
+        "gf": 6,
+        "gc": 2,
+        "gd": -4,
+        "jl": 850,
+        "pto": 3
       },
             {
         "id": 4,
         "nombre": "TAJUMBINA F.C",
         "picture": "championships/la-cruz/campeonato-municipal/tajumbina.png",
-        "pj": 1,
+        "pj": 2,
         "pg": 0,
         "pe": 0,
-        "pp": 1,
-        "gf": 0,
-        "gc": 1,
-        "gd": -1,
+        "pp": 2,
+        "gf": 1,
+        "gc": 7,
+        "gd": -6,
         "jl": 900,
         "pto": 0
       }
     ],
     "B": [
+      {
+        "id": 3,
+        "nombre": "LA ESTANCIA F.C ",
+        "picture": "championships/la-cruz/campeonato-municipal/la-estancia.png",
+        "pj": 2,
+        "pg": 2,
+        "pe": 0,
+        "pp": 0,
+        "gf": 6,
+        "gc": 2,
+        "gd": 4,
+        "jl": 800,
+        "pto": 6
+      },
       {
         "id": 1,
         "nombre": "EL SALADO F.C",
@@ -80,32 +94,19 @@
         "jl": 900,
         "pto": 4
       },
-      {
-        "id": 3,
-        "nombre": "LA ESTANCIA F.C ",
-        "picture": "championships/la-cruz/campeonato-municipal/la-estancia.png",
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0,
-        "gf": 4,
-        "gc": 2,
-        "gd": 2,
-        "jl": 900,
-        "pto": 3
-      },
+
       {
         "id": 4,
         "nombre": "PARAMITO F.C",
         "picture": "championships/la-cruz/campeonato-municipal/paramito.png",
-        "pj": 1,
+        "pj": 2,
         "pg": 0,
         "pe": 0,
-        "pp": 1,
+        "pp": 2,
         "gf": 2,
-        "gc": 2,
-        "gd": 0,
-        "jl": 850,
+        "gc": 4,
+        "gd": 2,
+        "jl": 750,
         "pto": 1
       },
       {
@@ -313,6 +314,8 @@
           "local_logo": "championships/la-cruz/campeonato-municipal/tajumbina.png",
           "visitante": "INTEGRACION F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png",
+          "localGol": 1,
+          "visitanteGol": 6,
           "grupo": "A",
           "hora": "13:30:00",
           "fecha": "2025-08-16"
@@ -322,6 +325,8 @@
           "local_logo": "championships/la-cruz/campeonato-municipal/la-estancia.png",
           "visitante": "PARAMITO F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/paramito.png",
+          "localGol": 2,
+          "visitanteGol": 0,
           "grupo": "B",
           "hora": "15:30:00",
           "fecha": "2025-08-16"
@@ -419,6 +424,16 @@
           "nombre": "Rubén Muñoz",
           "tipo": "amarilla",
           "suspendidoHasta": null
+        },
+        {
+          "nombre": "Esteban Rivas",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Antony Ortega",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
         }
       ]
     },
@@ -496,12 +511,22 @@
           "suspendidoHasta": null
         },
         {
+          "nombre": "Fabian Guerrero",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
           "nombre": "Santiago",
           "tipo": "amarilla",
           "suspendidoHasta": null
         },
         {
           "nombre": "Molina",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Oscar Arcos",
           "tipo": "amarilla",
           "suspendidoHasta": null
         }
@@ -517,6 +542,16 @@
         },
         {
           "nombre": "Janier Ledezma",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Fabian Beltran",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Fabian Ñañez",
           "tipo": "amarilla",
           "suspendidoHasta": null
         }
