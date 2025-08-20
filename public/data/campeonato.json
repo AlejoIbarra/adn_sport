@@ -185,7 +185,7 @@
   },
   "resultados": [
     {
-      "fecha": "Primera Fecha",
+      "fecha": "Fecha 1",
       "partidos": [
         {
           "local": "REAL SAN ANTONIO",
@@ -246,7 +246,7 @@
       ]
     },
     {
-      "fecha": "Segunda Fecha",
+      "fecha": "Fecha 2",
       "partidos": [
         {
           "local": "EL SALADO F.C",
@@ -306,8 +306,8 @@
 
       ]
     },
-        {
-      "fecha": "Tercera Fecha",
+    {
+      "fecha": "Fecha 3",
       "partidos": [
         {
           "local": "TAJUMBINA F.C",
@@ -331,6 +331,67 @@
           "hora": "15:30:00",
           "fecha": "2025-08-16"
         }
+      ]
+    },
+        {
+      "fecha": "Fecha 4",
+      "partidos": [
+        {
+          "local": "LA POLA F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/la-pola.png",
+          "visitante": "MOROCHILLO F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/morochillo.png",
+          "grupo": "C",
+          "hora": "11:30:00",
+          "fecha": "2025-08-23"
+        },
+
+        {
+          "local": "CENTRO F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/centro.png",
+          "visitante": "LLANOGRANDE F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/llanogrande.png",
+          "grupo": "C",
+          "hora": "13:30:00",
+          "fecha": "2025-08-23"
+        },
+        {
+          "local": "REAL SAN ANTONIO",
+          "local_logo": "championships/la-cruz/campeonato-municipal/san-antonio.png",
+          "visitante": "INTEGRACION F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png",
+          "grupo": "A",
+          "hora": "15:30:00",
+          "fecha": "2025-08-23"
+        },
+        {
+          "local": "GRANADA F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/granada.png",
+          "visitante": "TAJUMBINA F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/tajumbina.png",
+          "grupo": "A",
+          "hora": "11:30:00",
+          "fecha": "2025-08-24"
+        },
+        {
+          "local": "LAS ANIMAS F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/las-animas.png",
+          "visitante": "PARAMITO F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/paramito.png",
+          "grupo": "B",
+          "hora": "13:30:00",
+          "fecha": "2025-08-24"
+        },
+      {
+          "local": "LA ESTANCIA F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/las-animas.png",
+          "visitante": "EL SALADO F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/el-salado.png",
+          "grupo": "B",
+          "hora": "15:30:00",
+          "fecha": "2025-08-24"
+        }
+
       ]
     }
   ],
