@@ -8,20 +8,7 @@
   },
   "grupos": {
     "A": [
-      {
-        "id": 1,
-        "nombre": "REAL SAN ANTONIO",
-        "picture": "championships/la-cruz/campeonato-municipal/san-antonio.png",
-        "pj": 3,
-        "pg": 2,
-        "pe": 1,
-        "pp": 0,
-        "gf": 3,
-        "gc": 0,
-        "gd": 3,
-        "jl": 800,
-        "pto": 7
-      },
+
       {
         "id": 2,
         "nombre": "GRANADA F.C ",
@@ -32,10 +19,25 @@
         "pp": 0,
         "gf": 4,
         "gc": 0,
-        "gd": 4,
+        "gd": "+4",
         "jl": 650,
         "pto": 7
       },
+      {
+        "id": 1,
+        "nombre": "REAL SAN ANTONIO",
+        "picture": "championships/la-cruz/campeonato-municipal/san-antonio.png",
+        "pj": 3,
+        "pg": 2,
+        "pe": 1,
+        "pp": 0,
+        "gf": 3,
+        "gc": 0,
+        "gd": "+3",
+        "jl": 800,
+        "pto": 7
+      },
+
       {
         "id": 3,
         "nombre": "INTEGRACIÓN F.C ",
@@ -46,7 +48,7 @@
         "pp": 2,
         "gf": 6,
         "gc": 4,
-        "gd": 2,
+        "gd": "+2",
         "jl": 700,
         "pto": 3
       },
@@ -60,7 +62,7 @@
         "pp": 3,
         "gf": 1,
         "gc": 10,
-        "gd": -9,
+        "gd": "-9",
         "jl": 900,
         "pto": 0
       }
@@ -76,7 +78,7 @@
         "pp": 0,
         "gf": 12,
         "gc": 2,
-        "gd": 10,
+        "gd": "+10",
         "jl": 800,
         "pto": 7
       },
@@ -105,7 +107,7 @@
         "pp": 2,
         "gf": 8,
         "gc": 10,
-        "gd": -2,
+        "gd": "-2",
         "jl": 750,
         "pto": 3
       },
@@ -119,7 +121,7 @@
         "pp": 2,
         "gf": 4,
         "gc": 9,
-        "gd": -5,
+        "gd": "-5",
         "jl": 550,
         "pto": 1
       }
@@ -135,7 +137,7 @@
           "pp": 0,
           "gf": 7,
           "gc": 3,
-          "gd": 4,
+          "gd": "+4",
           "jl": 650,
           "pto": 9
         },
@@ -149,7 +151,7 @@
         "pp": 1,
         "gf": 5,
         "gc": 3,
-        "gd": 2,
+        "gd": "+2",
         "jl": 600,
         "pto": 6
       },
@@ -163,7 +165,7 @@
         "pp": 2,
         "gf": 4,
         "gc": 3,
-        "gd": 1,
+        "gd": "+1",
         "jl": 700,
         "pto": 3
       },
@@ -177,7 +179,7 @@
         "pp": 3,
         "gf": 2,
         "gc": 9,
-        "gd": -7,
+        "gd": "-7",
         "jl": 700,
         "pto": 0
       }
@@ -490,14 +492,14 @@
       "team_picture": "championships/la-cruz/campeonato-municipal/la-pola.png",
       "jugadores": [
         {
-          "nombre": "Robin Giraldo - ",
+          "nombre": "Robin Giraldo ",
           "tipo": "amarilla",
-          "suspendidoHasta": "Proxima Fecha"
+          "suspendidoHasta": null
         },
         {
-          "nombre": "Mauricio Ortega -2",
+          "nombre": "Mauricio Ortega",
           "tipo": "amarilla",
-          "suspendidoHasta": "Proxima Fecha"
+          "suspendidoHasta": ""
         },
 
         {
