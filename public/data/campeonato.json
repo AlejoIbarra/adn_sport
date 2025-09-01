@@ -335,7 +335,7 @@
         }
       ]
     },
-        {
+    {
       "fecha": "Fecha 4",
       "partidos": [
         {
@@ -404,6 +404,37 @@
           "grupo": "B",
           "hora": "15:30:00",
           "fecha": "2025-08-24"
+        }
+
+      ]
+    },
+        {
+      "fecha": "Cuartos de final",
+      "partidos": [
+        {
+          "local": "LLANOGRANDE F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/llanogrande.png",
+          "visitante": "CENTRO F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/centro.png"
+        },
+
+        {
+          "local": "EL SALADO F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/el-salado.png",
+          "visitante": "INTEGRACION F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png"
+        },
+        {
+          "local": "GRANADA F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/granada.png",
+          "visitante": "LA ESTANCIA F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/la-estancia.png"
+        },
+        {
+          "local": "REAL SAN ANTONIO",
+          "local_logo": "championships/la-cruz/campeonato-municipal/san-antonio.png",
+          "visitante": "LA POLA F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/la-pola.png"
         }
 
       ]
