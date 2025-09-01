@@ -416,27 +416,33 @@
           "local_logo": "championships/la-cruz/campeonato-municipal/llanogrande.png",
           "visitante": "CENTRO F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/centro.png",
-          "hora": "Por definir",
-          "fecha": "Por definir"
+          "hora": "15:30:00",
+          "fecha": "2025-08-16"
+          
         },
 
         {
           "local": "EL SALADO F.C",
           "local_logo": "championships/la-cruz/campeonato-municipal/el-salado.png",
           "visitante": "INTEGRACION F.C",
-          "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png"
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png",
+
         },
         {
           "local": "GRANADA F.C",
           "local_logo": "championships/la-cruz/campeonato-municipal/granada.png",
           "visitante": "LA ESTANCIA F.C",
-          "visitante_logo": "championships/la-cruz/campeonato-municipal/la-estancia.png"
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/la-estancia.png",
+          "hora": "15:30:00",
+          "fecha": "2025-08-16"
         },
         {
           "local": "REAL SAN ANTONIO",
           "local_logo": "championships/la-cruz/campeonato-municipal/san-antonio.png",
           "visitante": "LA POLA F.C",
-          "visitante_logo": "championships/la-cruz/campeonato-municipal/la-pola.png"
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/la-pola.png",
+          "hora": "15:30:00",
+          "fecha": "2025-08-16"
         }
 
       ]
