@@ -415,7 +415,9 @@
           "local": "LLANOGRANDE F.C",
           "local_logo": "championships/la-cruz/campeonato-municipal/llanogrande.png",
           "visitante": "CENTRO F.C",
-          "visitante_logo": "championships/la-cruz/campeonato-municipal/centro.png"
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/centro.png",
+          "hora": "Por definir",
+          "fecha": "Por definir"
         },
 
         {
