@@ -408,7 +408,7 @@
 
       ]
     },
-        {
+    {
       "fecha": "Cuartos de final",
       "partidos": [
         {
@@ -416,6 +416,8 @@
           "local_logo": "championships/la-cruz/campeonato-municipal/llanogrande.png",
           "visitante": "CENTRO F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/centro.png",
+          "localGol": "0 (2)",
+          "visitanteGol": "0 (3)",
           "hora": "15:30:00",
           "fecha": "2025-09-06"
           
@@ -425,6 +427,8 @@
           "local_logo": "championships/la-cruz/campeonato-municipal/granada.png",
           "visitante": "LA ESTANCIA F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/la-estancia.png",
+          "localGol": 0,
+          "visitanteGol": 2,
           "hora": "15:30:00",
           "fecha": "2025-09-06"
         },
@@ -433,6 +437,8 @@
           "local_logo": "championships/la-cruz/campeonato-municipal/el-salado.png",
           "visitante": "INTEGRACION F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png",
+          "localGol": 1,
+          "visitanteGol": 4,
           "hora": "13:30:00",
           "fecha": "2025-09-07"
         },
@@ -440,9 +446,34 @@
           "local": "REAL SAN ANTONIO",
           "local_logo": "championships/la-cruz/campeonato-municipal/san-antonio.png",
           "visitante": "LA POLA F.C",
+          "localGol": 4,
+          "visitanteGol": 4,
           "visitante_logo": "championships/la-cruz/campeonato-municipal/la-pola.png",
           "hora": "15:30:00",
           "fecha": "2025-09-07"
+        }
+
+      ]
+    },
+    {
+      "fecha": "Semifinal",
+      "partidos": [
+        {
+          "local": "REAL SAN ANTONIO",
+          "local_logo": "championships/la-cruz/campeonato-municipal/san-antonio.png",
+          "visitante": "INTEGRACION F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png",
+          "hora": "13:30:00",
+          "fecha": "2025-09-28"
+          
+        },
+        {
+          "local": "CENTRO F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/centro.png",
+          "visitante": "LA ESTANCIA F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/la-estancia.png",
+          "hora": "15:30:00",
+          "fecha": "2025-09-28"
         }
 
       ]
@@ -452,64 +483,22 @@
     "San Antonio F.C": {
       "team_picture": "championships/la-cruz/campeonato-municipal/san-antonio.png",
       "jugadores": [
-        {
-          "nombre": "Norver Banguara",
-          "tipo": "roja",
-          "suspendidoHasta": "Proxima Fecha"
-        },
-        {
-          "nombre": "Santiago Ledezma",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        }
+
       ]
     },
-
     "Centro F.C": {
       "team_picture": "championships/la-cruz/campeonato-municipal/centro.png",
       "jugadores": [
         {
-          "nombre": "Andres Delgado",
+          "nombre": "Harson Bravo",
           "tipo": "amarilla",
           "suspendidoHasta": null
         },
         {
-          "nombre": "Brayan Pardo",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Rubio Bolaños",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Cristian Ordoñez",
+          "nombre": "Kevin Paredes",
           "tipo": "amarilla",
           "suspendidoHasta": null
         }
-      ]
-    },
-    "Morochillo F.C": {
-      "team_picture": "championships/la-cruz/campeonato-municipal/morochillo.png",
-      "jugadores": [
-
-        {
-          "nombre": "Sebastian Bolaños",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Fabian Bolaños",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        }
-      ]
-    },
-    "Granada F.C": {
-      "team_picture": "championships/la-cruz/campeonato-municipal/granada.png",
-      "jugadores": [
-
       ]
     },
     "Integración F.C": {
@@ -527,98 +516,6 @@
         }
       ]
     },
-    "La Pola F.C": {
-      "team_picture": "championships/la-cruz/campeonato-municipal/la-pola.png",
-      "jugadores": [
-        {
-          "nombre": "Robin Giraldo ",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Mauricio Ortega",
-          "tipo": "amarilla",
-          "suspendidoHasta": ""
-        },
-
-        {
-          "nombre": "Gerson Perez",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        }
-      ]
-    },
-    "Llanogrande F.C": {
-      "team_picture": "championships/la-cruz/campeonato-municipal/llanogrande.png",
-      "jugadores": [
-
-        {
-          "nombre": "Brayan Quintero",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Segundo Meneses",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Victor Bolaños",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Ricardo Bolaños",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        }
-      ]
-    },
-    "El Salado F.C": {
-      "team_picture": "championships/la-cruz/campeonato-municipal/el-salado.png",
-      "jugadores": [
-        {
-          "nombre": "Edier Molina",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Alex Molina",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        }
-      ]
-    },
-    "Paramito F.C": {
-      "team_picture": "championships/la-cruz/campeonato-municipal/paramito.png",
-      "jugadores": [
-        {
-          "nombre": "Andres Felipe",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Fabian Guerrero",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Santiago",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Molina",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Oscar Arcos",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        }
-      ]
-    },
     "La Estancia F.C": {
       "team_picture": "championships/la-cruz/campeonato-municipal/la-estancia.png",
       "jugadores": [
@@ -628,29 +525,30 @@
           "suspendidoHasta": null
         },
         {
-          "nombre": "Janier Ledezma",
+          "nombre": "Andres Carlosama",
           "tipo": "amarilla",
           "suspendidoHasta": null
         },
-        {
-          "nombre": "Fabian Beltran",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
+
         {
           "nombre": "Fabian Ñañez",
           "tipo": "amarilla",
           "suspendidoHasta": null
-        }
-      ]
-    },
-    "Las Animas F.C": {
-      "team_picture": "championships/la-cruz/campeonato-municipal/animas.png",
-      "jugadores": [
+        },
         {
-          "nombre": "Julian Molina",
-          "tipo": "roja",
-          "suspendidoHasta": "Proxima Fecha"
+          "nombre": "Alejandro Ñañez",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Dayer",
+          "tipo": "amarilla",
+          "suspendidoHasta": null
+        },
+        {
+          "nombre": "Cristian",
+          "tipo": "Molina",
+          "suspendidoHasta": null
         }
       ]
     }
