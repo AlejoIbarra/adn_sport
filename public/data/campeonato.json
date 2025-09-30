@@ -8,7 +8,6 @@
   },
   "grupos": {
     "A": [
-
       {
         "id": 2,
         "nombre": "GRANADA F.C ",
@@ -37,7 +36,6 @@
         "jl": 800,
         "pto": 7
       },
-
       {
         "id": 3,
         "nombre": "INTEGRACIÓN F.C ",
@@ -52,7 +50,7 @@
         "jl": 700,
         "pto": 3
       },
-            {
+      {
         "id": 4,
         "nombre": "TAJUMBINA F.C",
         "picture": "championships/la-cruz/campeonato-municipal/tajumbina.png",
@@ -82,7 +80,6 @@
         "jl": 800,
         "pto": 7
       },
-
       {
         "id": 3,
         "nombre": "LA ESTANCIA F.C ",
@@ -127,21 +124,21 @@
       }
     ],
     "C": [
-        {
-          "id": 2,
-          "nombre": "LLANOGRANDE F.C ",
-          "picture": "championships/la-cruz/campeonato-municipal/llanogrande.png",
-          "pj": 3,
-          "pg": 3,
-          "pe": 0,
-          "pp": 0,
-          "gf": 7,
-          "gc": 3,
-          "gd": "+4",
-          "jl": 650,
-          "pto": 9
-        },
-        {
+      {
+        "id": 2,
+        "nombre": "LLANOGRANDE F.C ",
+        "picture": "championships/la-cruz/campeonato-municipal/llanogrande.png",
+        "pj": 3,
+        "pg": 3,
+        "pe": 0,
+        "pp": 0,
+        "gf": 7,
+        "gc": 3,
+        "gd": "+4",
+        "jl": 650,
+        "pto": 9
+      },
+      {
         "id": 3,
         "nombre": "LA POLA F.C ",
         "picture": "championships/la-cruz/campeonato-municipal/la-pola.png",
@@ -198,7 +195,6 @@
           "visitanteGol": 0,
           "hora": "15:30:00",
           "fecha": "2025-09-06"
-          
         },
         {
           "local": "GRANADA F.C",
@@ -213,7 +209,7 @@
         {
           "local": "EL SALADO F.C",
           "local_logo": "championships/la-cruz/campeonato-municipal/el-salado.png",
-          "visitante": "INTEGRACION F.C",
+          "visitante": "INTEGRACIÓN F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png",
           "localGol": 1,
           "visitanteGol": 4,
@@ -224,13 +220,12 @@
           "local": "REAL SAN ANTONIO",
           "local_logo": "championships/la-cruz/campeonato-municipal/san-antonio.png",
           "visitante": "LA POLA F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/la-pola.png",
           "localGol": 4,
           "visitanteGol": 2,
-          "visitante_logo": "championships/la-cruz/campeonato-municipal/la-pola.png",
           "hora": "15:30:00",
           "fecha": "2025-09-07"
         }
-
       ]
     },
     {
@@ -239,13 +234,12 @@
         {
           "local": "REAL SAN ANTONIO",
           "local_logo": "championships/la-cruz/campeonato-municipal/san-antonio.png",
-          "visitante": "INTEGRACION F.C",
+          "visitante": "INTEGRACIÓN F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png",
           "localGol": 4,
           "visitanteGol": 2,
           "hora": "13:30:00",
           "fecha": "2025-09-28"
-          
         },
         {
           "local": "CENTRO F.C",
@@ -256,8 +250,10 @@
           "visitanteGol": 1,
           "hora": "15:30:00",
           "fecha": "2025-09-28"
-        },
-            {
+        }
+      ]
+    },
+    {
       "fecha": "Final",
       "partidos": [
         {
@@ -269,19 +265,14 @@
           "visitanteGol": 2,
           "hora": "13:30:00",
           "fecha": "2025-09-28"
-          
         }
-
       ]
     }
-        }
   ],
   "tarjetas": {
     "San Antonio F.C": {
       "team_picture": "championships/la-cruz/campeonato-municipal/san-antonio.png",
-      "jugadores": [
-
-      ]
+      "jugadores": []
     },
     "Centro F.C": {
       "team_picture": "championships/la-cruz/campeonato-municipal/centro.png",
@@ -317,7 +308,7 @@
       "team_picture": "championships/la-cruz/campeonato-municipal/la-estancia.png",
       "jugadores": [
         {
-          "nombre": "Jesus Range;",
+          "nombre": "Jesus Range",
           "tipo": "amarilla",
           "suspendidoHasta": null
         },
@@ -326,7 +317,6 @@
           "tipo": "amarilla",
           "suspendidoHasta": null
         },
-
         {
           "nombre": "Fabian Ñañez",
           "tipo": "amarilla",
@@ -344,7 +334,7 @@
         },
         {
           "nombre": "Cristian Molina",
-          "tipo": "Amarilla",
+          "tipo": "amarilla",
           "suspendidoHasta": null
         }
       ]
