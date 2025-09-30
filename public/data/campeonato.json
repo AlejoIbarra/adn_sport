@@ -261,10 +261,8 @@
           "local_logo": "championships/la-cruz/campeonato-municipal/san-antonio.png",
           "visitante": "CENTRO F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/centro.png",
-          "localGol": 4,
-          "visitanteGol": 2,
-          "hora": "13:30:00",
-          "fecha": "2025-09-28"
+          "hora": "14:00:00",
+          "fecha": "2025-10-4"
         }
       ]
     }
