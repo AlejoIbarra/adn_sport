@@ -270,71 +270,19 @@
   "tarjetas": {
     "San Antonio F.C": {
       "team_picture": "championships/la-cruz/campeonato-municipal/san-antonio.png",
-      "jugadores": []
-    },
-    "Centro F.C": {
-      "team_picture": "championships/la-cruz/campeonato-municipal/centro.png",
       "jugadores": [
         {
-          "nombre": "Harson Bravo",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Kevin Paredes",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        }
-      ]
-    },
-    "Integración F.C": {
-      "team_picture": "championships/la-cruz/campeonato-municipal/integracion.png",
-      "jugadores": [
-        {
-          "nombre": "Juan Delgado",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Luis Gonzales",
-          "tipo": "roja",
+          "nombre": "Kevin Bernaza",
+          "tipo": "Roja",
           "suspendidoHasta": "Proxima Fecha"
         }
       ]
     },
+
     "La Estancia F.C": {
       "team_picture": "championships/la-cruz/campeonato-municipal/la-estancia.png",
       "jugadores": [
-        {
-          "nombre": "Jesus Range",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Andres Carlosama",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Fabian Ñañez",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Alejandro Ñañez",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Dayer",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        },
-        {
-          "nombre": "Cristian Molina",
-          "tipo": "amarilla",
-          "suspendidoHasta": null
-        }
+ 
       ]
     }
   }
