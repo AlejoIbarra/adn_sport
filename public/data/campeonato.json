@@ -254,6 +254,19 @@
       ]
     },
     {
+      "fecha": "Tercero",
+      "partidos": [
+        {
+          "local": "CENTRO F.C",
+          "local_logo": "championships/la-cruz/campeonato-municipal/centro.png",
+          "visitante": "INTEGRACIÓN F.C",
+          "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png",
+          "hora": "13:30:00",
+          "fecha": "2025-10-04"
+        }
+      ]
+    }
+    {
       "fecha": "Final",
       "partidos": [
         {
@@ -261,7 +274,7 @@
           "local_logo": "championships/la-cruz/campeonato-municipal/san-antonio.png",
           "visitante": "LA ESTANCIA F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/la-estancia.png",
-          "hora": "14:00:00",
+          "hora": "15:30:00",
           "fecha": "2025-10-04"
         }
       ]
@@ -273,6 +286,16 @@
       "jugadores": [
         {
           "nombre": "Kevin Bernaza",
+          "tipo": "Roja",
+          "suspendidoHasta": "Proxima Fecha"
+        }
+      ]
+    },
+        "INTEGRACIÓN F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/integracion.png",
+      "jugadores": [
+         {
+          "nombre": "Carlos Gomez",
           "tipo": "Roja",
           "suspendidoHasta": "Proxima Fecha"
         }
