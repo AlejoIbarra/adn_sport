@@ -291,11 +291,21 @@
         }
       ]
     },
-        "INTEGRACIÓN F.C": {
+    "INTEGRACIÓN F.C": {
       "team_picture": "championships/la-cruz/campeonato-municipal/integracion.png",
       "jugadores": [
          {
           "nombre": "Carlos Gomez",
+          "tipo": "Roja",
+          "suspendidoHasta": "Proxima Fecha"
+        }
+      ]
+    },
+    "CENTRO F.C": {
+      "team_picture": "championships/la-cruz/campeonato-municipal/centro.png",
+      "jugadores": [
+         {
+          "nombre": "Jorge Pardo",
           "tipo": "Roja",
           "suspendidoHasta": "Proxima Fecha"
         }
