@@ -2,8 +2,16 @@
 import TableStandings from './TableStandings.vue'
 import MatchResults from './/MatchResults.vue'
 import CardsTable from './CardsTable.vue'
+import Champion from './Champion.vue'
 
 import { ref, computed, onMounted, watch } from 'vue'
+
+const equipoCampeon = {
+  nombre: "REAL SAN ANTONIO",
+  logo: "championships/la-cruz/campeonato-municipal/san-antonio.png",
+  descripcion: "Coordinación de Deportes La Cruz quiere felicitar a",
+
+}
 
 const campeonato = ref(null)
 const grupos = ref([])
@@ -61,6 +69,12 @@ watch(fechaSeleccionada, (nueva) => {
       <p class="mb-6 text-black dark:text-white">{{ campeonato.info.organiza }}</p>
       <p class="mb-6 text-black dark:text-white font-semibold">{{ campeonato.info.boletin }}</p>
 
+
+      <!-- start champion -->
+
+      <Champion :campeon="equipoCampeon" />
+
+       <!-- end chanpion -->
 
       <!-- Tabla de posiciones -->
 

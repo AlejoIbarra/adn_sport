@@ -17,5 +17,9 @@
     "nuxt": "^3.3.3",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.1"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.3",
+    "gsap": "^3.13.0"
   }
 }

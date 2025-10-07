@@ -261,6 +261,8 @@
           "local_logo": "championships/la-cruz/campeonato-municipal/centro.png",
           "visitante": "INTEGRACIÓN F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/integracion.png",
+          "localGol": 1,
+          "visitanteGol": 0,
           "hora": "13:30:00",
           "fecha": "2025-10-04"
         }
@@ -274,6 +276,8 @@
           "local_logo": "championships/la-cruz/campeonato-municipal/san-antonio.png",
           "visitante": "LA ESTANCIA F.C",
           "visitante_logo": "championships/la-cruz/campeonato-municipal/la-estancia.png",
+          "localGol": 1,
+          "visitanteGol": 0,
           "hora": "15:30:00",
           "fecha": "2025-10-04"
         }
