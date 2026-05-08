@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
   try {
-    const data = await $fetch('https://www.sofascore.com/api/v1/unique-tournament/19225/featured-events', {
+    const data = await $fetch('https://www.sofascore.com/api/v1/unique-tournament/26947/featured-events', {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
       }

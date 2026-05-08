@@ -230,7 +230,7 @@ useHead(() => ({
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: `ADN Deportivo - Primera C Colombia - ${currentGroupName.value}` },
     { property: 'og:description', content: 'La plataforma más confiable para seguir el fútbol de ascenso en Colombia. Resultados en tiempo real y estadísticas oficiales.' },
-    { property: 'og:image', content: 'https://img.sofascore.com/api/v1/unique-tournament/19225/image' },
+    { property: 'og:image', content: 'https://img.sofascore.com/api/v1/unique-tournament/26947/image' },
     // Twitter
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: `ADN Deportivo | Primera C Colombia` },
