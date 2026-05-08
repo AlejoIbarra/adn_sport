@@ -122,9 +122,6 @@ const canGoPrevious = computed(() => {
     </div>
 
     <div class="relative z-10 p-6 max-w-4xl mx-auto">
-      <h1 class="text-2xl font-bold text-center text-black dark:text-white">Partidos Jugados</h1>
-      <h3 class="text-xl font-bold mb-6 text-center text-black dark:text-white">Primera C Grupo H</h3>
-
       <div v-if="pending" class="text-center">Cargando...</div>
       <div v-else-if="error" class="text-center text-red-500">Error al cargar los partidos.</div>
       <div v-else-if="!playedMatches || playedMatches.length === 0" 

@@ -37,9 +37,6 @@ onMounted(async () => {
     </div>
 
     <div class="relative z-10 p-6 max-w-4xl mx-auto">
-      <h1 class="text-2xl font-bold  text-center text-black dark:text-white">Tabla de Posiciones</h1>
-      <h3 class="text-xl font-bold mb-4 text-center text-black dark:text-white">Primera C Grupo H</h3>
-
       <div v-if="pending" class="text-center">Cargando...</div>
       <div v-else-if="error" class="text-center text-red-500">Error al cargar la tabla.</div>
       <div v-else>
@@ -67,11 +64,13 @@ onMounted(async () => {
               >
                 <td class="px-2 py-2">{{ index + 1 }}</td>
                 <td class="px-1 py-2 flex items-center gap-2">
-                  <img
-                    :src="`/teams/${team.picture}.png`"
-                    alt="Escudo del equipo"
-                    class="w-8 h-8 object-contain"
-                  />
+                  <ClientOnly>
+                    <img
+                      :src="`/teams/${team.picture}.png`"
+                      alt="Escudo del equipo"
+                      class="w-8 h-8 object-contain"
+                    />
+                  </ClientOnly>
                     <span class="truncate block" :title="team.name">{{ team.name }}</span>
                 </td>
                 <td class="px-1 py-2">{{ team.played }}</td>

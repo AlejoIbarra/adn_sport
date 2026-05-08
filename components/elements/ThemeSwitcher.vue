@@ -12,15 +12,17 @@ function changeTheme(event: MouseEvent) {
             @click="(event) => {
                 changeTheme(event)
             }">
-            <span v-if="$colorMode.preference === 'system'">
-                <ElementsIconsSystem />
-            </span>
-            <span v-if="$colorMode.preference === 'light'">
-                <ElementsIconsLight />
-            </span>
-            <span v-if="$colorMode.preference === 'dark'">
-                <ElementsIconsDark />
-            </span>
+            <ClientOnly>
+                <span v-if="$colorMode.preference === 'system'">
+                    <ElementsIconsSystem />
+                </span>
+                <span v-if="$colorMode.preference === 'light'">
+                    <ElementsIconsLight />
+                </span>
+                <span v-if="$colorMode.preference === 'dark'">
+                    <ElementsIconsDark />
+                </span>
+            </ClientOnly>
         </button>
         <div v-if="isOpen" class="fixed inset-0 z-30" @click="isOpen = false"></div>
         <transition enter-active-class="ease-out duration-300"

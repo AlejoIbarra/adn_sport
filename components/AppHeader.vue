@@ -15,10 +15,10 @@ const navLinks = [
         href: "/"
     },
     {
-        text: "Tabla Primera C",
-        href: "/table"
+        text: "Primera C",
+        href: "/primera-c-colombia"
     },
-        {
+    {
         text: "Municipales",
         href: "/municipal"
     },
