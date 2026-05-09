@@ -16,20 +16,16 @@ const navLinks = [
     },
     {
         text: "Primera C",
-        href: "/primera-c-colombia"
+        href: "/soccer/primera-c-colombia"
+    },
+    {
+        text: "Champions",
+        href: "/soccer/champions-league"
     },
     {
         text: "Municipales",
         href: "/municipal"
     },
-    // {
-    //     text: "Blog",
-    //     href: "/"
-    // },
-    // {
-    //     text: "About",
-    //     href: "/"
-    // }
 ]
 
 </script>

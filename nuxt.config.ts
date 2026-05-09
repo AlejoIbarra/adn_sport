@@ -17,6 +17,12 @@ export default defineNuxtConfig({
         classSuffix: '',
         storageKey: 'nuxt-color-mode'
     },
+    runtimeConfig: {
+        footballDataApiKey: process.env.FOOTBALL_DATA_API_KEY || '0b45bb6d2a2a466abb1bf8aba08fe5a9',
+        public: {
+            // public keys here
+        }
+    },
     postcss:{
         plugins: {
             tailwindcss: {},
