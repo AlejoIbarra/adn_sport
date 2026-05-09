@@ -131,7 +131,7 @@ const normalizedStandings = computed(() => {
       }))
     }))
   } else {
-    return rawStandings.value.standings?.map((s: any) => ({
+    return rawStandings.value?.standings?.map((s: any) => ({
       name: s.name,
       rows: s.rows?.map((r: any) => ({
         position: r.position,
@@ -166,7 +166,7 @@ const normalizedMatches = computed(() => {
     }))
   } else {
     const allEvents: any[] = []
-    const tournamentGroups = rawMatches.value.tournamentTeamEvents || {}
+    const tournamentGroups = rawMatches.value?.tournamentTeamEvents || {}
     Object.values(tournamentGroups).forEach((groupData: any) => {
       Object.values(groupData).forEach((teamEvents: any) => {
         if (Array.isArray(teamEvents)) {

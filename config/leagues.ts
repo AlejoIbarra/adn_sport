@@ -2,15 +2,13 @@ import type { LeagueConfig, SportConfig } from '../types/sports';
 
 export const LEAGUES: LeagueConfig[] = [
   {
-    id: 26947,
-    seasonId: 92699,
-    sofaId: 26947,
+    id: 341848806,
     name: 'Primera C Colombia',
     slug: 'primera-c-colombia',
     sport: 'soccer',
     country: 'Colombia',
     featured: true,
-    apiProvider: 'sofascore'
+    apiProvider: 'fcf'
   },
   {
     id: 2021,

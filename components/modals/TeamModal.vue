@@ -35,6 +35,14 @@ const fetchTeamDetails = async () => {
           stadiumLocation: fbRes.data.address
         }
       }
+    } else if (props.provider === 'fcf' && props.teamId) {
+      const fcfRes: any = await $fetch(`/api/fcf/team?id=${props.teamId}`)
+      if (fcfRes.found) {
+        finalSearchName = fcfRes.data.name
+        teamData.value = {
+          ...fcfRes.data
+        }
+      }
     }
 
     // 2. Enhance with SportsDB (History, Stadium Photos, Social)
