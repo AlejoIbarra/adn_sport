@@ -34,5 +34,5 @@ export const fcfFetch = async (url: string) => {
 
 export const getFcfImageUrl = (pictureId: string) => {
   if (!pictureId) return '/images/default-team.png'
-  return `https://api-latam.analyticom.de/api/live/FCF/images/${pictureId}?organizationIdFilter=329`
+  return `/api/fcf/image?id=${pictureId}`
 }

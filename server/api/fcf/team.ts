@@ -1,3 +1,5 @@
+import { getFcfImageUrl } from '~/server/utils/fcf'
+
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const teamId = query.id
@@ -17,15 +19,13 @@ export default defineEventHandler(async (event) => {
       }
     })
 
-    // Image URL helper
-    const getImageUrl = (pictureId: string) => `https://api-latam.analyticom.de/api/live/FCF/images/${pictureId}?organizationIdFilter=329`
 
     return {
       found: true,
       data: {
         id: data.id,
         name: data.name,
-        badge: getImageUrl(data.picture),
+        badge: getFcfImageUrl(data.picture),
         founded: data.foundedYear || 'N/D',
         stadium: data.venueName || 'N/D',
         website: data.website || '',
