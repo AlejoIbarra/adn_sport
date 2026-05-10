@@ -14,6 +14,51 @@ const tournamentId = leagueConfig.id
 const seasonId = leagueConfig.seasonId
 const externalCode = leagueConfig.externalCode
 
+// SEO - powered by leagues.ts metadata
+const siteBase = 'https://adndeportivo.com'
+useHead({
+  title: `${leagueConfig.name} 2025/26 | Resultados y Estadísticas | ADN Deportivo`,
+  meta: [
+    {
+      name: 'description',
+      content: leagueConfig.seoDescription || `Sigue la ${leagueConfig.name} en vivo: resultados, tabla de posiciones y estadísticas completas en ADN Deportivo.`
+    },
+    {
+      name: 'keywords',
+      content: leagueConfig.seoKeywords || `${leagueConfig.name}, resultados, tabla de posiciones, estadísticas fútbol`
+    },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:site_name', content: 'ADN Deportivo' },
+    { property: 'og:title', content: `${leagueConfig.name} | ADN Deportivo` },
+    {
+      property: 'og:description',
+      content: leagueConfig.seoDescription || `Cobertura completa de la ${leagueConfig.name} en ADN Deportivo.`
+    },
+    {
+      property: 'og:image',
+      content: leagueConfig.ogImage ? `${siteBase}${leagueConfig.ogImage}` : `${siteBase}/og/default.jpg`
+    },
+    { property: 'og:url', content: `${siteBase}${route.path}` },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: `${leagueConfig.name} | ADN Deportivo` },
+    {
+      name: 'twitter:description',
+      content: leagueConfig.seoDescription || `Resultados y estadísticas de la ${leagueConfig.name}.`
+    },
+    {
+      name: 'twitter:image',
+      content: leagueConfig.ogImage ? `${siteBase}${leagueConfig.ogImage}` : `${siteBase}/og/default.jpg`
+    },
+    // Important for Google News & discovery
+    { name: 'news_keywords', content: leagueConfig.seoKeywords || leagueConfig.name },
+    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }
+  ],
+  link: [
+    { rel: 'canonical', href: `${siteBase}${route.path}` }
+  ]
+})
+
+
 // I18N Setup
 const lang = ref('es')
 const t: any = {

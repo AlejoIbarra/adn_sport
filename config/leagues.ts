@@ -8,7 +8,10 @@ export const LEAGUES: LeagueConfig[] = [
     sport: 'soccer',
     country: 'Colombia',
     featured: true,
-    apiProvider: 'fcf'
+    apiProvider: 'fcf',
+    seoDescription: 'Sigue la Primera C de Colombia en vivo: tabla de posiciones, resultados, goleadores y calendario de partidos del fútbol de ascenso colombiano. La cobertura más completa en ADN Deportivo.',
+    seoKeywords: 'Primera C Colombia, fútbol colombiano, ascenso Colombia, liga ascenso, resultados Primera C, tabla posiciones Primera C, goleadores Primera C',
+    ogImage: '/og/primera-c.jpg'
   },
   {
     id: 2021,
@@ -19,7 +22,10 @@ export const LEAGUES: LeagueConfig[] = [
     sport: 'soccer',
     country: 'England',
     featured: true,
-    apiProvider: 'footballdata'
+    apiProvider: 'footballdata',
+    seoDescription: 'Premier League en vivo: resultados, tabla de posiciones, jornadas y estadísticas de los mejores equipos de Inglaterra. Manchester City, Arsenal, Liverpool y más en ADN Deportivo.',
+    seoKeywords: 'Premier League, fútbol inglés, Premier League resultados, tabla Premier League, Premier League en vivo, Manchester City, Arsenal, Liverpool',
+    ogImage: '/og/premier-league.jpg'
   },
   {
     id: 2014,
@@ -30,7 +36,10 @@ export const LEAGUES: LeagueConfig[] = [
     sport: 'soccer',
     country: 'Spain',
     featured: true,
-    apiProvider: 'footballdata'
+    apiProvider: 'footballdata',
+    seoDescription: 'La Liga española en vivo: resultados, tabla de posiciones, estadísticas y calendario de partidos. Real Madrid, Barcelona, Atlético y todos los equipos en ADN Deportivo.',
+    seoKeywords: 'La Liga, fútbol español, La Liga resultados, tabla La Liga, Real Madrid, Barcelona, Atlético de Madrid, Liga española',
+    ogImage: '/og/la-liga.jpg'
   },
   {
     id: 2019,
@@ -41,7 +50,10 @@ export const LEAGUES: LeagueConfig[] = [
     sport: 'soccer',
     country: 'Italy',
     featured: true,
-    apiProvider: 'footballdata'
+    apiProvider: 'footballdata',
+    seoDescription: 'Serie A italiana en vivo: resultados, clasificación y estadísticas completas. Inter, Juventus, AC Milan y todos los equipos del calcio italiano en ADN Deportivo.',
+    seoKeywords: 'Serie A, calcio italiano, Serie A resultados, tabla Serie A, Juventus, Inter Milan, AC Milan, fútbol italiano',
+    ogImage: '/og/serie-a.jpg'
   },
   {
     id: 2001,
@@ -52,7 +64,10 @@ export const LEAGUES: LeagueConfig[] = [
     sport: 'soccer',
     country: 'Europe',
     featured: true,
-    apiProvider: 'footballdata'
+    apiProvider: 'footballdata',
+    seoDescription: 'Champions League en vivo: resultados, fases, tabla de grupos y clasificación. Sigue el torneo de clubes más importante del mundo en ADN Deportivo con cobertura total.',
+    seoKeywords: 'Champions League, UEFA Champions League, resultados Champions League, fases Champions League, final Champions League, fútbol europeo, Champions en vivo',
+    ogImage: '/og/champions-league.jpg'
   },
   {
     id: 2146,
@@ -63,7 +78,10 @@ export const LEAGUES: LeagueConfig[] = [
     sport: 'soccer',
     country: 'Europe',
     featured: true,
-    apiProvider: 'footballdata'
+    apiProvider: 'footballdata',
+    seoDescription: 'Europa League en vivo: resultados, grupos, eliminatorias y estadísticas de la UEFA Europa League. Cobertura completa del segundo torneo de clubes europeo en ADN Deportivo.',
+    seoKeywords: 'Europa League, UEFA Europa League, resultados Europa League, tabla Europa League, fases eliminatorias Europa League, fútbol europeo',
+    ogImage: '/og/europa-league.jpg'
   }
 ];
 

@@ -8,8 +8,12 @@ export interface LeagueConfig {
   country?: string;
   image?: string;
   featured?: boolean;
-  apiProvider: 'sofascore' | 'footballdata';
+  apiProvider: 'sofascore' | 'footballdata' | 'fcf';
   externalCode?: string; // For Football-Data.org (e.g. 'PL', 'CL')
+  // SEO fields
+  seoDescription?: string;
+  seoKeywords?: string;
+  ogImage?: string;
 }
 
 export interface SportConfig {

@@ -2,10 +2,26 @@
 import { LEAGUES } from '~/config/leagues'
 
 useHead({
-  title: 'ADN Deportivo - Elite Sports Hub',
+  title: 'ADN Deportivo - Resultados, Tablas y Estadísticas de Fútbol | Champions, Premier League, La Liga',
   meta: [
-    { name: 'description', content: 'La plataforma definitiva para el deporte global. Primera C, Champions League, Premier League y más.' },
+    { name: 'description', content: 'ADN Deportivo: la plataforma definitiva para el fútbol. Resultados en vivo, tablas de posiciones y estadísticas de Champions League, Premier League, La Liga, Serie A y la Primera C de Colombia.' },
+    { name: 'keywords', content: 'ADN Deportivo, resultados fútbol, Champions League, Premier League, La Liga, Serie A, Europa League, Primera C Colombia, fútbol colombiano, estadísticas fútbol' },
+    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:site_name', content: 'ADN Deportivo' },
+    { property: 'og:title', content: 'ADN Deportivo - Resultados y Estadísticas de Fútbol en Vivo' },
+    { property: 'og:description', content: 'La plataforma definitiva para el fútbol global y el ascenso colombiano. Cobertura total de Champions, Premier League, La Liga, Serie A y la Primera C.' },
+    { property: 'og:image', content: 'https://adndeportivo.com/og/default.jpg' },
+    { property: 'og:url', content: 'https://adndeportivo.com' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:site', content: '@adndeportivo' },
+    { name: 'twitter:title', content: 'ADN Deportivo - Resultados de Fútbol en Vivo' },
+    { name: 'twitter:description', content: 'Champions League, Premier League, La Liga, Serie A y Primera C Colombia. Todo el fútbol en tiempo real.' },
+    { name: 'twitter:image', content: 'https://adndeportivo.com/og/default.jpg' }
   ],
+  link: [
+    { rel: 'canonical', href: 'https://adndeportivo.com' }
+  ]
 })
 
 // Quick fetch for featured matches across all leagues
