@@ -462,8 +462,6 @@ const openTeamDetails = (name: string, id: number | string) => {
             </div>
           </div>
 
-          <ElementsAdBanner ad-slot="1000000003" />
-
           <div class="flex flex-col gap-24">
             <!-- Full Standings Table (Only if available) -->
             <div v-if="normalizedStandings.length > 0" class="space-y-12">
@@ -525,6 +523,8 @@ const openTeamDetails = (name: string, id: number | string) => {
                 </div>
               </div>
             </div>
+
+            <ElementsAdBanner ad-slot="1000000003" />
 
             <!-- Matches Section -->
             <div class="grid lg:grid-cols-12 gap-16">
@@ -616,6 +616,8 @@ const openTeamDetails = (name: string, id: number | string) => {
         </div>
       </div>
     </section>
+
+    <ElementsAdBanner ad-slot="1000000005" />
 
     <!-- Team Details Modal -->
     <ModalsTeamModal 

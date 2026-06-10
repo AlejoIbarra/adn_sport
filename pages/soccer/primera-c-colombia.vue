@@ -211,6 +211,32 @@ const displayedScorers = computed(() => {
   if (showAllScorers.value) return scorers.value
   return scorers.value?.slice(0, 5)
 })
+
+// Search team state and logic
+const { data: allTeams } = await useFetch<any[]>(() => `/api/fcf/all-teams?id=${tournamentId}`)
+const searchQuery = ref('')
+const isSearchResultsOpen = ref(false)
+
+const filteredSearchTeams = computed(() => {
+  if (!searchQuery.value) return []
+  const q = searchQuery.value.toLowerCase()
+  return allTeams.value?.filter((t: any) => t.name.toLowerCase().includes(q)) || []
+})
+
+const handleSelectSearchedTeam = (team: any) => {
+  selectGroup(team.groupId)
+  searchQuery.value = ''
+  isSearchResultsOpen.value = false
+}
+
+// Standings filtering for "Descansa"
+const filteredStandings = computed(() => {
+  if (!rawStandings.value) return []
+  return rawStandings.value.filter((row: any) => {
+    const name = row.team?.name?.toLowerCase() || ''
+    return !name.includes('descansa') && !name.includes('libre')
+  })
+})
 </script>
 
 <template>
@@ -241,10 +267,10 @@ const displayedScorers = computed(() => {
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-8">
           
-          <div class="flex items-center gap-6">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 relative z-[70]">
             <div class="relative">
-              <button @click="isGroupMenuOpen = !isGroupMenuOpen" 
-                      class="flex items-center gap-6 px-8 py-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 rounded-[24px] hover:border-blue-600/50 transition-all group relative overflow-hidden shadow-sm dark:shadow-none">
+              <button @click="isGroupMenuOpen = !isGroupMenuOpen; isSearchResultsOpen = false" 
+                      class="flex items-center gap-6 px-8 py-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 rounded-[24px] hover:border-blue-600/50 transition-all group relative overflow-hidden shadow-sm dark:shadow-none w-full">
                 <div class="absolute inset-0 bg-blue-600/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                 <div class="flex flex-col items-start relative z-10">
                   <span class="text-[9px] font-black text-neutral-600 uppercase tracking-widest">{{ cur.grupoActual }}</span>
@@ -257,6 +283,38 @@ const displayedScorers = computed(() => {
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
+            </div>
+
+            <!-- Team Search Input -->
+            <div class="relative flex-1 sm:w-[280px]">
+              <div class="flex items-center gap-3 px-5 py-3.5 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 rounded-[24px] shadow-sm dark:shadow-none focus-within:border-blue-500/50 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input v-model="searchQuery" 
+                       @focus="isSearchResultsOpen = true; isGroupMenuOpen = false"
+                       placeholder="Buscar equipo..." 
+                       class="w-full bg-transparent text-sm text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none font-bold" />
+                <button v-if="searchQuery" @click="searchQuery = ''" class="text-neutral-400 hover:text-neutral-600 dark:hover:text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+              </div>
+
+              <!-- Autocomplete Results Dropdown -->
+              <transition name="dropdown">
+                <div v-if="isSearchResultsOpen && filteredSearchTeams.length > 0"
+                     class="absolute top-full left-0 mt-3 w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 rounded-[24px] shadow-xl p-4 max-h-[300px] overflow-y-auto z-[80] scrollbar-custom">
+                  <ul class="flex flex-col gap-1">
+                    <li v-for="team in filteredSearchTeams" :key="team.id"
+                        @click="handleSelectSearchedTeam(team)"
+                        class="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-bold text-neutral-700 dark:text-neutral-300 hover:bg-blue-600 hover:text-white cursor-pointer transition-all">
+                      <span>{{ team.name }}</span>
+                      <span class="text-[9px] opacity-65">{{ team.groupName }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </transition>
+              <div v-if="isSearchResultsOpen" class="fixed inset-0 z-[-1]" @click="isSearchResultsOpen = false"></div>
 
               <!-- Advanced Interactive Dropdown -->
               <transition name="dropdown">
@@ -296,10 +354,6 @@ const displayedScorers = computed(() => {
         </div>
       </div>
     </section>
-
-    <div class="container mx-auto px-6">
-      <ElementsAdBanner ad-slot="1000000004" />
-    </div>
 
     <!-- Match Radar -->
     <section v-if="futureMatches?.length" class="py-16 overflow-hidden">
@@ -365,7 +419,7 @@ const displayedScorers = computed(() => {
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-neutral-200 dark:divide-white/5">
-                    <tr v-for="row in rawStandings" :key="row.team.id" class="hover:bg-blue-600/[0.02] transition-all duration-700 group/row">
+                    <tr v-for="row in filteredStandings" :key="row.team.id" class="hover:bg-blue-600/[0.02] transition-all duration-700 group/row">
                       <td class="px-12 py-10">
                         <span class="text-4xl font-black italic text-neutral-300 dark:text-neutral-800 group-hover/row:text-blue-600 transition-colors duration-500">{{ row.position }}</span>
                       </td>
@@ -391,6 +445,8 @@ const displayedScorers = computed(() => {
               </div>
             </article>
         </section>
+
+        <ElementsAdBanner ad-slot="1000000004" />
 
         <!-- Schedule & Scorers Column Grid -->
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
@@ -430,9 +486,24 @@ const displayedScorers = computed(() => {
                      </div>
 
                      <div class="grid gap-4">
-                        <article v-for="match in matches" :key="match.id" 
-                                 class="relative p-6 rounded-[40px] bg-white dark:bg-[#080808] border border-neutral-200 dark:border-white/5 hover:border-blue-600/30 transition-all duration-700 group shadow-sm dark:shadow-none">
-                           <div class="relative z-10 flex items-center justify-between gap-4">
+                        <article v-for="match in matches" :key="match.id">
+                           <!-- If match contains a descansando team -->
+                           <div v-if="match.homeTeam.name.toLowerCase().includes('descansa') || match.awayTeam.name.toLowerCase().includes('descansa')"
+                                class="relative p-6 rounded-[30px] bg-neutral-100/50 dark:bg-neutral-900/30 border border-neutral-200 dark:border-white/5 flex items-center justify-between gap-4">
+                             <div class="flex items-center gap-4">
+                               <div class="w-10 h-10 rounded-xl bg-neutral-200 dark:bg-neutral-800 p-2 border border-neutral-300 dark:border-white/5 flex items-center justify-center">
+                                 <img :src="match.homeTeam.name.toLowerCase().includes('descansa') ? match.awayTeam.image : match.homeTeam.image" class="w-full h-full object-contain" />
+                               </div>
+                               <span class="text-sm font-black text-neutral-900 dark:text-white uppercase italic">{{ match.homeTeam.name.toLowerCase().includes('descansa') ? match.awayTeam.name : match.homeTeam.name }}</span>
+                             </div>
+                             <div class="px-4 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-[9px] font-black uppercase tracking-widest">
+                               Descansa
+                             </div>
+                           </div>
+
+                           <!-- Regular Match Card -->
+                           <div v-else
+                                class="relative p-6 rounded-[40px] bg-white dark:bg-[#080808] border border-neutral-200 dark:border-white/5 hover:border-blue-600/30 transition-all duration-700 group shadow-sm dark:shadow-none flex items-center justify-between gap-4">
                               <div class="flex-1 flex flex-col items-center gap-3 cursor-pointer group/team" @click="openTeamDetails(match.homeTeam.name, match.homeTeam.id)">
                                  <div class="w-12 h-12 rounded-2xl bg-neutral-100 dark:bg-neutral-900 p-2 border border-neutral-200 dark:border-white/5">
                                     <img :src="match.homeTeam.image" class="w-full h-full object-contain" :alt="match.homeTeam.name" />
@@ -535,6 +606,8 @@ const displayedScorers = computed(() => {
         </div>
       </div>
     </section>
+
+    <ElementsAdBanner ad-slot="1000000006" />
 
     <!-- Modal -->
     <ModalsTeamModal 
