@@ -29,14 +29,14 @@ const featuredLeagues = LEAGUES.filter(l => l.featured)
 </script>
 
 <template>
-  <main class="min-h-screen bg-[#050505] text-neutral-100 selection:bg-blue-500/30 overflow-hidden">
+  <main class="min-h-screen bg-neutral-50 dark:bg-[#050505] text-neutral-900 dark:text-neutral-100 selection:bg-blue-500/30 overflow-hidden transition-colors duration-500">
     <!-- Brutal Hero Section -->
     <section class="relative pt-40 pb-24 lg:pt-56 lg:pb-40">
       <!-- Animated Background -->
       <div class="absolute inset-0 z-0">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle_at_50%_-20%,#3b82f620,transparent_60%)]"></div>
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03]"></div>
-        <div class="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-[#050505] to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-neutral-50 dark:from-[#050505] to-transparent"></div>
       </div>
 
       <div class="container mx-auto px-6 relative z-10">
@@ -47,10 +47,10 @@ const featuredLeagues = LEAGUES.filter(l => l.featured)
           
           <h1 class="text-7xl lg:text-[11rem] font-black tracking-tighter mb-12 leading-[0.8] uppercase italic">
             ADN <br/>
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-white to-blue-400">DEPORTIVO</span>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-neutral-900 dark:via-white to-blue-400">DEPORTIVO</span>
           </h1>
           
-          <p class="text-xl lg:text-2xl text-neutral-400 max-w-3xl leading-relaxed font-medium mb-16 px-4">
+          <p class="text-xl lg:text-2xl text-neutral-600 dark:text-neutral-400 max-w-3xl leading-relaxed font-medium mb-16 px-4">
             El pulso del deporte mundial en un solo lugar. Cobertura en tiempo real de las ligas más prestigiosas y el talento local de Colombia.
           </p>
 
@@ -58,7 +58,7 @@ const featuredLeagues = LEAGUES.filter(l => l.featured)
             <button class="px-12 py-6 bg-blue-600 text-white rounded-[32px] font-black uppercase tracking-widest text-xs hover:scale-105 hover:bg-blue-500 transition-all duration-500 shadow-2xl shadow-blue-500/40">
               Explorar Ligas
             </button>
-            <button class="px-12 py-6 bg-neutral-900 border border-white/10 text-white rounded-[32px] font-black uppercase tracking-widest text-xs hover:bg-neutral-800 transition-all duration-500">
+            <button class="px-12 py-6 bg-white border border-neutral-200 text-neutral-900 rounded-[32px] font-black uppercase tracking-widest text-xs hover:bg-neutral-100 dark:bg-neutral-900 dark:border-white/10 dark:text-white dark:hover:bg-neutral-800 transition-all duration-500 shadow-md dark:shadow-none">
               Ver En Vivo
             </button>
           </div>
@@ -66,15 +66,19 @@ const featuredLeagues = LEAGUES.filter(l => l.featured)
       </div>
     </section>
 
+    <div class="container mx-auto px-6">
+      <ElementsAdBanner ad-slot="1000000001" />
+    </div>
+
     <!-- League Selector Grid -->
-    <section class="py-32 relative border-t border-white/5">
+    <section class="py-32 relative border-t border-neutral-200 dark:border-white/5">
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
           <div>
             <h2 class="text-xs font-black text-blue-500 uppercase tracking-[0.3em] mb-4">Competiciones</h2>
-            <p class="text-5xl font-black italic uppercase text-white tracking-tighter">Elite <span class="text-neutral-600">Access</span></p>
+            <p class="text-5xl font-black italic uppercase text-neutral-900 dark:text-white tracking-tighter">Elite <span class="text-neutral-400 dark:text-neutral-600">Access</span></p>
           </div>
-          <p class="text-neutral-500 max-w-xs text-sm font-medium">
+          <p class="text-neutral-600 dark:text-neutral-500 max-w-xs text-sm font-medium">
             Selecciona una liga para acceder a estadísticas avanzadas, calendarios y resultados oficiales en tiempo real.
           </p>
         </div>
@@ -110,14 +114,18 @@ const featuredLeagues = LEAGUES.filter(l => l.featured)
             <div class="aspect-[4/5] rounded-[64px] overflow-hidden border-8 border-white/20 shadow-4xl transform rotate-3 hover:rotate-0 transition-transform duration-700">
               <img src="/images/4.jpg" alt="Fans" class="w-full h-full object-cover" />
             </div>
-            <div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-[40px] shadow-2xl transform -rotate-6">
+            <div class="absolute -bottom-10 -left-10 bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-white/5 p-8 rounded-[40px] shadow-2xl transform -rotate-6">
               <p class="text-blue-600 text-4xl font-black italic">+4,000</p>
-              <p class="text-neutral-500 text-[10px] font-black uppercase tracking-widest">Seguidores Fieles</p>
+              <p class="text-neutral-500 dark:text-neutral-400 text-[10px] font-black uppercase tracking-widest">Seguidores Fieles</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="container mx-auto px-6">
+      <ElementsAdBanner ad-slot="1000000002" />
+    </div>
 
     <!-- Footer Teaser -->
     <section class="py-40 text-center">
@@ -125,7 +133,7 @@ const featuredLeagues = LEAGUES.filter(l => l.featured)
         <h2 class="text-2xl font-black italic uppercase text-neutral-500 mb-12 tracking-widest opacity-50">ADN DEPORTIVO • 2026</h2>
         <div class="flex justify-center gap-12 flex-wrap">
           <span v-for="tag in ['ESTADÍSTICAS', 'EN VIVO', 'MULTIDEPORTES', 'NOTICIAS']" :key="tag" 
-                class="text-[10px] font-black tracking-[0.5em] text-neutral-700 hover:text-blue-500 transition-colors cursor-default">
+                class="text-[10px] font-black tracking-[0.5em] text-neutral-500 dark:text-neutral-400 hover:text-blue-500 transition-colors cursor-default">
             {{ tag }}
           </span>
         </div>

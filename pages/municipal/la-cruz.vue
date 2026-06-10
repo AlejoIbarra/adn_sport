@@ -52,7 +52,7 @@ useHead({
 <template>
   <section class="py-20">
     <div class="text-center font-sans px-5">
-      <h1 class="text-3xl font-bold mb-10 text-white">Alcaldía Municipal La Cruz</h1>
+      <h1 class="text-3xl font-bold mb-10 text-neutral-900 dark:text-white">Alcaldía Municipal La Cruz</h1>
       <SectionsMunicipalDataSection/>
     </div>
   </section>

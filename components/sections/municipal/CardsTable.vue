@@ -8,7 +8,7 @@
       <div
         v-for="(equipo, nombreEquipo) in tarjetas"
         :key="nombreEquipo"
-        class="bg-white rounded-md shadow p-3 border-t-4"
+        class="bg-white dark:bg-gray-800 rounded-md shadow p-3 border-t-4 border-neutral-200 dark:border-gray-700 text-gray-900 dark:text-white"
         :class="{
           'border-yellow-400': tieneTarjetaAmarilla(equipo.jugadores),
           'border-red-500': tieneTarjetaRoja(equipo.jugadores)
@@ -26,13 +26,13 @@
             <li
               v-for="jugador in equipo.jugadores"
               :key="jugador.nombre"
-              class="flex flex-col items-center bg-yellow-50 px-4 py-2 rounded mb-2"
+              class="flex flex-col items-center px-4 py-2 rounded mb-2"
               :class="{
-                'bg-yellow-50': jugador.tipo === 'amarilla',
-                'bg-red-100': jugador.tipo === 'roja'
+                'bg-yellow-50 dark:bg-yellow-950/20': jugador.tipo === 'amarilla',
+                'bg-red-100 dark:bg-red-950/20': jugador.tipo === 'roja'
               }"
             >
-              <p class="font-semibold text-gray-800">{{ jugador.nombre }}</p>
+              <p class="font-semibold text-gray-800 dark:text-gray-200">{{ jugador.nombre }}</p>
               <div class="flex items-center justify-center gap-2 text-xs mb-1">
                 <span
                   class="inline-block w-3 h-5 rounded-sm"
@@ -41,17 +41,17 @@
                     'bg-red-500': jugador.tipo === 'roja'
                   }"
                 ></span>
-                <span class="capitalize text-gray-700">{{ jugador.tipo }}</span>
+                <span class="capitalize text-gray-700 dark:text-gray-300">{{ jugador.tipo }}</span>
               </div>
               <div
                 v-if="jugador.suspendidoHasta"
-                class="text-xs text-red-600 font-semibold"
+                class="text-xs text-red-600 dark:text-red-400 font-semibold"
               >
                 Suspendido hasta: {{ jugador.suspendidoHasta }}
               </div>
               <div
                 v-else
-                class="text-xs text-green-600 font-medium"
+                class="text-xs text-green-600 dark:text-green-400 font-medium"
               >
                 Disponible
               </div>

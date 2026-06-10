@@ -214,7 +214,7 @@ const displayedScorers = computed(() => {
 </script>
 
 <template>
-  <main class="min-h-screen bg-[#000000] text-neutral-100 font-sans selection:bg-blue-600/50 overflow-x-hidden">
+  <main class="min-h-screen bg-neutral-50 dark:bg-[#000000] text-neutral-900 dark:text-neutral-100 font-sans selection:bg-blue-600/50 overflow-x-hidden transition-colors duration-500">
     <!-- Brutal Hero -->
     <section class="relative pt-40 pb-24 lg:pt-64 lg:pb-48 overflow-hidden">
       <div class="absolute inset-0 z-0">
@@ -226,29 +226,29 @@ const displayedScorers = computed(() => {
          <div class="mb-12 inline-flex items-center gap-4 px-8 py-3 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] font-black uppercase tracking-[0.5em] animate-fade-in shadow-2xl">
            {{ cur.season }}
          </div>
-         <h1 class="text-8xl lg:text-[14rem] font-black tracking-tighter mb-12 italic leading-[0.75] uppercase bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-700 animate-title">
+         <h1 class="text-8xl lg:text-[14rem] font-black tracking-tighter mb-12 italic leading-[0.75] uppercase bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-white dark:to-neutral-700 animate-title">
            {{ cur.heroTitle }}<br/>
            <span class="text-blue-600">COLOMBIA</span>
          </h1>
-         <p class="text-xl lg:text-3xl text-neutral-500 max-w-4xl mx-auto leading-relaxed font-bold italic">
+         <p class="text-xl lg:text-3xl text-neutral-600 dark:text-neutral-500 max-w-4xl mx-auto leading-relaxed font-bold italic">
            {{ cur.heroSubtitle }}
          </p>
       </div>
     </section>
 
     <!-- Interactive Group Command Center -->
-    <section class="sticky top-24 z-50 py-6 bg-black/60 backdrop-blur-3xl border-y border-white/5">
+    <section class="sticky top-24 z-50 py-6 bg-neutral-50/60 dark:bg-black/60 backdrop-blur-3xl border-y border-neutral-200 dark:border-white/5 transition-colors duration-500">
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-8">
           
           <div class="flex items-center gap-6">
             <div class="relative">
               <button @click="isGroupMenuOpen = !isGroupMenuOpen" 
-                      class="flex items-center gap-6 px-8 py-4 bg-neutral-900 border border-white/10 rounded-[24px] hover:border-blue-600/50 transition-all group relative overflow-hidden">
+                      class="flex items-center gap-6 px-8 py-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 rounded-[24px] hover:border-blue-600/50 transition-all group relative overflow-hidden shadow-sm dark:shadow-none">
                 <div class="absolute inset-0 bg-blue-600/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                 <div class="flex flex-col items-start relative z-10">
                   <span class="text-[9px] font-black text-neutral-600 uppercase tracking-widest">{{ cur.grupoActual }}</span>
-                  <span class="text-2xl font-black text-white italic uppercase tracking-tighter group-hover:text-blue-400 transition-colors">{{ currentGroupName }}</span>
+                  <span class="text-2xl font-black text-neutral-900 dark:text-white italic uppercase tracking-tighter group-hover:text-blue-400 transition-colors">{{ currentGroupName }}</span>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" 
                      class="w-6 h-6 text-neutral-700 group-hover:text-blue-400 transition-all duration-500" 
@@ -261,7 +261,7 @@ const displayedScorers = computed(() => {
               <!-- Advanced Interactive Dropdown -->
               <transition name="dropdown">
                 <div v-if="isGroupMenuOpen" 
-                     class="absolute top-full left-0 mt-6 w-[320px] md:w-[600px] lg:w-[800px] bg-[#0A0A0A] border border-white/10 rounded-[48px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] p-10 z-[60] overflow-hidden">
+                     class="absolute top-full left-0 mt-6 w-[320px] md:w-[600px] lg:w-[800px] bg-white dark:bg-[#0A0A0A] border border-neutral-200 dark:border-white/10 rounded-[48px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.2)] dark:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] p-10 z-[60] overflow-hidden">
                   <div class="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,#1d4ed810,transparent_50%)]"></div>
                   
                   <div class="relative z-10">
@@ -269,7 +269,7 @@ const displayedScorers = computed(() => {
                     <div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-4 max-h-[60vh] overflow-y-auto pr-4 scrollbar-custom">
                       <button v-for="group in fcfGroups?.competitionElements" :key="group.id"
                               @click="selectGroup(group.id)"
-                              :class="currentGroupId === group.id ? 'bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-600/20' : 'bg-neutral-800 text-neutral-500 border-white/5 hover:border-blue-600/50 hover:text-white'"
+                              :class="currentGroupId === group.id ? 'bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-600/20' : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-500 border-neutral-200 dark:border-white/5 hover:border-blue-600/50 hover:text-neutral-900 dark:hover:text-white'"
                               class="aspect-square flex flex-col items-center justify-center rounded-3xl border transition-all duration-300 group/item">
                         <span class="text-[9px] font-black uppercase mb-1 opacity-50">{{ group.name.split('-')[0] }}</span>
                         <span class="text-xl font-black italic">{{ group.name.split('-')[1]?.split(' ')[0] }}</span>
@@ -282,49 +282,53 @@ const displayedScorers = computed(() => {
           </div>
 
           <!-- Quick Stats Summary in Bar -->
-          <div v-if="!standingsPending && rawStandings?.length" class="hidden lg:flex items-center gap-12 px-10 py-4 bg-white/5 rounded-full border border-white/5 backdrop-blur-xl">
+          <div v-if="!standingsPending && rawStandings?.length" class="hidden lg:flex items-center gap-12 px-10 py-4 bg-neutral-100 dark:bg-white/5 rounded-full border border-neutral-200 dark:border-white/5 backdrop-blur-xl">
              <div class="flex flex-col">
                 <span class="text-[9px] font-black text-neutral-600 uppercase tracking-widest">Líder</span>
-                <span class="text-sm font-black text-white italic uppercase tracking-tighter">{{ rawStandings[0].team.name }}</span>
+                <span class="text-sm font-black text-neutral-900 dark:text-white italic uppercase tracking-tighter">{{ rawStandings[0].team.name }}</span>
              </div>
-             <div class="w-px h-8 bg-white/10"></div>
+             <div class="w-px h-8 bg-neutral-200 dark:bg-white/10"></div>
              <div class="flex flex-col">
                 <span class="text-[9px] font-black text-neutral-600 uppercase tracking-widest">Goles</span>
-                <span class="text-sm font-black text-white italic tracking-tighter">{{ rawStandings[0].goalsFor }}</span>
+                <span class="text-sm font-black text-neutral-900 dark:text-white italic tracking-tighter">{{ rawStandings[0].goalsFor }}</span>
              </div>
           </div>
         </div>
       </div>
     </section>
 
+    <div class="container mx-auto px-6">
+      <ElementsAdBanner ad-slot="1000000004" />
+    </div>
+
     <!-- Match Radar -->
     <section v-if="futureMatches?.length" class="py-16 overflow-hidden">
       <div class="container mx-auto px-6">
          <div class="flex items-center gap-6 mb-12">
             <h2 class="text-xs font-black text-neutral-400 uppercase tracking-[0.5em]">{{ cur.proximasBatallas }}</h2>
-            <div class="h-px flex-1 bg-gradient-to-r from-neutral-800 to-transparent"></div>
+            <div class="h-px flex-1 bg-gradient-to-r from-neutral-200 dark:from-neutral-800 to-transparent"></div>
          </div>
         <div class="flex gap-8 overflow-x-auto pb-12 scrollbar-hide snap-x">
           <div v-for="match in futureMatches" :key="match.id" 
-               class="min-w-[400px] p-10 rounded-[64px] bg-[#050505] border border-white/5 hover:border-blue-600/50 transition-all duration-700 group snap-center shadow-3xl">
+               class="min-w-[400px] p-10 rounded-[64px] bg-white dark:bg-[#050505] border border-neutral-200 dark:border-white/5 hover:border-blue-600/50 transition-all duration-700 group snap-center shadow-lg dark:shadow-3xl">
             <div class="flex justify-between items-center mb-10">
               <span class="text-[10px] font-black text-blue-500 uppercase tracking-widest">{{ match.groupName }}</span>
-              <span class="text-[10px] font-bold text-neutral-400 uppercase">{{ new Date(match.date).toLocaleDateString('es-CO', { day: '2-digit', month: 'short' }) }} • {{ new Date(match.date).toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' }) }}</span>
+              <span class="text-[10px] font-bold text-neutral-500 dark:text-neutral-400 uppercase">{{ new Date(match.date).toLocaleDateString('es-CO', { day: '2-digit', month: 'short' }) }} • {{ new Date(match.date).toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' }) }}</span>
             </div>
             <div class="flex items-center justify-between gap-8 mb-10">
               <div class="flex flex-col items-center gap-4 flex-1 cursor-pointer group/team" @click="openTeamDetails(match.homeTeam.name, match.homeTeam.id)">
                 <img :src="match.homeTeam.image" class="w-20 h-20 object-contain group-hover/team:scale-110 transition-transform duration-500" />
-                <span class="text-xs font-black text-white text-center uppercase italic leading-tight">{{ match.homeTeam.name }}</span>
+                <span class="text-xs font-black text-neutral-900 dark:text-white text-center uppercase italic leading-tight">{{ match.homeTeam.name }}</span>
               </div>
-              <span class="text-2xl font-black italic text-neutral-800">VS</span>
+              <span class="text-2xl font-black italic text-neutral-300 dark:text-neutral-800">VS</span>
               <div class="flex flex-col items-center gap-4 flex-1 cursor-pointer group/team" @click="openTeamDetails(match.awayTeam.name, match.awayTeam.id)">
                 <img :src="match.awayTeam.image" class="w-20 h-20 object-contain group-hover/team:scale-110 transition-transform duration-500" />
-                <span class="text-xs font-black text-white text-center uppercase italic leading-tight">{{ match.awayTeam.name }}</span>
+                <span class="text-xs font-black text-neutral-900 dark:text-white text-center uppercase italic leading-tight">{{ match.awayTeam.name }}</span>
               </div>
             </div>
-            <div class="flex items-center justify-center gap-3 py-4 border-t border-white/5">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-neutral-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-              <span class="text-[9px] font-black text-neutral-700 uppercase tracking-widest truncate">{{ match.facility || 'Sede por Confirmar' }}</span>
+            <div class="flex items-center justify-center gap-3 py-4 border-t border-neutral-200 dark:border-white/5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-neutral-500 dark:text-neutral-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              <span class="text-[9px] font-black text-neutral-600 dark:text-neutral-700 uppercase tracking-widest truncate">{{ match.facility || 'Sede por Confirmar' }}</span>
             </div>
           </div>
         </div>
@@ -332,25 +336,25 @@ const displayedScorers = computed(() => {
     </section>
 
     <!-- Main Data Grid & SEO Optimized Sections -->
-    <section class="py-8 lg:py-12 bg-black" aria-label="Estadísticas y Cronograma">
+    <section class="py-8 lg:py-12 bg-neutral-50 dark:bg-black transition-colors duration-500" aria-label="Estadísticas y Cronograma">
       <div class="container mx-auto px-4 lg:px-6 space-y-16 lg:space-y-32">
         
         <!-- Standings Table (Semantic Section) -->
         <section id="posiciones" class="space-y-8 lg:space-y-12">
-            <header class="flex items-end justify-between border-b border-white/5 pb-8">
-               <h2 class="text-4xl lg:text-6xl font-black italic uppercase text-white tracking-tighter leading-none">{{ cur.posiciones }}</h2>
+            <header class="flex items-end justify-between border-b border-neutral-200 dark:border-white/5 pb-8">
+               <h2 class="text-4xl lg:text-6xl font-black italic uppercase text-neutral-900 dark:text-white tracking-tighter leading-none">{{ cur.posiciones }}</h2>
                <span class="text-[10px] font-black text-neutral-500 uppercase tracking-[0.5em] mb-2">Grupo Actual: {{ currentGroupName }}</span>
             </header>
 
-            <div v-if="standingsPending" class="p-40 text-center bg-neutral-900/20 rounded-[80px] border border-white/5">
+            <div v-if="standingsPending" class="p-40 text-center bg-neutral-200/50 dark:bg-neutral-900/20 rounded-[80px] border border-neutral-200 dark:border-white/5">
                <div class="w-20 h-20 border-[8px] border-blue-600 border-t-transparent rounded-full animate-spin mx-auto shadow-2xl"></div>
             </div>
 
-            <article v-else class="bg-[#050505] rounded-[64px] lg:rounded-[80px] border border-white/5 overflow-hidden shadow-4xl group/table relative">
+            <article v-else class="bg-white dark:bg-[#050505] rounded-[64px] lg:rounded-[80px] border border-neutral-200 dark:border-white/5 overflow-hidden shadow-2xl dark:shadow-4xl group/table relative">
               <div class="overflow-x-auto scrollbar-custom">
                 <table class="w-full text-left border-collapse min-w-[800px]">
                   <thead>
-                    <tr class="text-[11px] font-black text-neutral-400 uppercase tracking-[0.4em] border-b border-white/5 bg-white/[0.01]">
+                    <tr class="text-[11px] font-black text-neutral-500 dark:text-neutral-400 uppercase tracking-[0.4em] border-b border-neutral-200 dark:border-white/5 bg-neutral-50 dark:bg-white/[0.01]">
                       <th class="px-12 py-10 w-24">POS</th>
                       <th class="px-4 py-10 min-w-[340px]">{{ cur.equipos }}</th>
                       <th class="px-4 py-10 text-center">PJ</th>
@@ -360,27 +364,27 @@ const displayedScorers = computed(() => {
                       <th class="px-12 py-10 text-center bg-blue-600/10 text-blue-500 font-black">PTS</th>
                     </tr>
                   </thead>
-                  <tbody class="divide-y divide-white/5">
+                  <tbody class="divide-y divide-neutral-200 dark:divide-white/5">
                     <tr v-for="row in rawStandings" :key="row.team.id" class="hover:bg-blue-600/[0.02] transition-all duration-700 group/row">
                       <td class="px-12 py-10">
-                        <span class="text-4xl font-black italic text-neutral-800 group-hover/row:text-blue-600 transition-colors duration-500">{{ row.position }}</span>
+                        <span class="text-4xl font-black italic text-neutral-300 dark:text-neutral-800 group-hover/row:text-blue-600 transition-colors duration-500">{{ row.position }}</span>
                       </td>
                       <td class="px-4 py-10">
                         <div class="flex items-center gap-8 cursor-pointer group/team-info" @click="openTeamDetails(row.team.name, row.team.id)">
-                          <div class="w-14 h-14 rounded-2xl bg-neutral-900 p-2.5 border border-white/5 group-hover/team-info:scale-110 transition-transform duration-700 shadow-2xl">
+                          <div class="w-14 h-14 rounded-2xl bg-neutral-100 dark:bg-neutral-900 p-2.5 border border-neutral-200 dark:border-white/5 group-hover/team-info:scale-110 transition-transform duration-700 shadow-lg">
                             <img :src="row.team.image" class="w-full h-full object-contain" :alt="row.team.name" />
                           </div>
                           <div class="flex flex-col">
-                            <span class="font-black text-xl text-white uppercase italic tracking-tighter group-hover/row:translate-x-2 transition-transform duration-700 leading-none">{{ row.team.name }}</span>
-                            <span class="text-[10px] font-bold text-neutral-600 uppercase tracking-widest mt-1">{{ row.team.place }}</span>
+                            <span class="font-black text-xl text-neutral-900 dark:text-white uppercase italic tracking-tighter group-hover/row:translate-x-2 transition-transform duration-700 leading-none">{{ row.team.name }}</span>
+                            <span class="text-[10px] font-bold text-neutral-500 dark:text-neutral-600 uppercase tracking-widest mt-1">{{ row.team.place }}</span>
                           </div>
                         </div>
                       </td>
-                      <td class="px-4 py-10 text-center text-lg font-bold text-neutral-500">{{ row.played }}</td>
+                      <td class="px-4 py-10 text-center text-lg font-bold text-neutral-600 dark:text-neutral-500">{{ row.played }}</td>
                       <td class="px-4 py-10 text-center text-lg font-black text-emerald-500">{{ row.wins }}</td>
-                      <td class="px-4 py-10 text-center text-lg font-bold text-neutral-700">{{ row.draws }}</td>
+                      <td class="px-4 py-10 text-center text-lg font-bold text-neutral-400 dark:text-neutral-700">{{ row.draws }}</td>
                       <td class="px-4 py-10 text-center text-lg font-bold text-rose-600">{{ row.losses }}</td>
-                      <td class="px-12 py-10 text-center font-black text-4xl text-blue-500 bg-blue-600/[0.03]">{{ row.points }}</td>
+                      <td class="px-12 py-10 text-center font-black text-4xl text-blue-600 dark:text-blue-500 bg-blue-600/[0.01] dark:bg-blue-600/[0.03]">{{ row.points }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -393,24 +397,24 @@ const displayedScorers = computed(() => {
           
           <!-- Match Schedule (Semantic Section) -->
           <section id="calendario" class="lg:col-span-7 space-y-12">
-            <h2 class="text-4xl lg:text-5xl font-black italic uppercase text-white tracking-tighter leading-none">{{ cur.cronograma }}</h2>
+            <h2 class="text-4xl lg:text-5xl font-black italic uppercase text-neutral-900 dark:text-white tracking-tighter leading-none">{{ cur.cronograma }}</h2>
             
-            <div v-if="matchesPending" class="p-24 text-center bg-[#050505] rounded-[64px] border border-white/5 shadow-inner">
+            <div v-if="matchesPending" class="p-24 text-center bg-white dark:bg-[#050505] rounded-[64px] border border-neutral-200 dark:border-white/5 shadow-inner">
                <div class="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
             </div>
 
-            <div v-else-if="!rawMatches?.length" class="p-32 text-center bg-[#050505] rounded-[64px] border border-white/5 border-dashed">
-               <p class="text-neutral-700 text-xs font-black uppercase tracking-[0.4em]">{{ cur.sinDatos }}</p>
+            <div v-else-if="!rawMatches?.length" class="p-32 text-center bg-white dark:bg-[#050505] rounded-[64px] border border-neutral-200 dark:border-white/5 border-dashed">
+               <p class="text-neutral-500 dark:text-neutral-700 text-xs font-black uppercase tracking-[0.4em]">{{ cur.sinDatos }}</p>
             </div>
 
             <div v-else class="space-y-12">
                <!-- Round Selector -->
-               <nav class="bg-neutral-900/50 rounded-[40px] p-8 border border-white/5" aria-label="Selección de Jornada">
-                  <h4 class="text-[9px] font-black text-neutral-600 uppercase tracking-[0.4em] mb-6 px-2">Jornadas Disponibles</h4>
+               <nav class="bg-white dark:bg-neutral-900/50 rounded-[40px] p-8 border border-neutral-200 dark:border-white/5 shadow-sm dark:shadow-none" aria-label="Selección de Jornada">
+                  <h4 class="text-[9px] font-black text-neutral-500 dark:text-neutral-600 uppercase tracking-[0.4em] mb-6 px-2">Jornadas Disponibles</h4>
                   <div class="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-3 max-h-[200px] overflow-y-auto pr-2 scrollbar-custom">
                      <button v-for="round in sortedRounds" :key="round"
                              @click="selectedRound = round"
-                             :class="selectedRound === round ? 'bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-600/20 scale-105' : 'bg-neutral-800/50 text-neutral-400 border-white/5 hover:border-blue-600/50'"
+                             :class="selectedRound === round ? 'bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-600/20 scale-105' : 'bg-neutral-100 dark:bg-neutral-800/50 text-neutral-600 dark:text-neutral-400 border-neutral-200 dark:border-white/5 hover:border-blue-600/50'"
                              class="aspect-square flex items-center justify-center rounded-2xl border transition-all duration-300 font-black italic text-sm">
                         {{ round }}
                      </button>
@@ -422,28 +426,28 @@ const displayedScorers = computed(() => {
                   <div v-for="(matches, date) in groupedMatchesByDate" :key="date" class="space-y-6">
                      <div class="flex items-center gap-4 px-6">
                         <span class="text-[10px] font-black text-blue-500 uppercase tracking-[0.3em] italic">{{ date }}</span>
-                        <div class="h-px flex-1 bg-white/5"></div>
+                        <div class="h-px flex-1 bg-neutral-200 dark:bg-white/5"></div>
                      </div>
 
                      <div class="grid gap-4">
                         <article v-for="match in matches" :key="match.id" 
-                                 class="relative p-6 rounded-[40px] bg-[#080808] border border-white/5 hover:border-blue-600/30 transition-all duration-700 group">
+                                 class="relative p-6 rounded-[40px] bg-white dark:bg-[#080808] border border-neutral-200 dark:border-white/5 hover:border-blue-600/30 transition-all duration-700 group shadow-sm dark:shadow-none">
                            <div class="relative z-10 flex items-center justify-between gap-4">
                               <div class="flex-1 flex flex-col items-center gap-3 cursor-pointer group/team" @click="openTeamDetails(match.homeTeam.name, match.homeTeam.id)">
-                                 <div class="w-12 h-12 rounded-2xl bg-neutral-900 p-2 border border-white/5">
+                                 <div class="w-12 h-12 rounded-2xl bg-neutral-100 dark:bg-neutral-900 p-2 border border-neutral-200 dark:border-white/5">
                                     <img :src="match.homeTeam.image" class="w-full h-full object-contain" :alt="match.homeTeam.name" />
                                  </div>
-                                 <span class="text-[9px] font-black text-white uppercase italic tracking-tighter text-center leading-tight">{{ match.homeTeam.name }}</span>
+                                 <span class="text-[9px] font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter text-center leading-tight">{{ match.homeTeam.name }}</span>
                               </div>
 
                               <div class="flex flex-col items-center justify-center min-w-[100px]">
                                  <div class="flex items-center gap-3 mb-1">
-                                    <span class="text-3xl font-black italic text-white tracking-tighter">{{ match.homeScore ?? '-' }}</span>
-                                    <span class="text-xs font-black text-neutral-800 italic">:</span>
-                                    <span class="text-3xl font-black italic text-white tracking-tighter">{{ match.awayScore ?? '-' }}</span>
+                                    <span class="text-3xl font-black italic text-neutral-950 dark:text-white tracking-tighter">{{ match.homeScore ?? '-' }}</span>
+                                    <span class="text-xs font-black text-neutral-400 dark:text-neutral-800 italic">:</span>
+                                    <span class="text-3xl font-black italic text-neutral-950 dark:text-white tracking-tighter">{{ match.awayScore ?? '-' }}</span>
                                  </div>
                                  
-                                 <div v-if="match.halfScore" class="mb-1 px-1.5 py-0.5 rounded-md bg-white/5 border border-white/5">
+                                 <div v-if="match.halfScore" class="mb-1 px-1.5 py-0.5 rounded-md bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/5">
                                     <span class="text-[6px] font-black text-neutral-500 uppercase tracking-widest">MT: {{ match.halfScore }}</span>
                                  </div>
 
@@ -456,10 +460,10 @@ const displayedScorers = computed(() => {
                               </div>
 
                               <div class="flex-1 flex flex-col items-center gap-3 cursor-pointer group/team" @click="openTeamDetails(match.awayTeam.name, match.awayTeam.id)">
-                                 <div class="w-12 h-12 rounded-2xl bg-neutral-900 p-2 border border-white/5">
+                                 <div class="w-12 h-12 rounded-2xl bg-neutral-100 dark:bg-neutral-900 p-2 border border-neutral-200 dark:border-white/5">
                                     <img :src="match.awayTeam.image" class="w-full h-full object-contain" :alt="match.awayTeam.name" />
                                  </div>
-                                 <span class="text-[9px] font-black text-white uppercase italic tracking-tighter text-center leading-tight">{{ match.awayTeam.name }}</span>
+                                 <span class="text-[9px] font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter text-center leading-tight">{{ match.awayTeam.name }}</span>
                               </div>
                            </div>
                         </article>
@@ -471,61 +475,61 @@ const displayedScorers = computed(() => {
 
           <!-- Top Scorers (Semantic Section) -->
           <section id="goleadores" class="lg:col-span-5 space-y-12">
-            <h2 class="text-4xl lg:text-5xl font-black italic uppercase text-white tracking-tighter leading-none">{{ cur.goleadores }}</h2>
+            <h2 class="text-4xl lg:text-5xl font-black italic uppercase text-neutral-900 dark:text-white tracking-tighter leading-none">{{ cur.goleadores }}</h2>
             
-            <div v-if="scorersPending" class="p-24 text-center bg-[#050505] rounded-[64px] border border-white/5 shadow-inner">
+            <div v-if="scorersPending" class="p-24 text-center bg-white dark:bg-[#050505] rounded-[64px] border border-neutral-200 dark:border-white/5 shadow-inner">
                <div class="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
             </div>
 
             <div v-else class="grid gap-4">
-              <article v-for="(scorer, index) in displayedScorers" :key="scorer.player.id" 
-                   :class="index === 0 ? 'p-6 bg-blue-600/10 border-blue-600/30 ring-1 ring-blue-600/20' : 'p-4 bg-neutral-900/50 border-white/5'"
-                   class="flex items-center justify-between rounded-[32px] border hover:border-blue-600/50 transition-all group relative overflow-hidden">
-                 
-                 <div v-if="index === 0" class="absolute top-0 right-0 p-4 opacity-10">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                 </div>
+               <article v-for="(scorer, index) in displayedScorers" :key="scorer.player.id" 
+                    :class="index === 0 ? 'p-6 bg-blue-600/10 border-blue-600/30 ring-1 ring-blue-600/20' : 'p-4 bg-white dark:bg-neutral-900/50 border border-neutral-200 dark:border-white/5 shadow-sm dark:shadow-none'"
+                    class="flex items-center justify-between rounded-[32px] border hover:border-blue-600/50 transition-all group relative overflow-hidden">
+                  
+                  <div v-if="index === 0" class="absolute top-0 right-0 p-4 opacity-10">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  </div>
 
-                 <div class="flex items-center gap-4 relative z-10">
-                    <div class="relative">
-                       <div :class="index === 0 ? 'w-16 h-16' : 'w-12 h-12'" class="rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl">
-                          <img :src="scorer.player.image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" :alt="scorer.player.name" />
-                       </div>
-                       <span :class="index === 0 ? 'bg-yellow-500 text-black' : 'bg-blue-600 text-white'" 
-                             class="absolute -top-1 -left-1 w-6 h-6 text-[9px] font-black flex items-center justify-center rounded-lg shadow-2xl italic">
-                          {{ index + 1 }}
-                       </span>
-                    </div>
-                    <div class="flex flex-col">
-                       <span :class="index === 0 ? 'text-xl' : 'text-base'" class="font-black text-white uppercase italic tracking-tighter leading-none mb-1 group-hover:text-blue-400 transition-colors">{{ scorer.player.shortName }}</span>
-                       <div class="flex items-center gap-2">
-                          <div class="w-4 h-4 rounded-md bg-black p-0.5 border border-white/5">
-                             <img :src="scorer.team.image" class="w-full h-full object-contain" :alt="scorer.team.name" />
-                          </div>
-                          <span class="text-[8px] font-bold text-neutral-500 uppercase tracking-widest leading-none">{{ scorer.team.name }}</span>
-                       </div>
-                    </div>
-                 </div>
-                 <div class="flex flex-col items-end relative z-10">
-                    <span :class="index === 0 ? 'text-4xl' : 'text-2xl'" class="font-black italic text-blue-600 leading-none mb-1">{{ scorer.goals }}</span>
-                    <span class="text-[7px] font-black text-neutral-700 uppercase tracking-widest">Goles</span>
-                 </div>
-              </article>
+                  <div class="flex items-center gap-4 relative z-10">
+                     <div class="relative">
+                        <div :class="index === 0 ? 'w-16 h-16' : 'w-12 h-12'" class="rounded-2xl overflow-hidden border border-neutral-200 dark:border-white/10 bg-neutral-100 dark:bg-black shadow-2xl">
+                           <img :src="scorer.player.image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" :alt="scorer.player.name" />
+                        </div>
+                        <span :class="index === 0 ? 'bg-yellow-500 text-black' : 'bg-blue-600 text-white'" 
+                              class="absolute -top-1 -left-1 w-6 h-6 text-[9px] font-black flex items-center justify-center rounded-lg shadow-2xl italic">
+                           {{ index + 1 }}
+                        </span>
+                     </div>
+                     <div class="flex flex-col">
+                        <span :class="index === 0 ? 'text-xl' : 'text-base'" class="font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter leading-none mb-1 group-hover:text-blue-400 transition-colors">{{ scorer.player.shortName }}</span>
+                        <div class="flex items-center gap-2">
+                           <div class="w-4 h-4 rounded-md bg-neutral-100 dark:bg-black p-0.5 border border-neutral-200 dark:border-white/5">
+                              <img :src="scorer.team.image" class="w-full h-full object-contain" :alt="scorer.team.name" />
+                           </div>
+                           <span class="text-[8px] font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest leading-none">{{ scorer.team.name }}</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="flex flex-col items-end relative z-10">
+                     <span :class="index === 0 ? 'text-4xl' : 'text-2xl'" class="font-black italic text-blue-600 leading-none mb-1">{{ scorer.goals }}</span>
+                     <span class="text-[7px] font-black text-neutral-700 uppercase tracking-widest">Goles</span>
+                  </div>
+               </article>
 
-              <!-- View More Button -->
-              <button v-if="scorers?.length > 5" 
-                      @click="showAllScorers = !showAllScorers"
-                      class="w-full py-6 mt-4 rounded-[32px] border border-white/5 bg-white/5 hover:bg-white/10 hover:border-blue-600/50 transition-all group flex items-center justify-center gap-4">
-                 <span class="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-500 group-hover:text-white transition-colors">
-                    {{ showAllScorers ? 'Ver Menos Top' : 'Ver Todos los Goleadores' }}
-                 </span>
-                 <svg xmlns="http://www.w3.org/2000/svg" 
-                      class="w-5 h-5 text-neutral-700 group-hover:text-blue-400 transition-all" 
-                      :class="{'rotate-180': showAllScorers}"
-                      fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                 </svg>
-              </button>
+               <!-- View More Button -->
+               <button v-if="scorers?.length > 5" 
+                       @click="showAllScorers = !showAllScorers"
+                       class="w-full py-6 mt-4 rounded-[32px] border border-neutral-200 dark:border-white/5 bg-white dark:bg-white/5 hover:bg-neutral-100 dark:hover:bg-white/10 hover:border-blue-600/50 transition-all group flex items-center justify-center gap-4 shadow-sm dark:shadow-none">
+                  <span class="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-500 group-hover:text-white transition-colors">
+                     {{ showAllScorers ? 'Ver Menos Top' : 'Ver Todos los Goleadores' }}
+                  </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" 
+                       class="w-5 h-5 text-neutral-700 group-hover:text-blue-400 transition-all" 
+                       :class="{'rotate-180': showAllScorers}"
+                       fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+               </button>
             </div>
           </section>
         </div>

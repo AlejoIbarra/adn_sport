@@ -1,7 +1,7 @@
 <template>
   <section class="py-20 flex justify-center">
     <div class="text-center font-sans px-5 max-w-5xl w-full">
-      <h1 class="text-2xl font-bold mb-10 text-white">Campeonatos Municipales</h1>
+      <h1 class="text-2xl font-bold mb-10 text-neutral-900 dark:text-white">Campeonatos Municipales</h1>
 
       <div class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(150px,1fr))] justify-items-center">
         <template v-for="municipality in municipalities" :key="municipality.id">

@@ -111,8 +111,8 @@ watch(fechaSeleccionada, (nueva) => {
           v-for="f in fechas"
           :key="f"
           @click="fechaSeleccionada = f"
-          :class="{'bg-green-600 text-white': fechaSeleccionada === f, 'bg-gray-200': fechaSeleccionada !== f}"
-          class="px-4 py-2 rounded"
+          :class="{'bg-green-600 text-white': fechaSeleccionada === f, 'bg-gray-200 text-gray-800 dark:bg-neutral-800 dark:text-neutral-200': fechaSeleccionada !== f}"
+          class="px-4 py-2 rounded font-medium transition-colors"
         >{{ f }}</button>
       </div>
       <!-- Resultados fecha -->

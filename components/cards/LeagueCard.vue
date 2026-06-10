@@ -8,13 +8,13 @@ defineProps<{
 
 <template>
   <NuxtLink :to="`/soccer/${league.slug}`" 
-            class="group relative block p-8 rounded-[48px] bg-neutral-900 border border-white/5 overflow-hidden transition-all duration-700 hover:scale-[1.02] hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10">
+            class="group relative block p-8 rounded-[48px] bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/5 overflow-hidden transition-all duration-700 hover:scale-[1.02] hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 shadow-lg shadow-neutral-200/50 dark:shadow-none">
     <!-- Background Decor -->
     <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 blur-3xl group-hover:bg-blue-600/20 transition-all duration-700"></div>
     
     <div class="relative z-10">
       <div class="flex items-center justify-between mb-12">
-        <div class="w-16 h-16 rounded-2xl bg-neutral-800 p-3 shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 border border-white/5">
+        <div class="w-16 h-16 rounded-2xl bg-neutral-100 dark:bg-neutral-800 p-3 shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 border border-neutral-200 dark:border-white/5">
           <img :src="`https://img.sofascore.com/api/v1/unique-tournament/${league.sofaId || league.id}/image`" 
                :alt="league.name" 
                class="w-full h-full object-contain" />
@@ -25,11 +25,11 @@ defineProps<{
         </div>
       </div>
       
-      <h3 class="text-3xl font-black italic uppercase leading-none text-white mb-4 group-hover:translate-x-2 transition-transform duration-500">
+      <h3 class="text-3xl font-black italic uppercase leading-none text-neutral-900 dark:text-white mb-4 group-hover:translate-x-2 transition-transform duration-500">
         {{ league.name }}
       </h3>
       
-      <p class="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-10">
+      <p class="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-10">
         {{ league.country || 'Internacional' }} • Fútbol
       </p>
       

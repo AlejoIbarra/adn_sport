@@ -1,5 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    app: {
+        head: {
+            script: [
+                {
+                    src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5447355340994052',
+                    async: true,
+                    crossorigin: 'anonymous'
+                }
+            ]
+        }
+    },
     modules: [
         '@nuxtjs/color-mode',
         '@nuxt/image',
