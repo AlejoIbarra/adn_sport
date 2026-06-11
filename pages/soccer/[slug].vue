@@ -71,9 +71,11 @@ const t: any = {
     jugados: 'Jugados',
     proximos: 'Próximos',
     faseGrupos: 'Fase de Grupos',
+    dieciseisavos: 'Dieciseisavos de Final',
     octavos: 'Octavos de Final',
     cuartos: 'Cuartos de Final',
     semis: 'Semifinales',
+    tercerPuesto: 'Tercer y Cuarto Puesto',
     final: 'Gran Final',
     eliminatoria: 'Fase Eliminatoria',
     regular: 'Temporada Regular',
@@ -102,9 +104,11 @@ const t: any = {
     jugados: 'Played',
     proximos: 'Upcoming',
     faseGrupos: 'Group Stage',
+    dieciseisavos: 'Round of 32',
     octavos: 'Round of 16',
     cuartos: 'Quarter Finals',
     semis: 'Semi Finals',
+    tercerPuesto: 'Third Place Match',
     final: 'Grand Final',
     eliminatoria: 'Knockout Stage',
     regular: 'Regular Season',
@@ -203,11 +207,11 @@ const normalizedMatches = computed(() => {
       round: m.matchday,
       stage: m.stage,
       group: m.group,
-      status: { type: m.status.toLowerCase() === 'finished' ? 'finished' : m.status.toLowerCase() === 'in_play' ? 'inprogress' : 'notstarted' },
-      homeTeam: { id: m.homeTeam.id, name: m.homeTeam.name, image: m.homeTeam.crest || `https://img.sofascore.com/api/v1/team/${m.homeTeam.id}/image` },
-      awayTeam: { id: m.awayTeam.id, name: m.awayTeam.name, image: m.awayTeam.crest || `https://img.sofascore.com/api/v1/team/${m.awayTeam.id}/image` },
-      homeScore: { current: m.score.fullTime.home },
-      awayScore: { current: m.score.fullTime.away }
+      status: { type: m.status.toLowerCase() === 'finished' ? 'finished' : (m.status.toLowerCase() === 'in_play' || m.status.toLowerCase() === 'live') ? 'inprogress' : 'notstarted' },
+      homeTeam: m.homeTeam ? { id: m.homeTeam.id, name: m.homeTeam.name, image: m.homeTeam.crest || `https://img.sofascore.com/api/v1/team/${m.homeTeam.id}/image` } : { id: 0, name: 'Por definir', image: '/iconos/adn_white.png' },
+      awayTeam: m.awayTeam ? { id: m.awayTeam.id, name: m.awayTeam.name, image: m.awayTeam.crest || `https://img.sofascore.com/api/v1/team/${m.awayTeam.id}/image` } : { id: 0, name: 'Por definir', image: '/iconos/adn_white.png' },
+      homeScore: { current: m.score?.fullTime?.home },
+      awayScore: { current: m.score?.fullTime?.away }
     }))
   } else {
     const allEvents: any[] = []
@@ -223,8 +227,8 @@ const normalizedMatches = computed(() => {
                 round: event.roundInfo?.round || event.round || 0,
                 stage: event.tournament?.category?.name === 'Cup' ? 'KNOCKOUT' : 'REGULAR',
                 status: event.status,
-                homeTeam: { id: event.homeTeam.id, name: event.homeTeam.name, image: `https://img.sofascore.com/api/v1/team/${event.homeTeam.id}/image` },
-                awayTeam: { id: event.awayTeam.id, name: event.awayTeam.name, image: `https://img.sofascore.com/api/v1/team/${event.awayTeam.id}/image` },
+                homeTeam: event.homeTeam ? { id: event.homeTeam.id, name: event.homeTeam.name, image: `https://img.sofascore.com/api/v1/team/${event.homeTeam.id}/image` } : { id: 0, name: 'Por definir', image: '/iconos/adn_white.png' },
+                awayTeam: event.awayTeam ? { id: event.awayTeam.id, name: event.awayTeam.name, image: `https://img.sofascore.com/api/v1/team/${event.awayTeam.id}/image` } : { id: 0, name: 'Por definir', image: '/iconos/adn_white.png' },
                 homeScore: event.homeScore,
                 awayScore: event.awayScore
               })
@@ -242,14 +246,33 @@ const stages = computed(() => {
   normalizedMatches.value.forEach(m => {
     if (m.stage) sSet.add(m.stage)
   })
-  const order = ['GROUP_STAGE', 'ROUND_OF_16', 'LAST_16', 'QUARTER_FINALS', 'SEMI_FINALS', 'FINAL', 'KNOCKOUT', 'REGULAR']
+  const order = ['GROUP_STAGE', 'ROUND_OF_32', 'LAST_32', 'ROUND_OF_16', 'LAST_16', 'QUARTER_FINALS', 'SEMI_FINALS', '3RD_PLACE', 'THIRD_PLACE', 'FINAL', 'KNOCKOUT', 'REGULAR']
   return Array.from(sSet).sort((a, b) => order.indexOf(a) - order.indexOf(b))
 })
 
 const selectedStage = ref('')
 watch(stages, (newStages) => {
   if (!selectedStage.value && newStages.length > 0) {
-    selectedStage.value = newStages[newStages.length - 1]
+    // 1. Check if any stage has matches in progress
+    const inProgressStage = newStages.find(s => 
+      normalizedMatches.value.some(m => m.stage === s && m.status.type === 'inprogress')
+    )
+    if (inProgressStage) {
+      selectedStage.value = inProgressStage
+      return
+    }
+
+    // 2. Check if any stage has finished matches (latest active stage)
+    const finishedStage = [...newStages].reverse().find(s =>
+      normalizedMatches.value.some(m => m.stage === s && m.status.type === 'finished')
+    )
+    if (finishedStage) {
+      selectedStage.value = finishedStage
+      return
+    }
+
+    // 3. Fallback to the first stage (e.g. GROUP_STAGE or REGULAR)
+    selectedStage.value = newStages[0]
   }
 }, { immediate: true })
 
@@ -299,10 +322,14 @@ watch(normalizedStandings, () => {
 const stageName = (stage: string) => {
   const names: Record<string, string> = {
     'GROUP_STAGE': cur.value.faseGrupos,
+    'ROUND_OF_32': cur.value.dieciseisavos,
+    'LAST_32': cur.value.dieciseisavos,
     'ROUND_OF_16': cur.value.octavos,
     'LAST_16': cur.value.octavos,
     'QUARTER_FINALS': cur.value.cuartos,
     'SEMI_FINALS': cur.value.semis,
+    '3RD_PLACE': cur.value.tercerPuesto,
+    'THIRD_PLACE': cur.value.tercerPuesto,
     'FINAL': cur.value.final,
     'KNOCKOUT': cur.value.eliminatoria,
     'REGULAR': cur.value.regular
@@ -334,7 +361,12 @@ watch(availableRounds, (rounds) => {
 }, { immediate: true })
 
 const currentRound = computed(() => availableRounds.value[currentRoundIdx.value] || 0)
-const currentRoundMatches = computed(() => filteredMatches.value.filter(m => m.round === currentRound.value))
+const currentRoundMatches = computed(() => {
+  if (availableRounds.value.length === 0) {
+    return filteredMatches.value
+  }
+  return filteredMatches.value.filter(m => m.round === currentRound.value)
+})
 const canPrev = computed(() => currentRoundIdx.value > 0)
 const canNext = computed(() => currentRoundIdx.value < availableRounds.value.length - 1)
 const goPrev = () => { if (canPrev.value) currentRoundIdx.value-- }
@@ -389,10 +421,8 @@ const openTeamDetails = (name: string, id: number | string) => {
           </p>
         </div>
       </div>
-    </section>
-
-    <!-- Final Spotlight -->
-    <section v-if="selectedStage === 'FINAL'" class="relative py-24 mb-32">
+       <!-- Final Spotlight -->
+    <section v-if="selectedStage === 'FINAL' && filteredMatches[0] && filteredMatches[0].homeTeam.id !== 0 && filteredMatches[0].awayTeam.id !== 0" class="relative py-24 mb-32">
       <div class="container mx-auto px-6">
         <div class="relative p-1 rounded-[64px] bg-gradient-to-br from-blue-600 via-blue-400 to-blue-800">
           <div class="bg-black rounded-[60px] p-12 lg:p-24 overflow-hidden relative">
@@ -407,22 +437,24 @@ const openTeamDetails = (name: string, id: number | string) => {
                 <div v-if="filteredMatches[0]" class="flex flex-col items-center gap-8 group cursor-pointer" @click="openTeamDetails(filteredMatches[0].homeTeam.name, filteredMatches[0].homeTeam.id)">
                   <div class="w-32 h-32 lg:w-56 lg:h-56 bg-neutral-900 rounded-[48px] p-10 border border-white/10 group-hover:scale-110 transition-transform duration-700 shadow-[0_0_50px_rgba(59,130,246,0.3)] flex items-center justify-center">
                     <img :src="filteredMatches[0].homeTeam.image" 
-                         @error="(e) => (e.target as HTMLImageElement).src = '/iconos/adn_white.png'"
-                         class="w-full h-full object-contain drop-shadow-2xl" />
+                          @error="(e) => (e.target as HTMLImageElement).src = '/iconos/adn_white.png'"
+                          class="w-full h-full object-contain drop-shadow-2xl" />
                   </div>
                   <span class="text-2xl lg:text-5xl font-black italic uppercase text-white tracking-tighter">{{ filteredMatches[0].homeTeam.name }}</span>
                 </div>
                 
                 <div class="flex flex-col items-center">
                   <div class="text-6xl lg:text-9xl font-black italic text-neutral-800 mb-4 opacity-50">{{ cur.vs }}</div>
-                  <div class="px-10 py-4 bg-blue-600 text-white rounded-2xl font-black uppercase text-[10px] tracking-[0.3em] animate-pulse shadow-lg shadow-blue-500/40">{{ cur.enVivo }}</div>
+                  <div v-if="filteredMatches[0]?.status.type === 'inprogress'" class="px-10 py-4 bg-blue-600 text-white rounded-2xl font-black uppercase text-[10px] tracking-[0.3em] animate-pulse shadow-lg shadow-blue-500/40">{{ cur.enVivo }}</div>
+                  <div v-else-if="filteredMatches[0]?.status.type === 'finished'" class="px-10 py-4 bg-neutral-800 text-neutral-400 rounded-2xl font-black uppercase text-[10px] tracking-[0.3em] shadow-lg">{{ cur.finalizado }}</div>
+                  <div v-else class="px-10 py-4 bg-blue-600/20 border border-blue-500/30 text-blue-400 rounded-2xl font-black uppercase text-[10px] tracking-[0.3em] shadow-lg">{{ cur.programado }}</div>
                 </div>
 
                 <div v-if="filteredMatches[0]" class="flex flex-col items-center gap-8 group cursor-pointer" @click="openTeamDetails(filteredMatches[0].awayTeam.name, filteredMatches[0].awayTeam.id)">
                   <div class="w-32 h-32 lg:w-56 lg:h-56 bg-neutral-900 rounded-[48px] p-10 border border-white/10 group-hover:scale-110 transition-transform duration-700 shadow-[0_0_50px_rgba(59,130,246,0.3)] flex items-center justify-center">
                     <img :src="filteredMatches[0].awayTeam.image" 
-                         @error="(e) => (e.target as HTMLImageElement).src = '/iconos/adn_white.png'"
-                         class="w-full h-full object-contain drop-shadow-2xl" />
+                          @error="(e) => (e.target as HTMLImageElement).src = '/iconos/adn_white.png'"
+                          class="w-full h-full object-contain drop-shadow-2xl" />
                   </div>
                   <span class="text-2xl lg:text-5xl font-black italic uppercase text-white tracking-tighter">{{ filteredMatches[0].awayTeam.name }}</span>
                 </div>
@@ -463,6 +495,30 @@ const openTeamDetails = (name: string, id: number | string) => {
           </div>
 
           <div class="flex flex-col gap-24">
+            <!-- Visual Tournament Roadmap / Bracket Progress Graph -->
+            <div v-if="stages.length > 1" class="bg-white dark:bg-neutral-900/20 border border-neutral-200 dark:border-white/5 rounded-[32px] p-8 shadow-sm dark:shadow-none overflow-x-auto scrollbar-hide">
+              <div class="flex items-center justify-between min-w-[800px] px-6">
+                <template v-for="(stage, idx) in stages" :key="stage">
+                  <!-- Node -->
+                  <button @click="selectedStage = stage" 
+                          class="flex flex-col items-center gap-3 group transition-all shrink-0">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center border-2 font-black text-xs transition-all duration-500"
+                         :class="selectedStage === stage ? 'bg-blue-600 border-blue-500 text-white scale-110 shadow-lg shadow-blue-500/30' : 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-neutral-400 dark:text-neutral-500 group-hover:border-blue-500/40 group-hover:text-neutral-700 dark:group-hover:text-white'">
+                      {{ idx + 1 }}
+                    </div>
+                    <span class="text-[9px] font-black uppercase tracking-[0.15em] transition-colors"
+                          :class="selectedStage === stage ? 'text-blue-500' : 'text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-300'">
+                      {{ stageName(stage) }}
+                    </span>
+                  </button>
+                  <!-- Connecting Line -->
+                  <div v-if="idx < stages.length - 1" class="flex-1 h-0.5 mx-4 transition-all duration-700"
+                       :class="stages.indexOf(selectedStage) > idx ? 'bg-blue-600' : 'bg-neutral-200 dark:bg-neutral-800'">
+                  </div>
+                </template>
+              </div>
+            </div>
+
             <!-- Full Standings Table (Only if available) -->
             <div v-if="normalizedStandings.length > 0" class="space-y-12">
               <div class="flex items-center justify-between">
@@ -540,7 +596,7 @@ const openTeamDetails = (name: string, id: number | string) => {
                 </div>
 
                 <!-- Matchday Paginator -->
-                <div class="flex items-center justify-between bg-white dark:bg-neutral-900/60 rounded-3xl border border-neutral-200 dark:border-white/5 px-6 py-4 shadow-sm dark:shadow-none">
+                <div v-if="availableRounds.length > 0" class="flex items-center justify-between bg-white dark:bg-neutral-900/60 rounded-3xl border border-neutral-200 dark:border-white/5 px-6 py-4 shadow-sm dark:shadow-none">
                   <button @click="goPrev" :disabled="!canPrev" class="w-12 h-12 rounded-2xl flex items-center justify-center transition-all" :class="canPrev ? 'bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white hover:bg-blue-600' : 'bg-neutral-200 dark:bg-neutral-900 text-neutral-400 dark:text-neutral-700 cursor-not-allowed'">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
                   </button>

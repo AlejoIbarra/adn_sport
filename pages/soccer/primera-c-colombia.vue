@@ -130,21 +130,44 @@ const currentGroupName = computed(() => {
 
 // SEO Implementation
 useHead({
-  title: computed(() => `${currentGroupName.value} - Primera C Colombia 2026 | ADN Deportivo`),
+  title: computed(() => {
+    const groupSuffix = currentGroupName.value && currentGroupName.value !== 'Seleccionar' ? ` - ${currentGroupName.value}` : '';
+    return `Primera C Colombia 2026 | Resultados, Posiciones y Goleadores${groupSuffix} | ADN Deportivo`;
+  }),
   meta: [
-    { name: 'description', content: computed(() => `Sigue los resultados en vivo, tabla de posiciones del ${currentGroupName.value} y goleadores de la Primera C en Colombia. Toda la información del fútbol de ascenso en ADN Deportivo.`) },
-    { name: 'keywords', content: 'Primera C Colombia, fútbol colombiano, ascenso Colombia, resultados fútbol, tabla de posiciones Primera C, goleadores Primera C, ADN Deportivo' },
-    { property: 'og:title', content: computed(() => `${currentGroupName.value} - Primera C Colombia`) },
-    { property: 'og:description', content: 'Resultados en vivo, estadísticas y toda la pasión de la Primera C colombiana en ADN Deportivo.' },
+    { name: 'description', content: computed(() => {
+      const groupText = currentGroupName.value && currentGroupName.value !== 'Seleccionar' ? ` del ${currentGroupName.value}` : '';
+      return `Sigue la Primera C del fútbol colombiano en vivo. Tablas de posiciones${groupText}, calendario de partidos, resultados en tiempo real y estadísticas de goleadores en ADN Deportivo.`;
+    }) },
+    { name: 'keywords', content: 'Primera C Colombia, Primera C colombiana, primera c difutbol, fútbol de ascenso Colombia, resultados primera c colombia, tabla de posiciones primera c, goleadores primera c, ADN Deportivo, liga de ascenso colombiana' },
+    { property: 'og:title', content: computed(() => {
+      const groupSuffix = currentGroupName.value && currentGroupName.value !== 'Seleccionar' ? ` - ${currentGroupName.value}` : '';
+      return `Primera C Colombia 2026${groupSuffix}`;
+    }) },
+    { property: 'og:description', content: 'Resultados en vivo, estadísticas, tablas de todos los grupos y toda la pasión de la Primera C colombiana en ADN Deportivo.' },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: `https://adndeportivo.com${route.path}` },
     { property: 'og:image', content: 'https://adndeportivo.com/og-primera-c.jpg' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Primera C Colombia | ADN Deportivo' },
-    { name: 'twitter:description', content: 'El centro de estadísticas más completo de la Primera C.' }
+    { name: 'twitter:description', content: 'El centro de estadísticas en vivo más completo de la Primera C del fútbol colombiano.' }
   ],
   link: [
     { rel: 'canonical', href: `https://adndeportivo.com${route.path}` }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'SportsLeague',
+        'name': 'Primera C Colombia',
+        'sport': 'Soccer',
+        'competitionClass': "Men's Association Football",
+        'description': 'Estadísticas, tablas de clasificación por grupos, goleadores y resultados de la Primera C del fútbol amateur de ascenso en Colombia, organizada por Difútbol.',
+        'url': 'https://adndeportivo.com/soccer/primera-c-colombia'
+      })
+    }
   ]
 })
 
@@ -371,12 +394,12 @@ const filteredStandings = computed(() => {
             </div>
             <div class="flex items-center justify-between gap-8 mb-10">
               <div class="flex flex-col items-center gap-4 flex-1 cursor-pointer group/team" @click="openTeamDetails(match.homeTeam.name, match.homeTeam.id)">
-                <img :src="match.homeTeam.image" class="w-20 h-20 object-contain group-hover/team:scale-110 transition-transform duration-500" />
+                <img :src="match.homeTeam.image" class="w-20 h-20 object-contain group-hover/team:scale-110 transition-transform duration-500" :alt="match.homeTeam.name" />
                 <span class="text-xs font-black text-neutral-900 dark:text-white text-center uppercase italic leading-tight">{{ match.homeTeam.name }}</span>
               </div>
               <span class="text-2xl font-black italic text-neutral-300 dark:text-neutral-800">VS</span>
               <div class="flex flex-col items-center gap-4 flex-1 cursor-pointer group/team" @click="openTeamDetails(match.awayTeam.name, match.awayTeam.id)">
-                <img :src="match.awayTeam.image" class="w-20 h-20 object-contain group-hover/team:scale-110 transition-transform duration-500" />
+                <img :src="match.awayTeam.image" class="w-20 h-20 object-contain group-hover/team:scale-110 transition-transform duration-500" :alt="match.awayTeam.name" />
                 <span class="text-xs font-black text-neutral-900 dark:text-white text-center uppercase italic leading-tight">{{ match.awayTeam.name }}</span>
               </div>
             </div>
@@ -492,7 +515,7 @@ const filteredStandings = computed(() => {
                                 class="relative p-6 rounded-[30px] bg-neutral-100/50 dark:bg-neutral-900/30 border border-neutral-200 dark:border-white/5 flex items-center justify-between gap-4">
                              <div class="flex items-center gap-4">
                                <div class="w-10 h-10 rounded-xl bg-neutral-200 dark:bg-neutral-800 p-2 border border-neutral-300 dark:border-white/5 flex items-center justify-center">
-                                 <img :src="match.homeTeam.name.toLowerCase().includes('descansa') ? match.awayTeam.image : match.homeTeam.image" class="w-full h-full object-contain" />
+                                 <img :src="match.homeTeam.name.toLowerCase().includes('descansa') ? match.awayTeam.image : match.homeTeam.image" class="w-full h-full object-contain" :alt="match.homeTeam.name.toLowerCase().includes('descansa') ? match.awayTeam.name : match.homeTeam.name" />
                                </div>
                                <span class="text-sm font-black text-neutral-900 dark:text-white uppercase italic">{{ match.homeTeam.name.toLowerCase().includes('descansa') ? match.awayTeam.name : match.homeTeam.name }}</span>
                              </div>
@@ -618,6 +641,33 @@ const filteredStandings = computed(() => {
       provider="fcf"
       @close="isTeamModalOpen = false; selectedTeamName = null; selectedTeamId = null" 
     />
+    <!-- SEO Explanatory Content Section (Crawling fuel) -->
+    <section class="py-16 bg-neutral-100/50 dark:bg-neutral-900/10 border-t border-neutral-200 dark:border-white/5 transition-colors duration-500" aria-label="Información Primera C">
+      <div class="container mx-auto px-6 max-w-5xl">
+        <div class="space-y-8">
+          <h2 class="text-3xl font-black italic uppercase text-neutral-900 dark:text-white tracking-tighter">
+            Todo sobre la Primera C del Fútbol Colombiano
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed font-medium">
+            La <strong>Primera C colombiana</strong> es la máxima categoría del fútbol aficionado y de ascenso en el país, organizada por la <strong>Difútbol</strong> (División Aficionada del Fútbol Colombiano). Este certamen reúne a clubes de todas las regiones de Colombia que compiten a través de grupos zonales para ganarse un lugar en las fases eliminatorias nacionales.
+          </p>
+          <div class="grid md:grid-cols-2 gap-8 pt-4">
+            <div class="space-y-4">
+              <h3 class="text-lg font-bold italic uppercase text-neutral-900 dark:text-white">Formato de Competición y Ascenso</h3>
+              <p class="text-neutral-600 dark:text-neutral-400 text-xs leading-relaxed">
+                El campeonato consta de múltiples grupos organizados geográficamente. Los clubes juegan partidos de ida y vuelta en su zona, y los clasificados ingresan a llaves de eliminación directa hasta definir al campeón de la Primera C nacional.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <h3 class="text-lg font-bold italic uppercase text-neutral-900 dark:text-white">ADN Deportivo: Tu Portal de Resultados en Vivo</h3>
+              <p class="text-neutral-600 dark:text-neutral-400 text-xs leading-relaxed">
+                Ofrecemos la plataforma más completa de estadísticas del fútbol amateur colombiano: resultados de partidos al instante, tablas de posiciones dinámicas de todos los grupos y el ranking oficial de goleadores.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </template>
 
