@@ -15,7 +15,7 @@ defineProps<{
     <div class="relative z-10">
       <div class="flex items-center justify-between mb-12">
         <div class="w-16 h-16 rounded-2xl bg-neutral-100 dark:bg-neutral-800 p-3 shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 border border-neutral-200 dark:border-white/5">
-          <img :src="`https://img.sofascore.com/api/v1/unique-tournament/${league.sofaId || league.id}/image`" 
+          <img :src="league.image || `https://img.sofascore.com/api/v1/unique-tournament/${league.sofaId || league.id}/image`" 
                :alt="league.name" 
                class="w-full h-full object-contain" />
         </div>
