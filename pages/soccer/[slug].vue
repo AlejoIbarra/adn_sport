@@ -444,6 +444,7 @@ const openTeamDetails = (name: string, id: number | string) => {
           </p>
         </div>
       </div>
+    </section>
        <!-- Final Spotlight -->
     <section v-if="selectedStage === 'FINAL' && filteredMatches[0] && filteredMatches[0].homeTeam.id !== 0 && filteredMatches[0].awayTeam.id !== 0" class="relative py-24 mb-32">
       <div class="container mx-auto px-6">
