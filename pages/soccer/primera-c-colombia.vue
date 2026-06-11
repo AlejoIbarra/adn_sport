@@ -139,7 +139,7 @@ useHead({
       const groupText = currentGroupName.value && currentGroupName.value !== 'Seleccionar' ? ` del ${currentGroupName.value}` : '';
       return `Sigue la Primera C del fútbol colombiano en vivo. Tablas de posiciones${groupText}, calendario de partidos, resultados en tiempo real y estadísticas de goleadores en ADN Deportivo.`;
     }) },
-    { name: 'keywords', content: 'Primera C Colombia, Primera C colombiana, primera c difutbol, fútbol de ascenso Colombia, resultados primera c colombia, tabla de posiciones primera c, goleadores primera c, ADN Deportivo, liga de ascenso colombiana' },
+    { name: 'keywords', content: 'Primera C Colombia, Primera C colombiana, primera c difutbol, fútbol de ascenso Colombia, primera c pasto, primera c ipiales, primera c tumaco, primera c nariño, primera c la cruz, primeraa c colombia, resultados primera c colombia, tabla de posiciones primera c, goleadores primera c, ADN Deportivo, liga de ascenso colombiana' },
     { property: 'og:title', content: computed(() => {
       const groupSuffix = currentGroupName.value && currentGroupName.value !== 'Seleccionar' ? ` - ${currentGroupName.value}` : '';
       return `Primera C Colombia 2026${groupSuffix}`;

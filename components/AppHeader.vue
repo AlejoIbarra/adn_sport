@@ -1,8 +1,10 @@
 <script lang="ts" setup>
+import { LEAGUES } from '~/config/leagues'
+
 const navIsOpen = useState('navIsOpen', () => false)
 const colorMode = useColorMode()
 
-
+const otherLeaguesOpen = ref(false)
 
 function toggleNav(event: MouseEvent): void {
     event.preventDefault()
@@ -19,14 +21,12 @@ const navLinks = [
         href: "/soccer/primera-c-colombia"
     },
     {
-        text: "Champions",
-        href: "/soccer/champions-league"
-    },
-    {
-        text: "Municipales",
-        href: "/municipal"
-    },
+        text: "Copa del Mundo",
+        href: "/soccer/copa-del-mundo"
+    }
 ]
+
+const otherLeagues = LEAGUES.filter(l => l.slug !== 'primera-c-colombia' && l.slug !== 'copa-del-mundo')
 
 </script>
 <template>
@@ -52,8 +52,37 @@ const navLinks = [
                     lg:bg-transparent w-full lg:w-max py-6 lg:py-0 lg:visible lg:relative flex 
                     transition-all duration-300 ease-linear origin-top translate-y-6 lg:translate-y-0"
                     :class="navIsOpen?'!visible !opacity-100 !translate-y-0':''">
-                    <ul class="text-gray-700 dark:text-gray-100 w-full flex lg:items-center gap-y-4 lg:gap-x-8 flex-col lg:flex-row">
-                        <AtomsNavLink v-for="navItem in navLinks" :href="navItem.href" :text="navItem.text" />
+                    <ul class="text-gray-700 dark:text-gray-100 w-full flex lg:items-center gap-y-4 lg:gap-x-8 flex-col lg:flex-row relative z-50">
+                        <AtomsNavLink v-for="navItem in navLinks" :key="navItem.href" :href="navItem.href" :text="navItem.text" @click="navIsOpen = false" />
+                        
+                        <!-- Dropdown Resto de Torneos -->
+                        <li class="relative lg:inline-flex">
+                            <button @click="otherLeaguesOpen = !otherLeaguesOpen" 
+                                    class="lg:inline-flex items-center gap-2 transition hover:text-primary ease-linear text-lg bg-transparent border-none outline-none font-sans cursor-pointer text-gray-700 dark:text-gray-100 font-medium">
+                                <span>Resto de Torneos</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-300" :class="{'rotate-180': otherLeaguesOpen}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <!-- Click Outside Overlay -->
+                            <div v-if="otherLeaguesOpen" class="fixed inset-0 z-[60]" @click="otherLeaguesOpen = false"></div>
+                            
+                            <transition enter-active-class="ease-out duration-300"
+                                enter-from-class="transition transform opacity-0 translate-y-4"
+                                enter-to-class="transition transform opacity-100 translate-y-0"
+                                leave-active-class="transition ease-in duration-200" 
+                                leave-from-class="transform opacity-100 translate-y-0"
+                                leave-to-class="transform opacity-0 translate-y-4">
+                                <div v-if="otherLeaguesOpen" 
+                                     class="absolute lg:left-0 right-0 mt-3 p-4 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 shadow-2xl z-[70] w-56 flex flex-col gap-1 backdrop-blur-3xl">
+                                    <NuxtLink v-for="league in otherLeagues" :key="league.slug" :to="`/soccer/${league.slug}`" 
+                                              @click="otherLeaguesOpen = false; navIsOpen = false"
+                                              class="px-4 py-2.5 rounded-xl text-sm font-bold text-neutral-700 dark:text-neutral-300 hover:bg-blue-600 hover:text-white transition-all text-left">
+                                        {{ league.name }}
+                                    </NuxtLink>
+                                </div>
+                            </transition>
+                        </li>
                     </ul>
                 </div>
 

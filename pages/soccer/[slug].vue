@@ -16,23 +16,32 @@ const externalCode = leagueConfig.externalCode
 
 // SEO - powered by leagues.ts metadata
 const siteBase = 'https://adndeportivo.com'
+const yearLabel = leagueConfig.slug === 'copa-del-mundo' ? '2026' : '2025/26'
+
+const dynamicKeywords = computed(() => {
+  if (leagueConfig.slug === 'copa-del-mundo') {
+    return 'Copa del Mundo, Copa del Mundo 2026, Mundial 2026, Copa Mundial FIFA 2026, resultados mundial 2026, partidos mundial en vivo, tabla posiciones copa del mundo 2026, goleadores mundial 2026, mundial fifa en vivo, ADN Deportivo'
+  }
+  return `${leagueConfig.name}, ${leagueConfig.name} ${yearLabel}, resultados ${leagueConfig.name}, tabla de posiciones ${leagueConfig.name}, estadísticas ${leagueConfig.name}, fútbol en vivo, ADN Deportivo`
+})
+
 useHead({
-  title: `${leagueConfig.name} 2025/26 | Resultados y Estadísticas | ADN Deportivo`,
+  title: `${leagueConfig.name} ${yearLabel} | Resultados, Posiciones y Estadísticas en Vivo | ADN Deportivo`,
   meta: [
     {
       name: 'description',
-      content: leagueConfig.seoDescription || `Sigue la ${leagueConfig.name} en vivo: resultados, tabla de posiciones y estadísticas completas en ADN Deportivo.`
+      content: leagueConfig.seoDescription || `Sigue la ${leagueConfig.name} ${yearLabel} en vivo: resultados de partidos, tabla de posiciones, fixture completo y goleadores actualizados al instante en ADN Deportivo.`
     },
     {
       name: 'keywords',
-      content: leagueConfig.seoKeywords || `${leagueConfig.name}, resultados, tabla de posiciones, estadísticas fútbol`
+      content: computed(() => `${dynamicKeywords.value}, ${leagueConfig.seoKeywords || ''}`)
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:site_name', content: 'ADN Deportivo' },
-    { property: 'og:title', content: `${leagueConfig.name} | ADN Deportivo` },
+    { property: 'og:title', content: `${leagueConfig.name} ${yearLabel} | ADN Deportivo` },
     {
       property: 'og:description',
-      content: leagueConfig.seoDescription || `Cobertura completa de la ${leagueConfig.name} en ADN Deportivo.`
+      content: leagueConfig.seoDescription || `Cobertura completa en tiempo real de la ${leagueConfig.name} ${yearLabel} en ADN Deportivo.`
     },
     {
       property: 'og:image',
@@ -40,21 +49,35 @@ useHead({
     },
     { property: 'og:url', content: `${siteBase}${route.path}` },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: `${leagueConfig.name} | ADN Deportivo` },
+    { name: 'twitter:title', content: `${leagueConfig.name} ${yearLabel} | ADN Deportivo` },
     {
       name: 'twitter:description',
-      content: leagueConfig.seoDescription || `Resultados y estadísticas de la ${leagueConfig.name}.`
+      content: leagueConfig.seoDescription || `Resultados, posiciones y estadísticas de la ${leagueConfig.name} ${yearLabel}.`
     },
     {
       name: 'twitter:image',
       content: leagueConfig.ogImage ? `${siteBase}${leagueConfig.ogImage}` : `${siteBase}/og/default.jpg`
     },
     // Important for Google News & discovery
-    { name: 'news_keywords', content: leagueConfig.seoKeywords || leagueConfig.name },
+    { name: 'news_keywords', content: computed(() => `${leagueConfig.name}, ${leagueConfig.seoKeywords || ''}`) },
     { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }
   ],
   link: [
     { rel: 'canonical', href: `${siteBase}${route.path}` }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'SportsLeague',
+        'name': `${leagueConfig.name} ${yearLabel}`,
+        'sport': 'Soccer',
+        'competitionClass': leagueConfig.slug === 'copa-del-mundo' ? "Men's National Teams Football" : "Men's Club Football",
+        'description': leagueConfig.seoDescription || `Resultados, posiciones y estadísticas en vivo de la ${leagueConfig.name} ${yearLabel}.`,
+        'url': `${siteBase}${route.path}`
+      })
+    }
   ]
 })
 
