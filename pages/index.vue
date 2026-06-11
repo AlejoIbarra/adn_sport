@@ -65,16 +65,6 @@ const featuredLeagues = LEAGUES.filter(l => l.featured)
             talento local de Colombia.
           </p>
 
-          <div class="flex flex-wrap justify-center gap-6">
-            <button
-              class="px-12 py-6 bg-blue-600 text-white rounded-[32px] font-black uppercase tracking-widest text-xs hover:scale-105 hover:bg-blue-500 transition-all duration-500 shadow-2xl shadow-blue-500/40">
-              Explorar Ligas
-            </button>
-            <button
-              class="px-12 py-6 bg-white border border-neutral-200 text-neutral-900 rounded-[32px] font-black uppercase tracking-widest text-xs hover:bg-neutral-100 dark:bg-neutral-900 dark:border-white/10 dark:text-white dark:hover:bg-neutral-800 transition-all duration-500 shadow-md dark:shadow-none">
-              Ver En Vivo
-            </button>
-          </div>
         </div>
       </div>
     </section>
@@ -90,7 +80,8 @@ const featuredLeagues = LEAGUES.filter(l => l.featured)
           <div>
             <h2 class="text-xs font-black text-blue-500 uppercase tracking-[0.3em] mb-4">Competiciones</h2>
             <p class="text-5xl font-black italic uppercase text-neutral-900 dark:text-white tracking-tighter">Elite
-              <span class="text-neutral-400 dark:text-neutral-600">Access</span></p>
+              <span class="text-neutral-400 dark:text-neutral-600">Access</span>
+            </p>
           </div>
           <p class="text-neutral-600 dark:text-neutral-500 max-w-xs text-sm font-medium">
             Selecciona una liga para acceder a estadísticas avanzadas, calendarios y resultados oficiales en tiempo
