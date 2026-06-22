@@ -494,205 +494,223 @@ const openTeamDetails = (name: string, id: number | string) => {
       <div class="container mx-auto px-6">
         <div class="flex flex-col gap-16">
           
-          <!-- Phase Navigator -->
-          <div class="sticky top-24 z-30 py-8 -mx-6 px-6 bg-neutral-50/90 dark:bg-[#050505]/90 backdrop-blur-2xl border-y border-neutral-200 dark:border-white/5 flex flex-col xl:flex-row xl:items-center justify-between gap-8 transition-all duration-500">
-            <div class="flex items-center gap-8">
-              <div class="w-16 h-16 rounded-3xl bg-blue-600 flex items-center justify-center shadow-2xl shadow-blue-500/20 text-white group cursor-pointer hover:rotate-12 transition-transform">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
-              </div>
-              <div>
-                <h2 class="text-xs font-black text-blue-500 uppercase tracking-[0.3em] mb-2">{{ cur.dataCenter }}</h2>
-                <p class="text-3xl font-black text-neutral-900 dark:text-white italic uppercase tracking-tighter">
-                  {{ stageName(selectedStage) }}
-                </p>
-              </div>
+          <!-- Recess / Empty State Block -->
+          <div v-if="normalizedStandings.length === 0 && filteredMatches.length === 0" class="bg-white dark:bg-neutral-900/50 p-12 rounded-[32px] border border-neutral-200 dark:border-white/5 text-center max-w-2xl mx-auto shadow-xl my-10">
+            <div class="w-16 h-16 bg-blue-500/10 text-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </div>
-
-            <div class="flex items-center gap-4 overflow-x-auto pb-2 scrollbar-hide max-w-full">
-              <button v-for="stage in stages" :key="stage"
-                      @click="selectedStage = stage"
-                      class="px-8 py-4 rounded-[20px] text-[10px] font-black uppercase tracking-widest transition-all duration-500 whitespace-nowrap border"
-                      :class="selectedStage === stage ? 'bg-blue-600 border-blue-500 text-white shadow-xl shadow-blue-500/20' : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-white/5 text-neutral-600 dark:text-neutral-500 hover:border-blue-500/30 shadow-sm dark:shadow-none'">
-                {{ stageName(stage) }}
-              </button>
-            </div>
+            <h3 class="text-2xl font-black italic uppercase text-neutral-900 dark:text-white mb-4">Competición en Receso</h3>
+            <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-6">
+              Actualmente no hay encuentros programados ni clasificaciones activas para esta jornada. Estamos actualizando la base de datos para la próxima edición del campeonato.
+            </p>
+            <NuxtLink to="/" class="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase tracking-wider transition-colors shadow-lg shadow-blue-600/20">
+              Volver al Inicio
+            </NuxtLink>
           </div>
 
-          <div class="flex flex-col gap-24">
-            <!-- Visual Tournament Roadmap / Bracket Progress Graph -->
-            <div v-if="stages.length > 1" class="bg-white dark:bg-neutral-900/20 border border-neutral-200 dark:border-white/5 rounded-[32px] p-8 shadow-sm dark:shadow-none overflow-x-auto scrollbar-hide">
-              <div class="flex items-center justify-between min-w-[800px] px-6">
-                <template v-for="(stage, idx) in stages" :key="stage">
-                  <!-- Node -->
-                  <button @click="selectedStage = stage" 
-                          class="flex flex-col items-center gap-3 group transition-all shrink-0">
-                    <div class="w-12 h-12 rounded-full flex items-center justify-center border-2 font-black text-xs transition-all duration-500"
-                         :class="selectedStage === stage ? 'bg-blue-600 border-blue-500 text-white scale-110 shadow-lg shadow-blue-500/30' : 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-neutral-400 dark:text-neutral-500 group-hover:border-blue-500/40 group-hover:text-neutral-700 dark:group-hover:text-white'">
-                      {{ idx + 1 }}
-                    </div>
-                    <span class="text-[9px] font-black uppercase tracking-[0.15em] transition-colors"
-                          :class="selectedStage === stage ? 'text-blue-500' : 'text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-300'">
-                      {{ stageName(stage) }}
-                    </span>
-                  </button>
-                  <!-- Connecting Line -->
-                  <div v-if="idx < stages.length - 1" class="flex-1 h-0.5 mx-4 transition-all duration-700"
-                       :class="stages.indexOf(selectedStage) > idx ? 'bg-blue-600' : 'bg-neutral-200 dark:bg-neutral-800'">
-                  </div>
-                </template>
-              </div>
-            </div>
-
-            <!-- Full Standings Table (Only if available) -->
-            <div v-if="normalizedStandings.length > 0" class="space-y-12">
-              <div class="flex items-center justify-between">
-                <h3 class="text-3xl font-black italic uppercase text-neutral-900 dark:text-white tracking-tighter">{{ cur.posiciones }}</h3>
-                <div v-if="normalizedStandings.length > 1" class="flex bg-neutral-100 dark:bg-neutral-900 p-1.5 rounded-2xl border border-neutral-200 dark:border-white/5">
-                   <button v-for="(group, idx) in normalizedStandings" :key="idx"
-                           @click="selectedGroupIdx = idx"
-                           :class="selectedGroupIdx === idx ? 'bg-blue-600 text-white shadow-md' : 'text-neutral-600 dark:text-neutral-500'"
-                           class="px-6 py-2.5 rounded-xl text-[10px] font-black uppercase transition-all">
-                     {{ group.name }}
-                   </button>
+          <template v-else>
+            <!-- Phase Navigator -->
+            <div class="sticky top-24 z-30 py-8 -mx-6 px-6 bg-neutral-50/90 dark:bg-[#050505]/90 backdrop-blur-2xl border-y border-neutral-200 dark:border-white/5 flex flex-col xl:flex-row xl:items-center justify-between gap-8 transition-all duration-500">
+              <div class="flex items-center gap-8">
+                <div class="w-16 h-16 rounded-3xl bg-blue-600 flex items-center justify-center shadow-2xl shadow-blue-500/20 text-white group cursor-pointer hover:rotate-12 transition-transform">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
                 </div>
-              </div>
-
-              <div class="bg-white dark:bg-neutral-900 rounded-[48px] border border-neutral-200 dark:border-white/5 overflow-hidden shadow-2xl shadow-neutral-200/50 dark:shadow-none">
-                <div class="overflow-x-auto">
-                  <table class="w-full text-left border-collapse">
-                    <thead>
-                      <tr class="text-[10px] font-black text-neutral-500 dark:text-neutral-400 uppercase tracking-[0.2em] border-b border-neutral-200 dark:border-white/5 bg-neutral-100/50 dark:bg-neutral-800/10">
-                        <th class="px-8 py-6 w-16">#</th>
-                        <th class="px-4 py-6 min-w-[240px]">{{ cur.equipos }}</th>
-                        <th class="px-4 py-6 text-center">PJ</th>
-                        <th class="px-4 py-6 text-center text-emerald-500">G</th>
-                        <th class="px-4 py-6 text-center text-neutral-400">E</th>
-                        <th class="px-4 py-6 text-center text-rose-500">P</th>
-                        <th class="px-4 py-6 text-center">GF</th>
-                        <th class="px-4 py-6 text-center">GC</th>
-                        <th class="px-4 py-6 text-center">DG</th>
-                        <th class="px-8 py-6 text-center bg-blue-500/10 text-blue-600 dark:text-blue-400 font-black">PTS</th>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y divide-neutral-200 dark:divide-white/5">
-                      <tr v-for="row in normalizedStandings[selectedGroupIdx]?.rows" :key="row.team.id" class="hover:bg-blue-500/[0.03] transition-colors group">
-                        <td class="px-8 py-6">
-                          <span class="text-sm font-black italic text-neutral-400 dark:text-neutral-600 group-hover:text-blue-500 transition-colors">{{ row.position }}</span>
-                        </td>
-                        <td class="px-4 py-6">
-                          <div class="flex items-center gap-4 cursor-pointer hover:opacity-70 transition-opacity" @click="openTeamDetails(row.team.name, row.team.id)">
-                            <img :src="row.team.image" class="w-8 h-8 object-contain" />
-                            <span class="font-bold text-base text-neutral-900 dark:text-neutral-100 group-hover:translate-x-1 transition-transform">{{ row.team.name }}</span>
-                          </div>
-                        </td>
-                        <td class="px-4 py-6 text-center text-sm font-bold text-neutral-500 dark:text-neutral-400">{{ row.matches }}</td>
-                        <td class="px-4 py-6 text-center text-sm font-bold text-emerald-500 dark:text-emerald-400/80">{{ row.wins }}</td>
-                        <td class="px-4 py-6 text-center text-sm font-bold text-neutral-400 dark:text-neutral-500">{{ row.draws }}</td>
-                        <td class="px-4 py-6 text-center text-sm font-bold text-rose-500 dark:text-rose-400/80">{{ row.losses }}</td>
-                        <td class="px-4 py-6 text-center text-sm font-bold text-neutral-500 dark:text-neutral-400">{{ row.scoresFor }}</td>
-                        <td class="px-4 py-6 text-center text-sm font-bold text-neutral-500 dark:text-neutral-400">{{ row.scoresAgainst }}</td>
-                        <td class="px-4 py-6 text-center text-sm font-black italic" :class="(row.scoresFor - row.scoresAgainst) >= 0 ? 'text-emerald-500' : 'text-rose-500'">
-                          {{ (row.scoresFor - row.scoresAgainst) > 0 ? '+' : '' }}{{ row.scoresFor - row.scoresAgainst }}
-                        </td>
-                        <td class="px-8 py-6 text-center font-black text-lg text-blue-600 dark:text-blue-400 bg-blue-500/[0.02] dark:bg-blue-500/[0.05]">
-                          {{ row.points }}
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-
-            <ElementsAdBanner ad-slot="1000000003" />
-
-            <!-- Matches Section -->
-            <div class="grid lg:grid-cols-12 gap-16">
-              <div class="lg:col-span-8 space-y-8">
-                <!-- Round Navigator -->
-                <div class="flex items-center justify-between">
-                  <h3 class="text-2xl font-black italic uppercase text-neutral-900 dark:text-white tracking-tighter">{{ cur.cronograma }}</h3>
-                  <div class="flex bg-neutral-100 dark:bg-neutral-900 p-1 rounded-xl border border-neutral-200 dark:border-white/5">
-                    <button @click="matchStatusFilter = 'all'" :class="matchStatusFilter === 'all' ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-white shadow-sm' : 'text-neutral-600 dark:text-neutral-500'" class="px-5 py-2 rounded-lg text-[9px] font-black uppercase transition-all">{{ cur.todos }}</button>
-                    <button @click="matchStatusFilter = 'played'" :class="matchStatusFilter === 'played' ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-white shadow-sm' : 'text-neutral-600 dark:text-neutral-500'" class="px-5 py-2 rounded-lg text-[9px] font-black uppercase transition-all">{{ cur.jugados }}</button>
-                    <button @click="matchStatusFilter = 'upcoming'" :class="matchStatusFilter === 'upcoming' ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-white shadow-sm' : 'text-neutral-600 dark:text-neutral-500'" class="px-5 py-2 rounded-lg text-[9px] font-black uppercase transition-all">{{ cur.proximos }}</button>
-                  </div>
-                </div>
-
-                <!-- Matchday Paginator -->
-                <div v-if="availableRounds.length > 0" class="flex items-center justify-between bg-white dark:bg-neutral-900/60 rounded-3xl border border-neutral-200 dark:border-white/5 px-6 py-4 shadow-sm dark:shadow-none">
-                  <button @click="goPrev" :disabled="!canPrev" class="w-12 h-12 rounded-2xl flex items-center justify-center transition-all" :class="canPrev ? 'bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white hover:bg-blue-600' : 'bg-neutral-200 dark:bg-neutral-900 text-neutral-400 dark:text-neutral-700 cursor-not-allowed'">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
-                  </button>
-                  <div class="text-center">
-                    <span class="text-[10px] font-black text-blue-500 uppercase tracking-[0.3em]">Jornada</span>
-                    <p class="text-4xl font-black italic text-neutral-900 dark:text-white">{{ currentRound }}</p>
-                  </div>
-                  <button @click="goNext" :disabled="!canNext" class="w-12 h-12 rounded-2xl flex items-center justify-center transition-all" :class="canNext ? 'bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white hover:bg-blue-600' : 'bg-neutral-200 dark:bg-neutral-900 text-neutral-400 dark:text-neutral-700 cursor-not-allowed'">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                  </button>
-                </div>
-
-                <!-- Current Round Matches -->
-                <div class="space-y-4">
-                  <div v-for="match in currentRoundMatches" :key="match.id"
-                       class="group flex items-center gap-6 p-6 rounded-3xl bg-white dark:bg-neutral-900/40 border border-neutral-200 dark:border-white/5 hover:border-blue-500/20 transition-all duration-300 shadow-sm dark:shadow-none">
-                    <!-- Date -->
-                    <div class="hidden md:flex flex-col items-center w-20 shrink-0">
-                      <span class="text-[9px] font-black text-neutral-500 uppercase">{{ new Date(match.startTimestamp * 1000).toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', { day: '2-digit', month: 'short' }) }}</span>
-                      <span class="text-[9px] font-bold text-neutral-600">{{ new Date(match.startTimestamp * 1000).toLocaleTimeString(lang === 'es' ? 'es-ES' : 'en-US', { hour: '2-digit', minute: '2-digit' }) }}</span>
-                    </div>
-                    <!-- Home -->
-                    <div class="flex-1 flex items-center justify-end gap-3 cursor-pointer hover:opacity-70 transition-opacity" @click="openTeamDetails(match.homeTeam.name, match.homeTeam.id)">
-                      <span class="text-sm font-bold text-neutral-900 dark:text-white text-right">{{ match.homeTeam.name }}</span>
-                      <img :src="match.homeTeam.image" class="w-8 h-8 object-contain" />
-                    </div>
-                    <!-- Score -->
-                    <div class="flex items-center gap-3 px-4 py-2 rounded-2xl min-w-[100px] justify-center" :class="match.status.type === 'finished' ? 'bg-neutral-100 dark:bg-neutral-800' : 'bg-blue-600/10 dark:bg-blue-600/20 border border-blue-500/20 dark:border-blue-500/30'">
-                      <span class="text-xl font-black italic text-neutral-950 dark:text-white">{{ match.homeScore?.current ?? '-' }}</span>
-                      <span class="text-sm font-black text-neutral-600">:</span>
-                      <span class="text-xl font-black italic text-neutral-950 dark:text-white">{{ match.awayScore?.current ?? '-' }}</span>
-                    </div>
-                    <!-- Away -->
-                    <div class="flex-1 flex items-center gap-3 cursor-pointer hover:opacity-70 transition-opacity" @click="openTeamDetails(match.awayTeam.name, match.awayTeam.id)">
-                      <img :src="match.awayTeam.image" class="w-8 h-8 object-contain" />
-                      <span class="text-sm font-bold text-neutral-900 dark:text-white">{{ match.awayTeam.name }}</span>
-                    </div>
-                    <!-- Status -->
-                    <div class="hidden md:block w-24 text-right">
-                      <span class="text-[9px] font-black uppercase tracking-wider" :class="match.status.type === 'finished' ? 'text-neutral-400 dark:text-neutral-600' : 'text-emerald-400'">
-                        {{ match.status.type === 'finished' ? cur.finalizado : match.status.type === 'inprogress' ? cur.enVivo : cur.programado }}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Sidebar -->
-              <div class="lg:col-span-4 space-y-12">
-                <div v-if="featuredTeamData" class="p-12 rounded-[48px] bg-gradient-to-br from-blue-50/50 via-white to-neutral-50 dark:from-blue-900/40 dark:via-neutral-900 dark:to-black border border-neutral-200 dark:border-white/10 shadow-4xl dark:shadow-none relative overflow-hidden group">
-                  <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-600/10 blur-[100px] group-hover:bg-blue-600/20 transition-all duration-1000"></div>
-                  
-                  <img :src="featuredTeamData.badge" class="w-24 h-24 object-contain mb-10 drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]" />
-                  <h4 class="text-3xl font-black italic uppercase text-neutral-900 dark:text-white mb-6 leading-none tracking-tighter">{{ cur.datoDia }}</h4>
-                  <p class="text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed mb-10 font-medium italic">
-                    "{{ featuredTeamData.name }} {{ lang === 'es' ? 'se mantiene como el equipo a batir en esta competición.' : 'remains the team to beat in this competition.' }}"
+                <div>
+                  <h2 class="text-xs font-black text-blue-500 uppercase tracking-[0.3em] mb-2">{{ cur.dataCenter }}</h2>
+                  <p class="text-3xl font-black text-neutral-900 dark:text-white italic uppercase tracking-tighter">
+                    {{ stageName(selectedStage) }}
                   </p>
-                  
-                  <div class="space-y-6 pt-6 border-t border-neutral-200 dark:border-white/5">
-                    <div class="flex items-center justify-between">
-                      <span class="text-[10px] font-black text-neutral-500 uppercase tracking-widest">{{ cur.sedeOficial }}</span>
-                      <span class="text-sm font-bold text-neutral-900 dark:text-white">{{ featuredTeamData.stadium }}</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 overflow-x-auto pb-2 scrollbar-hide max-w-full">
+                <button v-for="stage in stages" :key="stage"
+                        @click="selectedStage = stage"
+                        class="px-8 py-4 rounded-[20px] text-[10px] font-black uppercase tracking-widest transition-all duration-500 whitespace-nowrap border"
+                        :class="selectedStage === stage ? 'bg-blue-600 border-blue-500 text-white shadow-xl shadow-blue-500/20' : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-white/5 text-neutral-600 dark:text-neutral-500 hover:border-blue-500/30 shadow-sm dark:shadow-none'">
+                  {{ stageName(stage) }}
+                </button>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-24">
+              <!-- Visual Tournament Roadmap / Bracket Progress Graph -->
+              <div v-if="stages.length > 1" class="bg-white dark:bg-neutral-900/20 border border-neutral-200 dark:border-white/5 rounded-[32px] p-8 shadow-sm dark:shadow-none overflow-x-auto scrollbar-hide">
+                <div class="flex items-center justify-between min-w-[800px] px-6">
+                  <template v-for="(stage, idx) in stages" :key="stage">
+                    <!-- Node -->
+                    <button @click="selectedStage = stage" 
+                            class="flex flex-col items-center gap-3 group transition-all shrink-0">
+                      <div class="w-12 h-12 rounded-full flex items-center justify-center border-2 font-black text-xs transition-all duration-500"
+                           :class="selectedStage === stage ? 'bg-blue-600 border-blue-500 text-white scale-110 shadow-lg shadow-blue-500/30' : 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-neutral-400 dark:text-neutral-500 group-hover:border-blue-500/40 group-hover:text-neutral-700 dark:group-hover:text-white'">
+                        {{ idx + 1 }}
+                      </div>
+                      <span class="text-[9px] font-black uppercase tracking-[0.15em] transition-colors"
+                            :class="selectedStage === stage ? 'text-blue-500' : 'text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-300'">
+                        {{ stageName(stage) }}
+                      </span>
+                    </button>
+                    <!-- Connecting Line -->
+                    <div v-if="idx < stages.length - 1" class="flex-1 h-0.5 mx-4 transition-all duration-700"
+                         :class="stages.indexOf(selectedStage) > idx ? 'bg-blue-600' : 'bg-neutral-200 dark:bg-neutral-800'">
                     </div>
-                    <div class="flex items-center justify-between">
-                      <span class="text-[10px] font-black text-neutral-500 uppercase tracking-widest">{{ cur.capacidad }}</span>
-                      <span class="text-sm font-bold text-blue-600 dark:text-blue-400">{{ Number(featuredTeamData.stadiumCapacity).toLocaleString() }}</span>
+                  </template>
+                </div>
+              </div>
+
+              <!-- Full Standings Table (Only if available) -->
+              <div v-if="normalizedStandings.length > 0" class="space-y-12">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-3xl font-black italic uppercase text-neutral-900 dark:text-white tracking-tighter">{{ cur.posiciones }}</h3>
+                  <div v-if="normalizedStandings.length > 1" class="flex bg-neutral-100 dark:bg-neutral-900 p-1.5 rounded-2xl border border-neutral-200 dark:border-white/5">
+                     <button v-for="(group, idx) in normalizedStandings" :key="idx"
+                             @click="selectedGroupIdx = idx"
+                             :class="selectedGroupIdx === idx ? 'bg-blue-600 text-white shadow-md' : 'text-neutral-600 dark:text-neutral-500'"
+                             class="px-6 py-2.5 rounded-xl text-[10px] font-black uppercase transition-all">
+                       {{ group.name }}
+                     </button>
+                  </div>
+                </div>
+
+                <div class="bg-white dark:bg-neutral-900 rounded-[48px] border border-neutral-200 dark:border-white/5 overflow-hidden shadow-2xl shadow-neutral-200/50 dark:shadow-none">
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                      <thead>
+                        <tr class="text-[10px] font-black text-neutral-500 dark:text-neutral-400 uppercase tracking-[0.2em] border-b border-neutral-200 dark:border-white/5 bg-neutral-100/50 dark:bg-neutral-800/10">
+                          <th class="px-8 py-6 w-16">#</th>
+                          <th class="px-4 py-6 min-w-[240px]">{{ cur.equipos }}</th>
+                          <th class="px-4 py-6 text-center">PJ</th>
+                          <th class="px-4 py-6 text-center text-emerald-500">G</th>
+                          <th class="px-4 py-6 text-center text-neutral-400">E</th>
+                          <th class="px-4 py-6 text-center text-rose-500">P</th>
+                          <th class="px-4 py-6 text-center">GF</th>
+                          <th class="px-4 py-6 text-center">GC</th>
+                          <th class="px-4 py-6 text-center">DG</th>
+                          <th class="px-8 py-6 text-center bg-blue-500/10 text-blue-600 dark:text-blue-400 font-black">PTS</th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-neutral-200 dark:divide-white/5">
+                        <tr v-for="row in normalizedStandings[selectedGroupIdx]?.rows" :key="row.team.id" class="hover:bg-blue-500/[0.03] transition-colors group">
+                          <td class="px-8 py-6">
+                            <span class="text-sm font-black italic text-neutral-400 dark:text-neutral-600 group-hover:text-blue-500 transition-colors">{{ row.position }}</span>
+                          </td>
+                          <td class="px-4 py-6">
+                            <div class="flex items-center gap-4 cursor-pointer hover:opacity-70 transition-opacity" @click="openTeamDetails(row.team.name, row.team.id)">
+                              <img :src="row.team.image" class="w-8 h-8 object-contain" />
+                              <span class="font-bold text-base text-neutral-900 dark:text-neutral-100 group-hover:translate-x-1 transition-transform">{{ row.team.name }}</span>
+                            </div>
+                          </td>
+                          <td class="px-4 py-6 text-center text-sm font-bold text-neutral-500 dark:text-neutral-400">{{ row.matches }}</td>
+                          <td class="px-4 py-6 text-center text-sm font-bold text-emerald-500 dark:text-emerald-400/80">{{ row.wins }}</td>
+                          <td class="px-4 py-6 text-center text-sm font-bold text-neutral-400 dark:text-neutral-500">{{ row.draws }}</td>
+                          <td class="px-4 py-6 text-center text-sm font-bold text-rose-500 dark:text-rose-400/80">{{ row.losses }}</td>
+                          <td class="px-4 py-6 text-center text-sm font-bold text-neutral-500 dark:text-neutral-400">{{ row.scoresFor }}</td>
+                          <td class="px-4 py-6 text-center text-sm font-bold text-neutral-500 dark:text-neutral-400">{{ row.scoresAgainst }}</td>
+                          <td class="px-4 py-6 text-center text-sm font-black italic" :class="(row.scoresFor - row.scoresAgainst) >= 0 ? 'text-emerald-500' : 'text-rose-500'">
+                            {{ (row.scoresFor - row.scoresAgainst) > 0 ? '+' : '' }}{{ row.scoresFor - row.scoresAgainst }}
+                          </td>
+                          <td class="px-8 py-6 text-center font-black text-lg text-blue-600 dark:text-blue-400 bg-blue-500/[0.02] dark:bg-blue-500/[0.05]">
+                            {{ row.points }}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <ElementsAdBanner ad-slot="1000000003" />
+
+              <!-- Matches Section -->
+              <div class="grid lg:grid-cols-12 gap-16">
+                <div class="lg:col-span-8 space-y-8">
+                  <!-- Round Navigator -->
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-2xl font-black italic uppercase text-neutral-900 dark:text-white tracking-tighter">{{ cur.cronograma }}</h3>
+                    <div class="flex bg-neutral-100 dark:bg-neutral-900 p-1 rounded-xl border border-neutral-200 dark:border-white/5">
+                      <button @click="matchStatusFilter = 'all'" :class="matchStatusFilter === 'all' ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-white shadow-sm' : 'text-neutral-600 dark:text-neutral-500'" class="px-5 py-2 rounded-lg text-[9px] font-black uppercase transition-all">{{ cur.todos }}</button>
+                      <button @click="matchStatusFilter = 'played'" :class="matchStatusFilter === 'played' ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-white shadow-sm' : 'text-neutral-600 dark:text-neutral-500'" class="px-5 py-2 rounded-lg text-[9px] font-black uppercase transition-all">{{ cur.jugados }}</button>
+                      <button @click="matchStatusFilter = 'upcoming'" :class="matchStatusFilter === 'upcoming' ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-white shadow-sm' : 'text-neutral-600 dark:text-neutral-500'" class="px-5 py-2 rounded-lg text-[9px] font-black uppercase transition-all">{{ cur.proximos }}</button>
+                    </div>
+                  </div>
+
+                  <!-- Matchday Paginator -->
+                  <div v-if="availableRounds.length > 0" class="flex items-center justify-between bg-white dark:bg-neutral-900/60 rounded-3xl border border-neutral-200 dark:border-white/5 px-6 py-4 shadow-sm dark:shadow-none">
+                    <button @click="goPrev" :disabled="!canPrev" class="w-12 h-12 rounded-2xl flex items-center justify-center transition-all" :class="canPrev ? 'bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white hover:bg-blue-600' : 'bg-neutral-200 dark:bg-neutral-900 text-neutral-400 dark:text-neutral-700 cursor-not-allowed'">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <div class="text-center">
+                      <span class="text-[10px] font-black text-blue-500 uppercase tracking-[0.3em]">Jornada</span>
+                      <p class="text-4xl font-black italic text-neutral-900 dark:text-white">{{ currentRound }}</p>
+                    </div>
+                    <button @click="goNext" :disabled="!canNext" class="w-12 h-12 rounded-2xl flex items-center justify-center transition-all" :class="canNext ? 'bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white hover:bg-blue-600' : 'bg-neutral-200 dark:bg-neutral-900 text-neutral-400 dark:text-neutral-700 cursor-not-allowed'">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                  </div>
+
+                  <!-- Current Round Matches -->
+                  <div class="space-y-4">
+                    <div v-for="match in currentRoundMatches" :key="match.id"
+                         class="group flex items-center gap-6 p-6 rounded-3xl bg-white dark:bg-neutral-900/40 border border-neutral-200 dark:border-white/5 hover:border-blue-500/20 transition-all duration-300 shadow-sm dark:shadow-none">
+                      <!-- Date -->
+                      <div class="hidden md:flex flex-col items-center w-20 shrink-0">
+                        <span class="text-[9px] font-black text-neutral-500 uppercase">{{ new Date(match.startTimestamp * 1000).toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', { day: '2-digit', month: 'short' }) }}</span>
+                        <span class="text-[9px] font-bold text-neutral-600">{{ new Date(match.startTimestamp * 1000).toLocaleTimeString(lang === 'es' ? 'es-ES' : 'en-US', { hour: '2-digit', minute: '2-digit' }) }}</span>
+                      </div>
+                      <!-- Home -->
+                      <div class="flex-1 flex items-center justify-end gap-3 cursor-pointer hover:opacity-70 transition-opacity" @click="openTeamDetails(match.homeTeam.name, match.homeTeam.id)">
+                        <span class="text-sm font-bold text-neutral-900 dark:text-white text-right">{{ match.homeTeam.name }}</span>
+                        <img :src="match.homeTeam.image" class="w-8 h-8 object-contain" />
+                      </div>
+                      <!-- Score -->
+                      <div class="flex items-center gap-3 px-4 py-2 rounded-2xl min-w-[100px] justify-center" :class="match.status.type === 'finished' ? 'bg-neutral-100 dark:bg-neutral-800' : 'bg-blue-600/10 dark:bg-blue-600/20 border border-blue-500/20 dark:border-blue-500/30'">
+                        <span class="text-xl font-black italic text-neutral-950 dark:text-white">{{ match.homeScore?.current ?? '-' }}</span>
+                        <span class="text-sm font-black text-neutral-600">:</span>
+                        <span class="text-xl font-black italic text-neutral-950 dark:text-white">{{ match.awayScore?.current ?? '-' }}</span>
+                      </div>
+                      <!-- Away -->
+                      <div class="flex-1 flex items-center gap-3 cursor-pointer hover:opacity-70 transition-opacity" @click="openTeamDetails(match.awayTeam.name, match.awayTeam.id)">
+                        <img :src="match.awayTeam.image" class="w-8 h-8 object-contain" />
+                        <span class="text-sm font-bold text-neutral-900 dark:text-white">{{ match.awayTeam.name }}</span>
+                      </div>
+                      <!-- Status -->
+                      <div class="hidden md:block w-24 text-right">
+                        <span class="text-[9px] font-black uppercase tracking-wider" :class="match.status.type === 'finished' ? 'text-neutral-400 dark:text-neutral-600' : 'text-emerald-400'">
+                          {{ match.status.type === 'finished' ? cur.finalizado : match.status.type === 'inprogress' ? cur.enVivo : cur.programado }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-4 space-y-12">
+                  <div v-if="featuredTeamData" class="p-12 rounded-[48px] bg-gradient-to-br from-blue-50/50 via-white to-neutral-50 dark:from-blue-900/40 dark:via-neutral-900 dark:to-black border border-neutral-200 dark:border-white/10 shadow-4xl dark:shadow-none relative overflow-hidden group">
+                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-600/10 blur-[100px] group-hover:bg-blue-600/20 transition-all duration-1000"></div>
+                    
+                    <img :src="featuredTeamData.badge" class="w-24 h-24 object-contain mb-10 drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]" />
+                    <h4 class="text-3xl font-black italic uppercase text-neutral-900 dark:text-white mb-6 leading-none tracking-tighter">{{ cur.datoDia }}</h4>
+                    <p class="text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed mb-10 font-medium italic">
+                      "{{ featuredTeamData.name }} {{ lang === 'es' ? 'se mantiene como el equipo a batir en esta competición.' : 'remains the team to beat in this competition.' }}"
+                    </p>
+                    
+                    <div class="space-y-6 pt-6 border-t border-neutral-200 dark:border-white/5">
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-black text-neutral-500 uppercase tracking-widest">{{ cur.sedeOficial }}</span>
+                        <span class="text-sm font-bold text-neutral-900 dark:text-white">{{ featuredTeamData.stadium }}</span>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-black text-neutral-500 uppercase tracking-widest">{{ cur.capacidad }}</span>
+                        <span class="text-sm font-bold text-blue-600 dark:text-blue-400">{{ Number(featuredTeamData.stadiumCapacity).toLocaleString() }}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </template>
         </div>
       </div>
     </section>
