@@ -23,7 +23,7 @@ useHead({
     { name: 'twitter:image', content: 'https://www.adn-deportivo.com/municipios/la-cruz.png' }
   ],
   link: [
-    { rel: 'icon', type: 'image/png', href: '/adn.png' }
+    { rel: 'icon', type: 'image/x-icon', href: '/adnico.ico' }
   ],
   script: [
     // Datos estructurados (Google Rich Snippets)

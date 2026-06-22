@@ -7,5 +7,6 @@
     <AppHeader/>
     <slot/>
     <AppFooter/>
+    <ElementsCookieConsent />
   </div>  
 </template>

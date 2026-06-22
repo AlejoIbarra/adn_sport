@@ -18,10 +18,8 @@
                     </p>
                 </div>
 
-                <BlocksFooterNavBlock title="Deportes" :links="quickLinks" />
-                <!-- <BlocksFooterNavBlock title="Ressources" :links="ressourcesLinks" />
-                <BlocksFooterNavBlock title="Support" :links="supportLinks" />
-                <BlocksFooterNavBlock title="Enterprise" :links="quickLinks" /> -->
+                <BlocksFooterNavBlock title="Competiciones" :links="quickLinks" />
+                <BlocksFooterNavBlock title="Legal y Soporte" :links="supportLinks" />
             </div>
         </AtomsContainer>
         <div class="py-2 bg-gray-200 dark:bg-[rgb(10,16,29)]">
@@ -53,55 +51,40 @@ const colorMode = useColorMode()
 
 const quickLinks = [
     {
-        href: "#",
-        text: "Futbol"
+        href: "/soccer/primera-c-colombia",
+        text: "Primera C Colombia"
     },
     {
-        href: "#",
-        text: "Basquet"
+        href: "/soccer/premier-league",
+        text: "Premier League"
     },
     {
-        href: "#",
-        text: "Voleyball"
+        href: "/soccer/la-liga",
+        text: "La Liga"
     },
     {
-        href: "#",
-        text: "Ciclismo"
-    }
-]
-const ressourcesLinks = [
-    {
-        href: "#",
-        text: "Developpers"
-    },
-    {
-        href: "#",
-        text: "Integration"
-    },
-    {
-        href: "#",
-        text: "Pricing"
+        href: "/soccer/copa-del-mundo",
+        text: "Copa del Mundo"
     }
 ]
 
 const supportLinks = [
     {
-        href: "#",
-        text: "Contact-us"
+        href: "/about",
+        text: "Quiénes Somos"
     },
     {
-        href: "#",
-        text: "Licence"
+        href: "/contact",
+        text: "Contacto"
     },
     {
-        href: "#",
-        text: "Terms"
+        href: "/privacy-policy",
+        text: "Política de Privacidad"
     },
     {
-        href: "#",
-        text: "FAQ"
+        href: "/terms-conditions",
+        text: "Términos y Condiciones"
     }
 ]
-
 
 </script>

@@ -5,7 +5,7 @@ useHead({
     { name: 'description', content: 'ADN Deportivo landing page website.' },
   ],
   link: [
-    { rel: 'icon', type: 'image/png', href: '/adn.png' }
+    { rel: 'icon', type: 'image/x-icon', href: '/adnico.ico' }
   ],
 })
 </script>

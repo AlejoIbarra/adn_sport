@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
     app: {
         head: {
+            link: [
+                { rel: 'icon', type: 'image/x-icon', href: '/adnico.ico' }
+            ],
             script: [
                 {
                     src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5447355340994052',
